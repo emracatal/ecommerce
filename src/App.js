@@ -1,18 +1,26 @@
 import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
-import logo from './logo.svg';
 import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
+import HomePage from './layout/HomePage';
+
 
 
 function App() {
   const notify = () => toast("toastified!");
   return (
     <div className="App">
-      <header className="App-header">
-      <button className="text-new" onClick={notify}>toastified?</button>
-        <ToastContainer />
-        <img src={logo} className="App-logo" alt="logo" />
+      <ToastContainer />
+      <HomePage />
+    </div>
+  );
+}
+
+export default App;
+
+{/* 
+import logo from './logo.svg';
+<img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -23,10 +31,9 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
+        </a> 
+      
+      
+      <button className="text-new" onClick={notify}>toastified?</button>
+    
+    */}
