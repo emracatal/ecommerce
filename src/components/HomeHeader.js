@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Navbar() {
+export default function HomeHeader() {
   return (
     <>
       <div className="navbar-dark bg-darkBlue text-white flex justify-between h-14 items-center">
