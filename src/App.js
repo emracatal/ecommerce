@@ -1,15 +1,19 @@
-import React from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-import './App.css';
-import 'react-toastify/dist/ReactToastify.css';
-import HomePage from './layout/HomePage';
-
-
+import React from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "./App.css";
+import "react-toastify/dist/ReactToastify.css";
+import HomePage from "./layout/HomePage";
+import axios from "axios";
 
 function App() {
   const notify = () => toast("toastified!");
+
+  axios("https://620d69fb20ac3a4eedc05e3a.mockapi.io/api/products")
+    .then((response) => console.log(response.data))
+    .catch((error) => console.log(error));
+
   return (
-    <div className="App">
+    <div className="App font-montserrat box-border">
       <ToastContainer />
       <HomePage />
     </div>
@@ -17,23 +21,3 @@ function App() {
 }
 
 export default App;
-
-{/* 
-import logo from './logo.svg';
-<img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a> 
-      
-      
-      <button className="text-new" onClick={notify}>toastified?</button>
-    
-    */}

@@ -7,7 +7,7 @@ export default function HomeHeader() {
         <div className="flex gap-10 pl-9">
           <div className=" phoneNumber flex gap-1">
             <div>
-              <i class="fa-solid fa-phone"></i>
+              <i className="fa-solid fa-phone"></i>
             </div>
             <div>
               <p>(225)555-0118</p>
@@ -15,7 +15,7 @@ export default function HomeHeader() {
           </div>
           <div className="email flex gap-1">
             <div>
-              <i class="fa-regular fa-envelope"></i>
+              <i className="fa-regular fa-envelope"></i>
             </div>
             <div>
               <p>michelle.rivera@example.com</p>
@@ -30,17 +30,17 @@ export default function HomeHeader() {
             <p>Follow Us:</p>
           </div>
           <div>
-            <i class="fa-brands fa-instagram"></i>
+            <i className="fa-brands fa-instagram"></i>
           </div>
           <div>
-            <i class="fa-brands fa-youtube"></i>
+            <i className="fa-brands fa-youtube"></i>
           </div>
           <div>
-            <i class="fa-brands fa-facebook"></i>
+            <i className="fa-brands fa-facebook"></i>
           </div>
           <div></div>
           <div>
-            <i class="fa-brands fa-twitter"></i>
+            <i className="fa-brands fa-twitter"></i>
           </div>
         </div>
       </div>
@@ -53,7 +53,7 @@ export default function HomeHeader() {
           <ul className="flex gap-2">
             <li>Home</li>
             <li>Shop</li>
-            <i class="fa-solid fa-chevron-down fa-sm self-center"></i>
+            <i className="fa-solid fa-chevron-down fa-sm self-center"></i>
             <li>About</li>
             <li>Blog</li>
             <li>Contact</li>
@@ -62,12 +62,12 @@ export default function HomeHeader() {
         </div>
         </div>
         <div className="navbar-light-right flex text-turku gap-4 items-center pr-9">
-        <i class="fa-regular fa-user"></i>
+        <i className="fa-regular fa-user"></i>
         <p className="">Login / Register</p>
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <i class="fa-solid fa-cart-shopping"></i>
+        <i className="fa-solid fa-magnifying-glass"></i>
+        <i className="fa-solid fa-cart-shopping"></i>
         <p>1</p>
-        <i class="fa-regular fa-heart"></i>
+        <i className="fa-regular fa-heart"></i>
         <p>1</p>
         </div>
       </div>
