@@ -1,7 +1,7 @@
 import React from "react";
 import containerfluid from "../assets/containerfluid.png";
 
-export default function HomeHeader() {
+export default function HomeBody() {
   return (
     <>
       <div className="carousel bg-herocover2 h-[716px]">

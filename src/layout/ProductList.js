@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function HomeHeader() {
+export default function ProductList() {
   return (
     <>
-      <div className="navbar-dark bg-darkBlue text-white flex justify-between h-14 items-center">
-        <div className="flex gap-10 pl-9">
-          <div className=" phoneNumber flex gap-1">
+    <div className="navbar-dark bg-secondarycolor1 text-white px-40">
+      <div className="container max-w-[1440px] w-[100%]">
+      <div className="">
+          <div className=" phoneNumber ">
             <div>
               <i className="fa-solid fa-phone"></i>
             </div>
@@ -14,7 +15,7 @@ export default function HomeHeader() {
               <p>(225)555-0118</p>
             </div>
           </div>
-          <div className="email flex gap-1">
+          <div className="email">
             <div>
               <i className="fa-regular fa-envelope"></i>
             </div>
@@ -23,10 +24,10 @@ export default function HomeHeader() {
             </div>
           </div>
         </div>
-        <div className="navbarText flex">
+        <div className="navbarText ">
           <p>Follow Us and get a chance to win 80% off</p>
         </div>
-        <div className="navBarRight flex gap-2 pr-9">
+        <div className="navBarRight ">
           <div>
             <p>Follow Us:</p>
           </div>
@@ -45,20 +46,23 @@ export default function HomeHeader() {
           </div>
         </div>
       </div>
-      <div className="navbar-light flex h-16 items-center justify-between">
-        <div className="navbar-light-left flex gap-32 pl-9">
-          <div className="navbar-light-bandageText text-darkBlue text-2xl font-bold">
-            Bandage
+
+    </div>
+    <div className="navbar-light text-black px-40">
+    <div className="container max-w-[1440px] w-[100%]">
+      <div className="navbar-light-inner flex justify-between items-center">
+      <div className="navbar-light-bandageText">
+            <h3>Bandage</h3>
           </div>
           <div className="nav">
-            <ul className="flex gap-2">
+            <ul className="flex items-center gap-x-4">
               <li>
                 <Link to="/">Home</Link>
               </li>
               <li>
                 <Link to="/ProductList">Shop</Link>
               </li>
-              <i className="fa-solid fa-chevron-down fa-sm self-center"></i>
+              <i className="fa-solid fa-chevron-down fa-sm"></i>
               <li>
                 <Link to="/About">About</Link>
               </li>
@@ -67,8 +71,7 @@ export default function HomeHeader() {
               <li><Link to="/Pages">Pages</Link></li>
             </ul>
           </div>
-        </div>
-        <div className="navbar-light-right flex text-turku gap-4 items-center pr-9">
+          <div className="navbar-light-right text-turku flex items-center gap-x-4">
           <i className="fa-regular fa-user"></i>
           <p className="">Login / Register</p>
           <i className="fa-solid fa-magnifying-glass"></i>
@@ -77,7 +80,10 @@ export default function HomeHeader() {
           <i className="fa-regular fa-heart"></i>
           <p>1</p>
         </div>
+        </div>
+        
       </div>
+    </div>
     </>
   );
 }
