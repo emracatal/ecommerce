@@ -8,12 +8,12 @@ export default function ProductList() {
     <>
       <div className="navbar-dark bg-secondarycolor1 text-white px-40 h-[50px] pt-3 mb-0 hidden md:flex ">
         <div className="container max-w-[1440px] w-[100%] flex flex-wrap justify-between "> 
-            <div className="phoneNumber flex items-center space-x-2 mb-4 md:mb-0 hidden md:flex"> 
+            <div className="phoneNumber items-center space-x-2 mb-4 md:mb-0 hidden md:flex"> 
                 <i className="fa-solid fa-phone "></i>
                 <p>(225)555-0118</p>
             </div>
             
-            <div className="email flex items-center space-x-2 mb-4 md:mb-0 hidden md:flex">
+            <div className="email items-center space-x-2 mb-4 md:mb-0 hidden md:flex">
                 <i className="fa-regular fa-envelope"></i>
                 <p className="font-light">michelle.rivera@example.com</p>
             </div>
@@ -22,7 +22,7 @@ export default function ProductList() {
                 <p>Follow Us and get a chance to win 80% off</p>
             </div>
             
-            <div className="navBarRight flex items-center space-x-4 font-bold">
+            <div className="navBarRight items-center space-x-4 font-bold">
                 <p>Follow Us:</p>
                 <i className="fa-brands fa-instagram"></i>
                 <i className="fa-brands fa-youtube"></i>

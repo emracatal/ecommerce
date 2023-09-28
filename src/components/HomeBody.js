@@ -47,7 +47,7 @@ export default function HomeBody() {
             <h3 className="font-bold">EDITOR'S PICK</h3>
             <p>Problems trying to resolve the conflict between</p>
           </div>
-          <div className="shop-cards-images flex flex-row gap-7">
+          <div className="shop-cards-images flex flex-row flex-wrap gap-7">
             <div className="men bg-shopcardMan w-[509px] h-[500px]">
               <h5 className="bg-white font-bold w-[30%] text-center ">MEN</h5>
             </div>
@@ -68,7 +68,7 @@ export default function HomeBody() {
       </div>
 
       {/* productcards */}
-      <div className="bestseller">
+      <div className="bestseller pb-20">
         <div className="container flex flex-col gap-12 items-center max-w-[1440px] py-20">
           <div className="text-area">
             <div className="text-area text-center">
@@ -88,6 +88,7 @@ export default function HomeBody() {
       {/* slider2 */}
       <div className="slider-area bg-carousel2 min-h-[716px] ">
         <div className="container text-white flex flex-col justify-center gap-4 p-[10%] max-w-[1440px] ">
+          {/* <i class="fa-solid fa-chevron-right text-turku gap-3"></i> */}
           <h5 className="font-bold">SUMMER 2020</h5>
           <h1 className="font-bold">Vita Classic Product</h1>
           <h4 className="">
@@ -102,8 +103,8 @@ export default function HomeBody() {
       </div>
 
       {/* slider3 */}
-      <div className="slider-area min-h-[716px] ">
-        <div className="container flex flex-row justify-center gap-4 p-[10%] max-w-[1440px] ">
+      <div className="slider-area min-h-[716px] flex flex-row flex-wrap ">
+        <div className="container flex flex-row flex-wrap justify-center gap-4 px-[10%] max-w-[1440px] ">
           <img
             src={containerfluid}
             alt="containerfluid"

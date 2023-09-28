@@ -18,6 +18,9 @@
   h6 {
     @apply text-sm;
   }
+  p {
+    @apply text-xs;
+  }
 }
 @tailwind components;
 @tailwind utilities;
