@@ -8,7 +8,7 @@ module.exports = {
       },
       colors: {
         new: "#111",
-        darkBlue: "#252B42",
+        darkblue: "#252B42",
         gray: "#737373",
         turku:"#23A6F0",
         green:"#2DC071",
@@ -26,8 +26,8 @@ module.exports = {
         'shopcardAcc': "url('./assets/shopcardAcc.png')",
         'carousel2': "url('./assets/carousel2.png')",
         'containerfluid': "url('./assets/containerfluid.png')",
+      },
 
-      }
     },
   },
   plugins: [],

@@ -1,117 +1,77 @@
 import React from "react";
-import containerfluid from "../assets/containerfluid.png";
+import Productcard from "./Productcard";
 
 export default function HomeBody() {
+  const products = [
+    { id: 1, name: "Ürün1", price: 19.99 },
+    { id: 2, name: "Ürün2", price: 19.99 },
+    { id: 3, name: "Ürün3", price: 39.99 },
+    { id: 4, name: "Ürün4", price: 49.99 },
+    { id: 5, name: "Ürün5", price: 19.99 },
+    { id: 6, name: "Ürün6", price: 19.99 },
+    { id: 7, name: "Ürün7", price: 19.99 },
+    { id: 8, name: "Ürün8", price: 19.99 },
+    { id: 9, name: "Ürün9", price: 19.99 },
+    { id: 10, name: "Ürün10", price: 19.99 },
+  ];
   return (
     <>
-      <div className="carousel bg-herocover2 h-[716px]">
-        <div className="carousel-inner p-48 text-white h-[716px] flex flex-col justify-center gap-12 ">
-          <p className="text-base font-bold">SUMMER 2020</p>
-          <p className="text-6xl font-bold">NEW COLLECTION</p>
-          <p className="text-lg">
+      {/* slider */}
+      <div className="slider-area bg-herocover2 min-h-[716px] ">
+        <div className="container text-white flex flex-col justify-center gap-4 p-[10%] max-w-[1440px] ">
+          <h5 className="font-bold">SUMMER 2020</h5>
+          <h1 className="font-bold">NEW COLLECTION</h1>
+          <h4 className="">
             We know how large objects will act, but things on a small scale.
-          </p>
+          </h4>
           <div>
-            <button className="rounded bg-green text-xl font-bold px-10 py-4">
+            <button className="rounded bg-green text-lg font-bold px-5 py-2 ">
               SHOP NOW
             </button>
           </div>
         </div>
       </div>
+      {/* editorspick */}
+      <div className="shop-cards">
+        <div className="container flex flex-col gap-12 items-center max-w-[1440px] py-20">
+          <div className="text-area text-center">
+            <h3 className="font-bold">EDITOR'S PICK</h3>
+            <p>Problems trying to resolve the conflict between</p>
+          </div>
+          <div className="shop-cards-images flex flex-row gap-7">
+            <div className="men bg-shopcardMan w-[509px] h-[500px]">
+              <h5 className="bg-white font-bold w-[30%] text-center ">MEN</h5>
+            </div>
+            <div className="men bg-shopcardWomen w-[239px] h-[500px]">
+              <h5 className="bg-white font-bold w-[30%] text-center">MEN</h5>
+            </div>
 
-      <div className="shop-cards flex flex-col bg-white gap-12 py-20">
-        <div className="flex flex-col items-center gap-3 px-48">
-          <p className="text-black text-2xl font-bold">EDITOR’S PICK</p>
-          <p className="text-black text-sm">
-            Problems trying to resolve the conflict between
-          </p>
-        </div>
-        <div className="flex flex-row gap-8 px-48">
-          <div className="min-w-[510px] min-h-[500px] bg-shopcardMan flex flex-col justify-end p-5">
-            <div className="bg-white text-base font-bold w-40 h-12 text-center">
-              MAN
-            </div>
-          </div>
-          <div className="min-w-[240px] min-h-[500px] bg-shopcardWomen flex flex-col justify-end p-5">
-            <div className="bg-white text-base font-bold w-40 h-12 text-center">
-              WOMEN
-            </div>
-          </div>
-          <div className="flex flex-col gap-4">
-            <div className="min-w-[240px] min-h-[242px] bg-shopcardAcc flex flex-col justify-end p-5">
-              <div className="bg-white text-base font-bold w-40 h-12 text-center">
-                ACCESSORIES
+            <div className="flex flex-col gap-4">
+              <div className="accessories bg-shopcardAcc w-[239px] h-[242px]">
+                <h5 className="bg-white font-bold w-[30%] text-center">MEN</h5>
               </div>
-            </div>
-            <div className="min-w-[240px] min-h-[242px] bg-shopcardKids flex flex-col justify-end p-5">
-              <div className="bg-white text-base font-bold w-40 h-12 text-center">
-                KIDS
+              <div className="kids bg-shopcardKids w-[239px] h-[242px]">
+                <h5 className="bg-white font-bold w-[30%] text-center">MEN</h5>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <div className="product-cards h-[1652PX] flex flex-col bg-white gap-12 py-20">
-        <div className="flex flex-col items-center gap-3 px-48">
-          <p className="text-black text-lg">Featured Products</p>
-          <p className="text-black text-2xl font-bold">BESTSELLER PRODUCTS</p>
-          <p className="text-black text-sm">
-            Problems trying to resolve the conflict between
-          </p>
-        </div>
-        <div>BURAYA 8 PRODUCTCARD GELECEK</div>
-      </div>
-
-      <div className="carousel2 bg-carousel2 h-[716px]">
-        <div className="carousel-inner w-[900px] p-48 text-white h-[716px] flex flex-col justify-center gap-12 ">
-          <p className="text-base font-bold">SUMMER 2020</p>
-          <p className="text-6xl font-bold">Vita Classic Product</p>
-          <p className="text-lg">
-            We know how large objects will act, We know how are objects will
-            act, We know
-          </p>
-          <div className="flex justify-start items-center gap-10">
-            <p className="text-2xl">$16.48</p>
-            <button className="rounded bg-green text-base font-bold px-10 py-4">
-              SHOP NOW
-            </button>
+      <div className="bestseller">
+        <div className="container flex flex-col gap-12 items-center max-w-[1440px] py-20">
+          <div className="text-area">
+            <div className="text-area text-center">
+              <h4>Featured Products</h4>
+              <h3 className="font-bold">BESTSELLER PRODUCTS</h3>
+              <p>Problems trying to resolve the conflict between</p>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div className="container-fluid h-[682px] px-32 flex gap-36">
-        <img src={containerfluid} alt="containerfluid"></img>
-        <div className="container-fluid-inner text-white w-[375px] flex flex-col justify-center gap-12 ">
-          <p className="text-base font-bold text-gray">SUMMER 2020</p>
-          <p className="text-4xl font-bold text-black">
-            Part of the Neural Universe
-          </p>
-          <p className="text-lg text-black">
-            We know how large objects will act, We know how are objects will
-            act, We know
-          </p>
-          <div className="flex justify-start items-center gap-10">
-            <button className="rounded bg-green text-base font-bold px-10 py-4">
-              BUY NOW
-            </button>
-            <button className="rounded border-2 border-green bg-white text-green font-bold px-10 py-4">
-              READ MORE
-            </button>
-          </div>
+        <div className="bestseller-products container flex flex-row flex-wrap gap-7 justify-center ">
+          {products.map((product) => (
+            <Productcard key={product.id} product={product} />
+          ))}
         </div>
-      </div>
-
-      <div className="blog h-[1044px] flex flex-col bg-white gap-12 py-20">
-        <div className="flex flex-col items-center gap-3 px-48">
-          <p className="text-turku text-SM">Practice Advice</p>
-          <p className="text-black text-4xl font-bold">Featured Products</p>
-          <p className="w-[450px] text-black text-sm text-center">
-          Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics
-
-          </p>
-        </div>
-        <div>BURAYA 3 BLOGCARD GELECEK</div>
       </div>
     </>
   );
