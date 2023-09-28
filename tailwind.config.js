@@ -17,6 +17,7 @@ module.exports = {
         verylightgray2:"#E6E6E6",
         verylightgray3:"#FAFAFA",
         secondarycolor1:"#23856D",
+        alertcolor:"#E77C40",
       },
       backgroundImage: {
         'herocover2': "url('./assets/herocover2.jpg')",
