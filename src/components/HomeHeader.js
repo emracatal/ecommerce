@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function HomeHeader() {
   return (
     <>
-      <div className="navbar-dark bg-darkblue text-white flex justify-center ">
+      <div className="navbar-dark bg-darkblue text-white flex justify-center px-10">
         <div className="container flex flex-grow justify-between items-center min-h-[58px] max-w-[1440px]">
           <div className="navbar-dark-left flex gap-2">
             <div className="navbar-dark-phone flex gap-1">
@@ -30,7 +30,7 @@ export default function HomeHeader() {
       </div>
 
       <div className="navbar-light flex justify-center">
-        <div className="container flex flex-grow justify-between items-center min-h-[58px] max-w-[1440px]">
+        <div className="container flex flex-grow justify-between items-center min-h-[58px] max-w-[1440px] px-10">
           <div className="navbar-light-left text-darkblue font-bold flex gap-2">
             <h3>Bandage</h3>
           </div>
@@ -44,7 +44,8 @@ export default function HomeHeader() {
               </li>
               <i className="fa-solid fa-chevron-down fa-sm self-center"></i>
               <li>
-                <Link to="/About">About</Link>
+                <Link to="/ProductList1">About</Link>
+                {/* about olarak değiştir */}
               </li>
               <li>
                 <Link to="/Blog">Blog</Link>

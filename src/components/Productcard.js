@@ -1,11 +1,11 @@
 import React from "react";
-import productcover1 from "../assets/productcover1.png";
+import productcover2 from "../assets/productcover2.png";
 
 export default function Productcard() {
   return (
     <>
         <div className="card max-w-[239px]">
-          <img src={productcover1} className=""></img>
+          <img src={productcover2} className=""></img>
           <div className="cardbody flex flex-auto flex-col items-center gap-2 py-6">
             <h5 className="font-bold">Graphic Design</h5>
             <p>English Department</p>

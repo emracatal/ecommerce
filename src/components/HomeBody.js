@@ -1,6 +1,7 @@
 import React from "react";
 
 import Productcard from "./Productcard";
+import Carousel from "./Carousel";
 import containerfluid from "../assets/containerfluid.png";
 import herocover2 from "../assets/herocover2.jpg";
 import Blogcard from "./Blogcard";
@@ -26,38 +27,7 @@ export default function HomeBody() {
   ];
   return (
     <>
-          {/* slider */}
-      <div className="slider relative">
-        <div className="slider-elements">
-          <div className="slider-item-fade relative items-center min-h-[716px]">
-            <img
-              className="absolute w-[100%] top-0 left-0 -z-10"
-              src={herocover2}
-            ></img>
-
-            <div className="container text-white flex flex-col justify-center gap-4 p-[10%] max-w-[1000px] ">
-              <h5 className="font-bold">SUMMER 2020</h5>
-              <h1 className="font-bold">NEW COLLECTION</h1>
-              <h4 className="">
-                We know how large objects will act, but things on a small scale.
-              </h4>
-              <div>
-                <button className="rounded bg-green text-lg font-bold px-5 py-2 ">
-                  SHOP NOW
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="slider-buttons absolute top-0 left-0 items-center flex justify-between w-[100%] h-[100%] text-white text-5xl px-10">
-            <i class="fa-solid fa-chevron-left "></i>
-            <i class="fa-solid fa-chevron-right "></i>
-          </div>
-          <div className="slider-line absolute w-[100%] flex justify-center text-5xl bottom-4">
-            <i class="fa-solid fa-minus text-white"></i>
-            <i class="fa-solid fa-minus text-white"></i>
-          </div>
-        </div>
-      </div>
+    <Carousel />
       {/* editorspick */}
       <div className="shop-cards">
         <div className="container flex flex-col gap-12 items-center max-w-[1440px] py-20">
@@ -65,7 +35,7 @@ export default function HomeBody() {
             <h3 className="font-bold">EDITOR'S PICK</h3>
             <p>Problems trying to resolve the conflict between</p>
           </div>
-          <div className="shop-cards-images flex flex-row flex-wrap gap-7">
+          <div className="shop-cards-images flex flex-row justify-center flex-wrap gap-7">
             <div className="men bg-shopcardMan w-[509px] h-[500px]">
               <h5 className="bg-white font-bold w-[30%] text-center ">MEN</h5>
             </div>
@@ -86,7 +56,7 @@ export default function HomeBody() {
       </div>
 
       {/* productcards */}
-      <div className="bestseller pb-20">
+      <div className="bestseller pb-20 max-w-[1440px]">
         <div className="container flex flex-col gap-12 items-center max-w-[1440px] py-20">
           <div className="text-area">
             <div className="text-area text-center">
@@ -96,7 +66,7 @@ export default function HomeBody() {
             </div>
           </div>
         </div>
-        <div className="bestseller-products container flex flex-row flex-wrap gap-7 justify-center ">
+        <div className="bestseller-products-container flex flex-row flex-wrap gap-7 items-center justify-center max-w-[1440px]">
           {products.map((product) => (
             <Productcard key={product.id} product={product} />
           ))}
@@ -119,9 +89,9 @@ export default function HomeBody() {
         </div>
       </div>
 
-      {/* slider3 */}
-      <div className="slider-area min-h-[716px] flex flex-row flex-wrap ">
-        <div className="container flex flex-row flex-wrap justify-center gap-4 px-[10%] max-w-[1440px] ">
+      {/*  */}
+      <div className="slider-area min-h-[716px] flex ">
+        <div className="container flex flex-row justify-center gap-4 px-10 max-w-[1440px] ">
           <img
             src={containerfluid}
             alt="containerfluid"
@@ -143,7 +113,7 @@ export default function HomeBody() {
       </div>
 
       {/* productcards */}
-      <div className="bestseller">
+      <div className="bestseller max-w-[1440px]  ">
         <div className="container flex flex-col gap-12 items-center max-w-[1440px] py-20">
           <div className="text-area">
             <div className="text-area text-center">
@@ -156,7 +126,7 @@ export default function HomeBody() {
             </div>
           </div>
         </div>
-        <div className="bestseller-products container flex flex-row flex-wrap gap-7 justify-center ">
+        <div className="bestseller-products-container flex flex-row flex-wrap gap-7 justify-center max-w-[1440px]">
           {blogs.map((blog) => (
             <Blogcard key={blog.id} blog={blog} />
           ))}

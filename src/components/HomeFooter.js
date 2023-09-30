@@ -4,8 +4,8 @@ export default function HomeFooter() {
   return (
     <>
       <div className="footer flex flex-col">
-        <div className="flex justify-center ">
-          <div className="container bg-verylightgray3 flex justify-between items-center max-w-[1440px] px-48 py-10">
+        <div className="flex justify-center max-w-[1440px]">
+          <div className="container bg-verylightgray3 flex justify-between items-center max-w-[1440px] px-40 py-10">
             <div className="text-darkblue font-bold flex gap-2 ">
               <h3>Bandage</h3>
             </div>
@@ -17,8 +17,8 @@ export default function HomeFooter() {
           </div>
         </div>
 
-        <div className="flex ">
-          <div className="container justify-between flex flex-wrap px-48 py-12">
+        <div className="flex flex-wrap max-w-[1440px]">
+          <div className="container justify-between flex flex-wrap pl-40 py-12">
             <ul>
               <h5 className="font-bold pb-5">Company Info</h5>
               <li className="text-sm text-lightgray font-bold pb-2">About Us</li>
@@ -67,7 +67,7 @@ export default function HomeFooter() {
           </div>
         </div>
 
-        <div className="container bg-verylightgray3 flex justify-between items-center max-w-[1440px] px-48 py-6">
+        <div className="container bg-verylightgray3 flex justify-between items-center max-w-[1440px] px-40 py-6">
           <p className="text-lightgray bg-verylightgray3">
             Made With Love By Finland All Right Reserved
           </p>

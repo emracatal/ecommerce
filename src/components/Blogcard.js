@@ -4,7 +4,7 @@ import blog1 from "../assets/blog1.png";
 export default function Blogcard() {
   return (
     <>
-      <div className="blog max-w-auto">
+      <div className="blog max-w-[348px]">
         <img src={blog1} className=""></img>
 
         <div className="blogbody flex flex-auto flex-col items-start gap-4 py-6">

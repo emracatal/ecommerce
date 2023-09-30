@@ -51,3 +51,21 @@ module.exports = {
 - Home Page: Slider component
 - Activate React Router and Links
 - Use **Icon Library**
+
+
+YEDEKTE DURMASINI İSTEDİĞİM KODLAR
+      {/* slider2 */}
+      <div className="slider-area bg-carousel2 min-h-[716px] ">
+        <div className="container text-white flex flex-col justify-center gap-4 p-[10%] max-w-[1440px] ">
+          <h5 className="font-bold">SUMMER 2020</h5>
+          <h1 className="font-bold">Vita Classic Product</h1>
+          <h4 className="">
+            We know how large objects will act, but things on a small scale.
+          </h4>
+          <div>
+            <button className="rounded bg-green text-lg font-bold px-5 py-2 ">
+              SHOP NOW
+            </button>
+          </div>
+        </div>
+      </div>

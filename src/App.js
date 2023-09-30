@@ -6,6 +6,7 @@ import "./App.css";
 import HomePage from "./layout/HomePage";
 //import axios from "axios";
 import ProductList from "./layout/ProductList";
+import ProductList1 from "./layout/ProductList1";
 import About from "./layout/About";
 import Blog from "./layout/Blog";
 import Contact from "./layout/Contact";
@@ -27,8 +28,9 @@ function App() {
           <Route path="/ProductList" exact>
             <ProductList />
           </Route>
-          <Route path="/About" exact>
-            <About />
+          <Route path="/ProductList1" exact>
+            <ProductList1 />
+            {/* about olarak değiştir */}
           </Route>
           <Route path="/Blog" exact>
             <Blog />
