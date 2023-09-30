@@ -95,8 +95,7 @@ export default function HomeBody() {
           <img
             src={containerfluid}
             alt="containerfluid"
-            className="w-[704px] h-[682px]"
-          ></img>{" "}
+            className="w-[704px] h-[682px]"></img>
           <div className="container flex flex-col justify-center gap-4 ">
             <h5 className="font-bold">SUMMER 2020</h5>
             <h1 className="font-bold">Part of the Neural Universe</h1>
@@ -126,7 +125,7 @@ export default function HomeBody() {
             </div>
           </div>
         </div>
-        <div className="bestseller-products-container flex flex-row flex-wrap gap-7 justify-center max-w-[1440px]">
+        <div className="blog-container flex flex-row flex-wrap gap-7 justify-center max-w-[1440px]">
           {blogs.map((blog) => (
             <Blogcard key={blog.id} blog={blog} />
           ))}

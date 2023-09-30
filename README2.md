@@ -69,3 +69,44 @@ YEDEKTE DURMASINI İSTEDİĞİM KODLAR
           </div>
         </div>
       </div>
+
+-------------------------- hamburgerli navbar----------------
+      <div className="navbar-light flex justify-center">
+        <div className="container flex flex-grow justify-between items-center min-h-[58px] max-w-[1440px]">
+          <div className="navbar-light-left text-darkblue font-bold flex gap-2">
+            <h3>Bandage</h3>
+          </div>
+          <nav className="navbar-light-middle text-darkblue items-center gap-2 ">
+            <ul className="flex gap-2">
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/ProductList">Shop</Link>
+              </li>
+              <i className="fa-solid fa-chevron-down fa-sm self-center"></i>
+              <li>
+                <Link to="/About">About</Link>
+              </li>
+              <li>
+                <Link to="/Blog">Blog</Link>
+              </li>
+              <li>
+                <Link to="/Contact">Contact</Link>
+              </li>
+              <li>
+                <Link to="/Pages">Pages</Link>
+              </li>
+            </ul>
+          </nav>
+          <div className="navbar-light-right flex text-turku items-center gap-3 ">
+            <i className="fa-regular fa-user"></i>
+            <p className="">Login / Register</p>
+            <i className="fa-solid fa-magnifying-glass"></i>
+            <i className="fa-solid fa-cart-shopping"></i>
+            <p>1</p>
+            <i className="fa-regular fa-heart"></i>
+            <p>1</p>
+          </div>
+        </div>
+      </div>

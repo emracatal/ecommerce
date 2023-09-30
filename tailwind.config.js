@@ -27,6 +27,7 @@ module.exports = {
         'shopcardAcc': "url('./assets/shopcardAcc.png')",
         'carousel2': "url('./assets/carousel2.png')",
         'containerfluid': "url('./assets/containerfluid.png')",
+        'cardcover1': "url('./assets/cardcover1.png')",
       },
 
     },
