@@ -4,6 +4,7 @@ import ProductListHeader from "../components/ProductListHeader";
 import Shopcard from "../components/Shopcard";
 import Productcard2 from "../components/Productcard2";
 import Pagination from "../components/Pagination";
+import HomeFooter from "../components/HomeFooter";
 
 export default function ProductList() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -132,6 +133,20 @@ export default function ProductList() {
 
       {/* pagination */}
       <Pagination />
+
+      {/* brands */}
+      <div className="brands flex justify-center items-center max-w-[1440px]">
+        <div className="container flex justify-between items-center min-h-[175px] max-w-[1100px] py-12 text-lightgray text-7xl gap-10">
+          <i class="fa-brands fa-hooli"></i>
+          <i class="fa-brands fa-lyft"></i>
+          <i class="fa-brands fa-pied-piper-hat"></i>
+          <i class="fa-brands fa-stripe"></i>
+          <i class="fa-brands fa-aws"></i>
+          <i class="fa-brands fa-reddit-alien"></i>
+        </div>
+      </div>
+      {/* footer */}
+      <HomeFooter />
     </>
   );
 }

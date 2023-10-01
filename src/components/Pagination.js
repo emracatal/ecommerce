@@ -2,6 +2,8 @@ import React from "react";
 
 export default function Pagination() {
   return (
+    <div class="flex flex-col items-center justify-center min-h-[74px] bg-white">
+
       <div class="flex items-center justify-between bg-white px-4 py-3 sm:px-6">
         <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
           <div>
@@ -65,6 +67,7 @@ export default function Pagination() {
                 </svg>
               </a>
             </nav>
+          </div>
           </div>
         </div>
       </div>
