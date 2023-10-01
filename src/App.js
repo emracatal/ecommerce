@@ -11,6 +11,10 @@ import About from "./layout/About";
 import Blog from "./layout/Blog";
 import Contact from "./layout/Contact";
 import Pages from "./layout/Pages";
+import Pricing from "./layout/Pricing";
+import Team from "./layout/Team";
+import ProductPage from "./components/ProductPage";
+
 
 function App() {
   //const notify = () => toast("toastified!");
@@ -40,6 +44,15 @@ function App() {
           </Route>
           <Route path="/Pages" exact>
             <Pages />
+          </Route>
+          <Route path="/ProductPage" exact>
+            <ProductPage />
+          </Route>
+          <Route path="/Pricing" exact>
+            <Pricing />
+          </Route>
+          <Route path="/Team" exact>
+            <Team />
           </Route>
         </Switch>
         {/* <ToastContainer /> */}

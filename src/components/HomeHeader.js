@@ -56,6 +56,12 @@ export default function HomeHeader() {
               <li>
                 <Link to="/Pages">Pages</Link>
               </li>
+              <li>
+                <Link to="/Pages">Pricing</Link>
+              </li>
+              <li>
+                <Link to="/Pages">Team</Link>
+              </li>
             </ul>
           </nav>
           <div className="navbar-light-right flex text-turku items-center gap-3 ">

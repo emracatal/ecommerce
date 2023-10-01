@@ -56,6 +56,12 @@ export default function ProductListHeader() {
               <li>
                 <Link to="/Pages">Pages</Link>
               </li>
+              <li>
+                <Link to="/Pages">Pricing</Link>
+              </li>
+              <li>
+                <Link to="/Pages">Team</Link>
+              </li>
             </ul>
           </nav>
           <div className="navbar-light-right flex text-turku items-center gap-3 ">
@@ -70,18 +76,7 @@ export default function ProductListHeader() {
         </div>
       </div>
 
-      <div className="flex justify-center max-w-[1440px]">
-        <div className="container bg-verylightgray3 flex justify-between items-center max-w-[1440px] min-h-[92px] px-10">
-          <div className="text-darkblue font-bold flex gap-2 ">
-            <h3>Shop</h3>
-          </div>
-          <div className="flex items-center gap-3 ">
-            <h6 className="font-bold">Home</h6>
-            <i class="fa-solid fa-chevron-right gap-3"></i>
-            <h6 className="">Shop</h6>
-          </div>
-        </div>
-      </div>
+
     </>
   );
 }

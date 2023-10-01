@@ -112,7 +112,7 @@ export default function HomeBody() {
       </div>
 
       {/* productcards */}
-      <div className="bestseller max-w-[1440px]  ">
+      <div className="blog max-w-[1440px]  ">
         <div className="container flex flex-col gap-12 items-center max-w-[1440px] py-20">
           <div className="text-area">
             <div className="text-area text-center">
