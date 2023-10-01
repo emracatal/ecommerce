@@ -54,7 +54,7 @@ export default function HomeFooter() {
             </ul>
             <div className="flex flex-col gap-5">
               <h5 className="font-bold">Get in touch</h5>
-              <form className="border-solid border-2 border-verylightgray2 bg-verylightgray">
+              <form className="border-solid border-2 border-verylightgray2">
                 <input
                   type="email"
                   className=" text-center bg-verylightgray"
