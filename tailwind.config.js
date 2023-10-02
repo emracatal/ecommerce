@@ -18,6 +18,7 @@ module.exports = {
         verylightgray3:"#FAFAFA",
         secondarycolor1:"#23856D",
         alertcolor:"#E77C40",
+        yellowstar:"#F3CD03"
       },
       backgroundImage: {
         'herocover2': "url('./assets/herocover2.jpg')",
@@ -28,6 +29,8 @@ module.exports = {
         'carousel2': "url('./assets/carousel2.png')",
         'containerfluid': "url('./assets/containerfluid.png')",
         'cardcover1': "url('./assets/cardcover1.png')",
+        'singleproduct1': "url('./assets/singleproduct1.jpg')",
+
       },
 
     },
