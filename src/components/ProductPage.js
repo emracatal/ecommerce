@@ -1,21 +1,23 @@
 import React from "react";
 import ProductListHeader from "./ProductListHeader";
 import SingleProduct from "./SingleProduct";
-import Productcard2 from "./Productcard2";
+import Productcard3 from "./Productcard3";
+import singleproduct3 from "../assets/singleproduct3.png";
+import Clients from "./Clients";
+import Footer from "./Footer";
 
 export default function ProductPage() {
+  const products = [
+    { id: 1, name: "product1", price: 19.99 },
+    { id: 2, name: "product2", price: 19.99 },
+    { id: 3, name: "product3", price: 39.99 },
+    { id: 4, name: "product4", price: 49.99 },
+    { id: 5, name: "product5", price: 19.99 },
+    { id: 6, name: "product6", price: 19.99 },
+    { id: 7, name: "product7", price: 19.99 },
+    { id: 8, name: "product8", price: 19.99 },
+  ];
 
-    const products = [
-        { id: 1, name: "product1", price: 19.99 },
-        { id: 2, name: "product2", price: 19.99 },
-        { id: 3, name: "product3", price: 39.99 },
-        { id: 4, name: "product4", price: 49.99 },
-        { id: 5, name: "product5", price: 19.99 },
-        { id: 6, name: "product6", price: 19.99 },
-        { id: 7, name: "product7", price: 19.99 },
-        { id: 8, name: "product8", price: 19.99 },
-      ];
-    
   return (
     <>
       <ProductListHeader />
@@ -32,8 +34,8 @@ export default function ProductPage() {
       {/* product slider */}
       <SingleProduct />
       {/* singleproduct product description*/}
-      <div className="flex max-w-[1440px] ">
-        <div className="max-w-[1051px] min-h-[72px] mx-auto flex flex-row items-center justify-center gap-10">
+      <div className="flex max-w-[1440px]">
+        <div className="container max-w-[1050px] min-h-[72px] mx-auto flex flex-row items-center justify-center gap-10">
           <p className="font-bold text-lightgray">Description</p>
           <p className="font-bold text-lightgray">Additional Information</p>
           <div className="flex flex-row gap-1">
@@ -43,13 +45,76 @@ export default function ProductPage() {
         </div>
       </div>
 
-{/* bestseller */}
-
-      <div className="bestseller-products-container flex flex-row flex-wrap gap-10 items-center justify-center max-w-[1124px] px-10">
-          {products.map((product) => (
-            <Productcard2 key={product.id} product={product} />
-          ))}
+      <div className="flex max-w-[1440px]">
+        <div className="container mx-auto max-w-[1050px] min-h-[500px] flex flex-row justify-center gap-7">
+          <div className="min-w-[30%]">
+            <img src={singleproduct3} className="" />
+          </div>
+          <div className="flex flex-col gap-7 min-w-[30%] ">
+            <h3 className="font-bold">the quick fox jumps over</h3>
+            <p>
+              Met minim Mollie non desert Alamo est sit cliquey dolor do met
+              sent. RELIT official consequent door ENIM RELIT Mollie. Excitation
+              venial consequent sent nostrum met. Met minim Mollie non desert
+              Alamo est sit cliquey dolor do met sent. RELIT official consequent
+              door ENIM RELIT Mollie. Excitation venial consequent sent nostrum
+              met. Met minim Mollie non desert Alamo est sit cliquey dolor do
+              met sent. RELIT official consequent door ENIM RELIT Mollie.
+              Excitation venial consequent sent nostrum met.
+            </p>
+          </div>
+          <div className="flex flex-col gap-7 min-w-[30%]">
+            <div>
+              <h3 className="font-bold">the quick fox jumps over</h3>
+              <div className="flex flex-row items-center gap-5">
+                <i class="fa-solid fa-chevron-right text-[9px]"></i>
+                <h6>the quick fox jumps over the lazy dog</h6>
+              </div>
+              <div className="flex flex-row items-center gap-5">
+                <i class="fa-solid fa-chevron-right text-[9px]"></i>
+                <h6>the quick fox jumps over the lazy dog</h6>
+              </div>
+              <div className="flex flex-row items-center gap-5">
+                <i class="fa-solid fa-chevron-right text-[9px]"></i>
+                <h6>the quick fox jumps over the lazy dog</h6>
+              </div>
+            </div>
+            <div>
+              <h3 className="font-bold">the quick fox jumps over</h3>
+              <div className="flex flex-row items-center gap-5">
+                <i class="fa-solid fa-chevron-right text-[9px]"></i>
+                <h6>the quick fox jumps over the lazy dog</h6>
+              </div>
+              <div className="flex flex-row items-center gap-5">
+                <i class="fa-solid fa-chevron-right text-[9px]"></i>
+                <h6>the quick fox jumps over the lazy dog</h6>
+              </div>
+              <div className="flex flex-row items-center gap-5">
+                <i class="fa-solid fa-chevron-right text-[9px]"></i>
+                <h6>the quick fox jumps over the lazy dog</h6>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+
+      {/* bestseller */}
+      <div className="flex max-w-[1440px] bg-verylightgray3">
+        <div className="flex mx-auto max-w-[1050px] flex-col gap-6 py-12 ">
+          <div className="flex justify-start items-center">
+            <h3 className="font-bold">BESTSELLER PRODUCTS</h3>
+          </div>
+          <div className="bestseller-products-container flex flex-row flex-wrap gap-5 items-center justify-start">
+            {products.map((product) => (
+              <Productcard3 key={product.id} product={product} />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* clients */}
+      <Clients />
+      <Footer />
     </>
   );
 }
