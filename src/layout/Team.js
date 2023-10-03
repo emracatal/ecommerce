@@ -42,6 +42,19 @@ export default function Team() {
             </div>
         </div>
       </div>
+
+            {/*WHAT WE DO */}
+            <div className="">
+        <div className="container max-w-[1050px] mx-auto min-h-[188px] flex flex-col justify-center items-center gap-14 py-12">
+          <h5 className="font-bold text-lightgray">WHAT WE DO</h5>
+          <h1 className="font-bold">Innovation tailored for you</h1>
+          <div className="flex items-center gap-3 ">
+            <h6 className="font-bold">Home</h6>
+            <i class="fa-solid fa-chevron-right gap-3"></i>
+            <h6 className="text-lightgray">Team</h6>
+          </div>
+        </div>
+      </div>
     </>
   )
 }
