@@ -21,8 +21,8 @@ export default function ProductPage() {
   return (
     <>
       <ProductListHeader />
-      <div className="flex justify-center max-w-[1440px]  bg-verylightgray3">
-        <div className="container flex justify-start items-center max-w-[1050px] min-h-[92px]">
+      <div className="flex justify-center  bg-verylightgray3">
+        <div className="container flex justify-start items-center max-w-[1050px] mx-auto min-h-[92px]">
           <div className="flex items-center gap-3 ">
             <h6 className="font-bold">Home</h6>
             <i class="fa-solid fa-chevron-right gap-3"></i>
@@ -34,8 +34,8 @@ export default function ProductPage() {
       {/* product slider */}
       <SingleProduct />
       {/* singleproduct product description*/}
-      <div className="flex max-w-[1440px]">
-        <div className="container max-w-[1050px] min-h-[72px] mx-auto flex flex-row items-center justify-center gap-10">
+      <div className="flex ">
+        <div className="container max-w-[1050px] mx-auto min-h-[72px] flex flex-row items-center justify-center gap-10">
           <p className="font-bold text-lightgray">Description</p>
           <p className="font-bold text-lightgray">Additional Information</p>
           <div className="flex flex-row gap-1">
@@ -45,8 +45,8 @@ export default function ProductPage() {
         </div>
       </div>
 
-      <div className="flex max-w-[1440px]">
-        <div className="container mx-auto max-w-[1050px] min-h-[500px] flex flex-row justify-center gap-7">
+      <div className="flex ">
+        <div className="container max-w-[1050px] min-h-[500px] mx-auto flex flex-row justify-center gap-7">
           <div className="min-w-[30%]">
             <img src={singleproduct3} className="" />
           </div>
@@ -99,7 +99,7 @@ export default function ProductPage() {
       </div>
 
       {/* bestseller */}
-      <div className="flex max-w-[1440px] bg-verylightgray3">
+      <div className="flex  bg-verylightgray3">
         <div className="flex mx-auto max-w-[1050px] flex-col gap-6 py-12 ">
           <div className="flex justify-start items-center">
             <h3 className="font-bold">BESTSELLER PRODUCTS</h3>

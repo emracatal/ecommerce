@@ -36,8 +36,8 @@ export default function ProductList() {
     <>
       <ProductListHeader />
       {/* productlist shop başlıklı alan */}
-      <div className="flex justify-center max-w-[1440px]">
-        <div className="container bg-verylightgray3 flex justify-between items-center max-w-[1050px] min-h-[92px] px-10">
+      <div className="flex justify-center ">
+        <div className="container bg-verylightgray3 flex justify-between items-center max-w-[1050px] min-h-[92px] pr-10">
           <div className="text-darkblue font-bold flex gap-2 ">
             <h3>Shop</h3>
           </div>
@@ -50,15 +50,15 @@ export default function ProductList() {
       </div>
 
       {/* productlist cloth yazılı 5 fotolu alan */}
-      <div className="shopcard-container flex flex-row flex-wrap gap-1 justify-between max-w-[1050px] pb-12 mx-auto">
+      <div className="shopcard-container flex flex-row flex-wrap gap-1 justify-center max-w-[1050px] pb-12 mx-auto">
         {shops.map((shopcard) => (
           <Shopcard key={shopcard.id} shopcard={shopcard} />
         ))}
       </div>
 
       {/* filterarea */}
-      <div className="flex justify-center max-w-[1440px]">
-        <div className="container bg-verylightgray3 flex flex-row justify-between items-center max-w-[1050px] min-h-[98px] px-3 ">
+      <div className="flex justify-center bg-verylightgray3">
+        <div className="container  flex flex-row justify-between items-center max-w-[1050px] min-h-[98px] px-3 ">
           <h6>Showing all 12 results</h6>
           <div className="flex flex-row gap-3 items-center justify-center">
             <h6>Views: </h6>
@@ -139,7 +139,7 @@ export default function ProductList() {
       </div>
 
       {/* productcards */}
-      <div className="bestseller pb-20 max-w-[1440px]">
+      <div className="bestseller pb-20 ">
         <div className="container flex flex-col items-center justify-center max-w-[1050px] py-12 mx-auto">
           <div className="bestseller-products-container flex flex-row flex-wrap gap-7 items-center justify-center max-w-[1050px] ">
             {products.map((product) => (

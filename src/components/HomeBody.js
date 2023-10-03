@@ -30,7 +30,7 @@ export default function HomeBody() {
       <Carousel />
       {/* editorspick */}
       <div className="shop-cards">
-        <div className="container flex flex-col gap-12 items-center max-w-[1440px] py-20">
+        <div className="container flex flex-col gap-12 items-center max-w-[1440px] mx-auto py-20">
           <div className="text-area text-center">
             <h3 className="font-bold">EDITOR'S PICK</h3>
             <p>Problems trying to resolve the conflict between</p>
@@ -77,7 +77,7 @@ export default function HomeBody() {
 
       {/* yeşil foto slider */}
       <div className="slider relative">
-        <div className="container slider-elements ">
+        <div className="container slider-elements  ">
           <div className="slider-item-fade relative items-center min-h-[716px] ">
             <img
               className="absolute w-[100%] top-0 left-0 -z-10"
@@ -129,7 +129,7 @@ export default function HomeBody() {
 
       {/* kırmızılı resim*/}
       <div className="min-h-[682px] flex ">
-        <div className="container flex flex-row justify-center gap-7 px-10 max-w-[1440px] ">
+        <div className="container flex flex-row justify-center gap-7 px-10 max-w-[1440px] mx-auto ">
           <img
             src={containerfluid}
             alt="containerfluid"
@@ -151,8 +151,8 @@ export default function HomeBody() {
       </div>
 
       {/* productcards */}
-      <div className="blog max-w-[1440px]  ">
-        <div className="container flex flex-col gap-12 items-center max-w-[1440px] py-20">
+      <div className="blog  ">
+        <div className="container flex flex-col gap-12 items-center max-w-[1440px] mx-auto py-20">
           <div className="text-area">
             <div className="text-area text-center">
               <h6 className="text-turku">Practice Advice</h6>
@@ -164,7 +164,7 @@ export default function HomeBody() {
             </div>
           </div>
         </div>
-        <div className="blog-container flex items-center justify-center max-w-[1440px]">
+        <div className="blog-container flex items-center justify-center max-w-[1440px] mx-auto">
           <div className="flex flex-row flex-wrap max-w-[1440px] gap-2 justify-center items-center">
           {blogs.map((blog) => (
             <Blogcard key={blog.id} blog={blog} />

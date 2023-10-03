@@ -18,7 +18,9 @@ module.exports = {
         verylightgray3:"#FAFAFA",
         secondarycolor1:"#23856D",
         alertcolor:"#E77C40",
-        yellowstar:"#F3CD03"
+        yellowstar:"#F3CD03",
+        danger:"#E74040",
+        hovercolor:"#2A7CC7",
       },
       backgroundImage: {
         'herocover2': "url('./assets/herocover2.jpg')",

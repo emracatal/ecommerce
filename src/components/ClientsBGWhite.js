@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Clients() {
+export default function ClientsBGWhite() {
   return (
     <>
-     <div className="clients flex justify-center items-center  bg-verylightgray3">
+     <div className="clients flex justify-center items-center">
         <div className="container flex justify-between items-center min-h-[175px] max-w-[1050px] py-12 text-lightgray text-7xl gap-8">
           <i class="fa-brands fa-hooli"></i>
           <i class="fa-brands fa-lyft"></i>
