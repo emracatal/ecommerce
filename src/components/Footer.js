@@ -28,7 +28,6 @@ export default function Footer() {
               <li className="text-sm text-lightgray font-bold pb-2">
                 We are hiring
               </li>
-              <li className="text-sm text-lightgray font-bold pb-7">Blog</li>
             </ul>
             <ul>
               <h5 className="font-bold pb-5">Legal</h5>
@@ -39,7 +38,6 @@ export default function Footer() {
               <li className="text-sm text-lightgray font-bold pb-2">
                 We are hiring
               </li>
-              <li className="text-sm text-lightgray font-bold pb-7">Blog</li>
             </ul>
             <ul>
               <h5 className="font-bold pb-5">Features</h5>

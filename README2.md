@@ -88,16 +88,11 @@ YEDEKTE DURMASINI İSTEDİĞİM KODLAR
               <li>
                 <Link to="/About">About</Link>
               </li>
-              <li>
-                <Link to="/Blog">Blog</Link>
-              </li>
+
               <li>
                 <Link to="/Contact">Contact</Link>
               </li>
-              <li>
-                <Link to="/Pages">Pages</Link>
-              </li>
-            </ul>
+                          </ul>
           </nav>
           <div className="navbar-light-right flex text-turku items-center gap-3 ">
             <i className="fa-regular fa-user"></i>

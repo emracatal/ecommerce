@@ -5,6 +5,7 @@ import Shopcard from "../components/Shopcard";
 import Productcard2 from "../components/Productcard2";
 import Pagination from "../components/Pagination";
 import Footer from "../components/Footer";
+import Clients from "../components/Clients";
 
 export default function ProductList() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -140,11 +141,11 @@ export default function ProductList() {
       {/* productcards */}
       <div className="bestseller pb-20 max-w-[1440px]">
         <div className="container flex flex-col items-center justify-center max-w-[1050px] py-12 mx-auto">
-        <div className="bestseller-products-container flex flex-row flex-wrap gap-7 items-center justify-center max-w-[1050px] ">
-          {products.map((product) => (
-            <Productcard2 key={product.id} product={product} />
-          ))}
-        </div>
+          <div className="bestseller-products-container flex flex-row flex-wrap gap-7 items-center justify-center max-w-[1050px] ">
+            {products.map((product) => (
+              <Productcard2 key={product.id} product={product} />
+            ))}
+          </div>
         </div>
       </div>
 
@@ -152,16 +153,8 @@ export default function ProductList() {
       <Pagination />
 
       {/* clients */}
-      <div className="brands flex justify-center items-center max-w-[1440px]">
-        <div className="container flex justify-between items-center min-h-[175px] max-w-[1100px] py-12 text-lightgray text-7xl gap-10">
-          <i class="fa-brands fa-hooli"></i>
-          <i class="fa-brands fa-lyft"></i>
-          <i class="fa-brands fa-pied-piper-hat"></i>
-          <i class="fa-brands fa-stripe"></i>
-          <i class="fa-brands fa-aws"></i>
-          <i class="fa-brands fa-reddit-alien"></i>
-        </div>
-      </div>
+      <Clients />
+      
       {/* footer */}
       <Footer />
     </>

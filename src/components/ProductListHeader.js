@@ -44,23 +44,16 @@ export default function ProductListHeader() {
               </li>
               <i className="fa-solid fa-chevron-down fa-sm self-center"></i>
               <li>
-                <Link to="/ProductList1">About</Link>
-                {/* about olarak değiştir */}
-              </li>
-              <li>
-                <Link to="/Blog">Blog</Link>
+                <Link to="/About">About</Link>
               </li>
               <li>
                 <Link to="/Contact">Contact</Link>
               </li>
               <li>
-                <Link to="/Pages">Pages</Link>
+                <Link to="/Pricing">Pricing</Link>
               </li>
               <li>
-                <Link to="/Pages">Pricing</Link>
-              </li>
-              <li>
-                <Link to="/Pages">Team</Link>
+                <Link to="/Team">Team</Link>
               </li>
             </ul>
           </nav>

@@ -47,9 +47,7 @@ export default function ProductList1() {
                   <li><Link to="/ProductList">Shop</Link></li>
                   <i className="fa-solid fa-chevron-down fa-sm"></i>
                   <li><Link to="/About">About</Link></li>
-                  <li><Link to="/Blog">Blog</Link></li>
                   <li><Link to="/Contact">Contact</Link></li>
-                  <li><Link to="/Pages">Pages</Link></li>
                 </ul>
               </div>
               <div className="navbar-light-right text-turku flex flex-col md:flex-row items-start md:items-center gap-y-4 md:gap-x-4">

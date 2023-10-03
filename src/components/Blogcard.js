@@ -6,7 +6,6 @@ export default function Blogcard() {
     <>
       <div className="blog max-w-[348px]">
         <img src={blog1} className=""></img>
-
         <div className="blogbody flex flex-auto flex-col items-start gap-4 py-6">
           <div className="colors flex gap-4 ">
             <p className="text-turku">Google</p>

@@ -8,9 +8,8 @@ import HomePage from "./layout/HomePage";
 import ProductList from "./layout/ProductList";
 import ProductList1 from "./layout/ProductList1";
 import About from "./layout/About";
-import Blog from "./layout/Blog";
+
 import Contact from "./layout/Contact";
-import Pages from "./layout/Pages";
 import Pricing from "./layout/Pricing";
 import Team from "./layout/Team";
 import ProductPage from "./components/ProductPage";
@@ -32,18 +31,11 @@ function App() {
           <Route path="/ProductList" exact>
             <ProductList />
           </Route>
-          <Route path="/ProductList1" exact>
-            <ProductList1 />
-            {/* about olarak değiştir */}
-          </Route>
-          <Route path="/Blog" exact>
-            <Blog />
+          <Route path="/About" exact>
+            <About />
           </Route>
           <Route path="/Contact" exact>
             <Contact />
-          </Route>
-          <Route path="/Pages" exact>
-            <Pages />
           </Route>
           <Route path="/ProductPage" exact>
             <ProductPage />
