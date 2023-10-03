@@ -4,9 +4,9 @@ import herocover2 from "../assets/herocover2.jpg";
 export default function Carousel() {
   return (
     <>
-      <div className="slider relative">
-        <div className="slider-elements">
-          <div className="slider-item-fade relative items-center min-h-[716px]">
+      <div className="slider relative min-h-[716px]">
+        <div className="container slider-elements ">
+          <div className="slider-item-fade relative items-center  ">
             <img
               className="absolute w-[100%] top-0 left-0 -z-10"
               src={herocover2}
@@ -48,9 +48,9 @@ export default function Carousel() {
             <i class="fa-solid fa-chevron-left "></i>
             <i class="fa-solid fa-chevron-right "></i>
           </div>
-          <div className="slider-line absolute w-[100%] flex justify-center text-5xl bottom-4">
-            <i class="fa-solid fa-minus text-white"></i>
-            <i class="fa-solid fa-minus text-white"></i>
+          <div className="slider-line  absolute w-[100%] flex justify-center text-5xl bottom-4">
+            <i class="fa-solid fa-minus text-black"></i>
+            <i class="fa-solid fa-minus text-black"></i>
           </div>
         </div>
       </div>

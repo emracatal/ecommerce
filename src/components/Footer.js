@@ -5,7 +5,7 @@ export default function Footer() {
     <>
       <div className="footer flex flex-col max-w-[1440px] ">
         <div className="flex justify-center items-center max-w-[1440px] py-10">
-          <div className="container flex justify-between items-center max-w-[1050px] ">
+          <div className="container flex justify-between items-center max-w-[1050px] pr-5">
             <div className="text-darkblue font-bold flex gap-2 ">
               <h3>Bandage</h3>
             </div>
@@ -30,7 +30,6 @@ export default function Footer() {
               </li>
               <li className="text-sm text-lightgray font-bold pb-7">Blog</li>
             </ul>
-
             <ul>
               <h5 className="font-bold pb-5">Legal</h5>
               <li className="text-sm text-lightgray font-bold pb-2">
@@ -42,7 +41,6 @@ export default function Footer() {
               </li>
               <li className="text-sm text-lightgray font-bold pb-7">Blog</li>
             </ul>
-
             <ul>
               <h5 className="font-bold pb-5">Features</h5>
               <li className="text-sm text-lightgray font-bold pb-2">
@@ -58,7 +56,6 @@ export default function Footer() {
                 Unlimited Support
               </li>
             </ul>
-
             <ul>
               <h5 className="font-bold pb-5">Resources</h5>
               <li className="text-sm text-lightgray font-bold pb-2">

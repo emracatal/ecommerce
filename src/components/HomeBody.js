@@ -4,6 +4,8 @@ import Productcard from "./Productcard";
 import Carousel from "./Carousel";
 import containerfluid from "../assets/containerfluid.png";
 import herocover2 from "../assets/herocover2.jpg";
+import carousel2 from "../assets/carousel2.png";
+
 import Blogcard from "./Blogcard";
 
 export default function HomeBody() {
@@ -16,8 +18,6 @@ export default function HomeBody() {
     { id: 6, name: "product6", price: 19.99 },
     { id: 7, name: "product7", price: 19.99 },
     { id: 8, name: "product8", price: 19.99 },
-    { id: 9, name: "product9", price: 19.99 },
-    { id: 10, name: "product10", price: 19.99 },
   ];
 
   const blogs = [
@@ -27,7 +27,7 @@ export default function HomeBody() {
   ];
   return (
     <>
-    <Carousel />
+      <Carousel />
       {/* editorspick */}
       <div className="shop-cards">
         <div className="container flex flex-col gap-12 items-center max-w-[1440px] py-20">
@@ -35,7 +35,7 @@ export default function HomeBody() {
             <h3 className="font-bold">EDITOR'S PICK</h3>
             <p>Problems trying to resolve the conflict between</p>
           </div>
-          <div className="shop-cards-images flex flex-row justify-center flex-wrap gap-7">
+          <div className="max-w-[1050px] shop-cards-images flex flex-row justify-center flex-wrap gap-7">
             <div className="men bg-shopcardMan w-[509px] h-[500px]">
               <h5 className="bg-white font-bold w-[30%] text-center ">MEN</h5>
             </div>
@@ -56,8 +56,8 @@ export default function HomeBody() {
       </div>
 
       {/* productcards */}
-      <div className="bestseller pb-20 max-w-[1440px]">
-        <div className="container flex flex-col gap-12 items-center max-w-[1440px] py-20">
+      <div className="bestseller pb-20 max-w-[1440px] mx-auto">
+        <div className=" flex flex-col gap-12 items-center max-w-[1440px] py-20">
           <div className="text-area">
             <div className="text-area text-center">
               <h4>Featured Products</h4>
@@ -66,44 +66,83 @@ export default function HomeBody() {
             </div>
           </div>
         </div>
-        <div className="bestseller-products-container flex flex-row flex-wrap gap-7 items-center justify-center max-w-[1440px]">
-          {products.map((product) => (
-            <Productcard key={product.id} product={product} />
-          ))}
-        </div>
-      </div>
-
-      {/* slider2 */}
-      <div className="slider-area bg-carousel2 min-h-[716px] ">
-        <div className="container text-white flex flex-col justify-center gap-4 p-[10%] max-w-[1440px] ">
-          <h5 className="font-bold">SUMMER 2020</h5>
-          <h1 className="font-bold">Vita Classic Product</h1>
-          <h4 className="">
-            We know how large objects will act, but things on a small scale.
-          </h4>
-          <div>
-            <button className="rounded bg-green text-lg font-bold px-5 py-2 ">
-              SHOP NOW
-            </button>
+        <div className="bestseller-products-container flex items-center justify-center max-w-[1440px]">
+          <div className="flex flex-row flex-wrap max-w-[1050px] gap-7 justify-center items-canter">
+            {products.map((product) => (
+              <Productcard key={product.id} product={product} />
+            ))}
           </div>
         </div>
       </div>
 
-      {/*  */}
-      <div className="slider-area min-h-[716px] flex ">
-        <div className="container flex flex-row justify-center gap-4 px-10 max-w-[1440px] ">
+      {/* yeşil foto slider */}
+      <div className="slider relative">
+        <div className="container slider-elements ">
+          <div className="slider-item-fade relative items-center min-h-[716px] ">
+            <img
+              className="absolute w-[100%] top-0 left-0 -z-10"
+              src={carousel2}
+            ></img>
+
+            <div className="container text-white flex flex-col justify-center gap-4 p-[10%] max-w-[1000px] ">
+              <h5 className="font-bold">SUMMER 2020</h5>
+              <h1 className="font-bold">Vita Classic Product</h1>
+              <h4 className="">
+                We know how large objects will act, but things on a small scale.
+              </h4>
+              <div>
+                <button className="rounded bg-green text-lg font-bold px-5 py-2 ">
+                  SHOP NOW
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="slider-item-fade relative items-center min-h-[716px] hidden">
+            <img
+              className="absolute w-[100%] top-0 left-0 -z-10"
+              src={herocover2}
+            ></img>
+
+            <div className="container text-white flex flex-col justify-center gap-4 p-[10%] max-w-[1000px] ">
+              <h5 className="font-bold">SUMMER 2020</h5>
+              <h1 className="font-bold">Vita Classic Product</h1>
+              <h4 className="">
+                We know how large objects will act, but things on a small scale.
+              </h4>
+              <div>
+                <button className="rounded bg-green text-lg font-bold px-5 py-2 ">
+                  SHOP NOW
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="slider-buttons absolute top-0 left-0 items-center flex justify-between w-[100%] h-[100%] text-white text-5xl px-10">
+            <i class="fa-solid fa-chevron-left "></i>
+            <i class="fa-solid fa-chevron-right "></i>
+          </div>
+          <div className="slider-line absolute w-[100%] flex justify-center text-5xl bottom-4">
+            <i class="fa-solid fa-minus text-black"></i>
+            <i class="fa-solid fa-minus text-black"></i>
+          </div>
+        </div>
+      </div>
+
+      {/* kırmızılı resim*/}
+      <div className="min-h-[682px] flex ">
+        <div className="container flex flex-row justify-center gap-7 px-10 max-w-[1440px] ">
           <img
             src={containerfluid}
             alt="containerfluid"
-            className="w-[704px] h-[682px]"></img>
-          <div className="container flex flex-col justify-center gap-4 ">
+            className="max-w-[704px] min-h-[682px] object-cover"
+          ></img>
+          <div className="container flex flex-col justify-center gap-7 max-w-[573px] min-h-[326px]">
             <h5 className="font-bold">SUMMER 2020</h5>
             <h1 className="font-bold">Part of the Neural Universe</h1>
             <h4 className="">
               We know how large objects will act, but things on a small scale.
             </h4>
             <div>
-              <button className="rounded bg-green text-lg font-bold px-5 py-2 ">
+              <button className="rounded bg-green text-lg font-bold px-5 py-2 text-white">
                 SHOP NOW
               </button>
             </div>
@@ -125,10 +164,12 @@ export default function HomeBody() {
             </div>
           </div>
         </div>
-        <div className="blog-container flex flex-row flex-wrap gap-7 justify-center max-w-[1440px]">
+        <div className="blog-container flex items-center justify-center max-w-[1440px]">
+          <div className="flex flex-row flex-wrap max-w-[1440px] gap-2 justify-center items-center">
           {blogs.map((blog) => (
             <Blogcard key={blog.id} blog={blog} />
           ))}
+        </div>
         </div>
       </div>
     </>
