@@ -28,7 +28,7 @@ export default function Blogcard() {
           </div>
           </div>
           <div className="flex flex-row items-center">
-          <h6 className="text-bold">Learn More</h6>
+          <h6 className="font-bold">Learn More</h6>
           <i class="fa-solid fa-chevron-right text-turku gap-3"></i>
           </div>
         </div>

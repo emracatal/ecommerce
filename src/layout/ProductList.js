@@ -36,8 +36,8 @@ export default function ProductList() {
     <>
       <ProductListHeader />
       {/* productlist shop başlıklı alan */}
-      <div className="flex justify-center ">
-        <div className="container bg-verylightgray3 flex justify-between items-center max-w-[1050px] min-h-[92px] pr-10">
+      <div className="flex justify-center bg-verylightgray3 ">
+        <div className="container  flex justify-between items-center max-w-[1050px] min-h-[92px] pr-10">
           <div className="text-darkblue font-bold flex gap-2 ">
             <h3>Shop</h3>
           </div>
@@ -154,7 +154,7 @@ export default function ProductList() {
 
       {/* clients */}
       <Clients />
-      
+
       {/* footer */}
       <Footer />
     </>
