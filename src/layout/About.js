@@ -45,10 +45,11 @@ export default function About() {
           </nav>
           <div className="navbar-light-right flex text-turku items-center gap-3 ">
             <h6 className="">Login</h6>
-            <button className="text-white text-sm bg-turku p-3 rounded-md">
-              Become a member
-            </button>
-          </div>
+              <button className="text-white text-sm bg-turku p-3 rounded-md flex flex-row gap-2 items-center">
+                <h6>Become a member</h6>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
         </div>
       </div>
 
@@ -168,7 +169,7 @@ export default function About() {
             </h6>
             <div>
               <button className="text-white border border-white rounded-md text-sm font-bold px-5 py-2 ">
-               Button
+                Button
               </button>
             </div>
           </div>
@@ -176,9 +177,8 @@ export default function About() {
         </div>
       </div>
 
-            {/*footer */}
-            <Footer />
-
+      {/*footer */}
+      <Footer />
     </>
   );
 }

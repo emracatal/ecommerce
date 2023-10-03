@@ -35,10 +35,11 @@ export default function Team() {
           </nav>
           <div className="navbar-light-right flex text-turku items-center gap-3 ">
             <h6 className="">Login</h6>
-            <button className="text-white text-sm bg-turku p-3 rounded-md">
-              Become a member
-            </button>
-          </div>
+              <button className="text-white text-sm bg-turku p-3 rounded-md flex flex-row gap-2 items-center">
+                <h6>Become a member</h6>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
         </div>
       </div>
     </>
