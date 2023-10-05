@@ -45,11 +45,11 @@ export default function About() {
           </nav>
           <div className="navbar-light-right flex text-turku items-center gap-3 ">
             <h6 className="">Login</h6>
-              <button className="text-white text-sm bg-turku p-3 rounded-md flex flex-row gap-2 items-center">
-                <h6>Become a member</h6>
-                <i class="fa-solid fa-arrow-right"></i>
-              </button>
-            </div>
+            <button className="text-white text-sm bg-turku p-3 rounded-md flex flex-row gap-2 items-center">
+              <h6>Become a member</h6>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -79,7 +79,7 @@ export default function About() {
 
       {/* problems trying yazan alan */}
       <div className="flex justify-center ">
-        <div className="container  flex flex-row justify-between items-center max-w-[1020px] min-h-[188px] px-3 gap-10">
+        <div className="container  flex flex-row justify-between items-center max-w-[1050px] min-h-[188px] px-3 gap-10">
           <div className="flex flex-col gap-6 w-[40%]">
             <h6 className="text-danger">Problems trying</h6>
             <h3 className="font-bold">
@@ -117,9 +117,9 @@ export default function About() {
       </div>
 
       {/* video area */}
-      <div className="flex justify-center ">
-        <div className="container max-w-[1050px] text-center min-h-[764px]">
-          VİDEO AREA
+      <div className="">
+        <div className="container max-w-[1050px] flex justify-center items-center min-h-[764px] mx-auto">
+          <iframe className="rounded-2xl flex items-center justify-center w-[989px] h-[540px]" src="https://www.youtube.com/embed/2nEzfa43VF8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
 
