@@ -192,7 +192,7 @@ export default function Pricing() {
 
       {/*Start your 14 days free trial */}
       <div className="">
-        <div className="container max-w-[1050px] mx-auto min-h-[188px] flex flex-col justify-center items-center gap-7 py-10">
+        <div className="container max-w-[1050px] mx-auto min-h-[188px] flex flex-col justify-center items-center gap-7 py-10 mobile:p-14">
           <h2 className="font-bold">Start your 14 days free trial</h2>
           <h6 className="">
             Met minim Mollie non desert Alamo est sit cliquey dolor do met sent.

@@ -63,9 +63,9 @@ export default function Team() {
 
       {/*WHAT WE DO */}
       <div className="">
-        <div className="container max-w-[1050px] mx-auto min-h-[188px] flex flex-col justify-center items-center gap-14 py-12">
+        <div className="container max-w-[1050px] mx-auto min-h-[188px] flex flex-col justify-center items-center gap-14 py-12 mobile:p-14">
           <h5 className="font-bold text-lightgray">WHAT WE DO</h5>
-          <h1 className="font-bold">Innovation tailored for you</h1>
+          <h1 className="font-bold mobile:text-center">Innovation tailored for you</h1>
           <div className="flex items-center gap-3 ">
             <h6 className="font-bold">Home</h6>
             <i class="fa-solid fa-chevron-right gap-3"></i>
@@ -76,15 +76,15 @@ export default function Team() {
 
       {/*hero pictures*/}
       <div className="">
-        <div className="w-full mx-auto h-[530px] flex flex-row justify-center items-center gap-3">
+        <div className="w-full mx-auto h-[530px] flex flex-row justify-center items-center gap-3 mobile:flex mobile:flex-col mobile:justify-center mobile:p-14">
           <div className="flex-[50%] max-w-[50%]">
             <img src={teamhero1}></img>
           </div>
-          <div className="flex flex-col flex-[25%] max-w-[25%] gap-5">
+          <div className="flex flex-col flex-[25%] max-w-[25%] gap-5 mobile:flex mobile:flex-row mobile:justify-center">
             <img src={teamhero2}></img>
             <img src={teamhero3}></img>
           </div>
-          <div className="flex flex-col flex-[25%] max-w-[25%] gap-5">
+          <div className="flex flex-col flex-[25%] max-w-[25%] gap-5 mobile:flex mobile:flex-row mobile:justify-center">
             <img src={teamhero4}></img>
             <img src={teamhero5}></img>
           </div>
@@ -93,7 +93,7 @@ export default function Team() {
 
       {/* meet our team */}
       <div className="flex justify-center  ">
-        <div className="container flex flex-col max-w-[1050px] min-h-[595px] py-20 gap-20">
+        <div className="container flex flex-col max-w-[1050px] min-h-[595px] py-20 gap-20 mobile:p-14">
           <div className="flex flex-col items-center gap-2">
             <h2 className="font-bold">Meet Our Team</h2>
             <h6 className="text-lightgray">
@@ -113,7 +113,7 @@ export default function Team() {
 
       {/*Start your 14 days free trial */}
       <div className="">
-        <div className="container max-w-[1050px] mx-auto min-h-[188px] flex flex-col justify-center items-center gap-7 py-10">
+        <div className="container max-w-[1050px] mx-auto min-h-[188px] flex flex-col justify-center items-center gap-7 py-10 mobile:p-14">
           <h2 className="font-bold">Start your 14 days free trial</h2>
           <h6 className="">Met minim Mollie non desert Alamo est sit cliquey dolor do met sent. RELIT official consequent.</h6>
           <button className="text-white text-sm bg-turku p-3 rounded-md flex flex-row gap-2 items-center">
