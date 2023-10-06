@@ -54,7 +54,7 @@ export default function About() {
       </div>
 
       {/* ABOUT US body */}
-      <div className="  max-w-[1050px] mx-auto min-h-[716px]">
+      <div className="  max-w-[1050px] mx-auto min-h-[545px]">
         <div className="container   ">
           <div className="-item-fade relative items-center  ">
             <div className="container text-black flex flex-col justify-center gap-4 pt-[15%] max-w-[600px] ">
@@ -79,7 +79,7 @@ export default function About() {
 
       {/* problems trying yazan alan */}
       <div className="flex justify-center ">
-        <div className="container  flex flex-row justify-between items-center max-w-[1050px] min-h-[188px] px-3 gap-10">
+        <div className="container  flex flex-row justify-between items-center max-w-[1050px] min-h-[188px] px-6 gap-10">
           <div className="flex flex-col gap-6 w-[40%]">
             <h6 className="text-danger">Problems trying</h6>
             <h3 className="font-bold">
@@ -125,7 +125,7 @@ export default function About() {
 
       {/* meet our team */}
       <div className="flex justify-center  ">
-        <div className="container flex flex-col max-w-[1050px] min-h-[819px] py-20 gap-20">
+        <div className="container flex flex-col max-w-[1050px] min-h-[595px] py-20 gap-20">
           <div className="flex flex-col items-center gap-2">
             <h2 className="font-bold">Meet Our Team</h2>
             <h6 className="text-lightgray">
@@ -145,7 +145,7 @@ export default function About() {
 
       {/*big companies are here */}
       <div className="flex justify-center w-full">
-        <div className="container flex flex-col max-w-[1050px] min-h-[819px] py-10 gap-6">
+        <div className="container flex flex-col max-w-[1050px] min-h-[319px] py-10 gap-6">
           <div className="flex flex-col items-center gap-7">
             <h2 className="font-bold">Big Companies Are Here</h2>
             <h6 className="text-lightgray">

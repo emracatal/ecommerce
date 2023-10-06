@@ -61,7 +61,7 @@ export default function Pricing() {
 
       {/*PRICING */}
       <div className="bg-verylightgray3">
-        <div className="container max-w-[1050px] mx-auto min-h-[800PX] flex flex-col justify-center items-center gap-14">
+        <div className="container max-w-[1050px] mx-auto min-h-[800PX] flex flex-col justify-center items-center gap-14 ">
           <h2 className="font-bold">Pricing</h2>
           <h6 className="">
             Problems trying to resolve the conflict between the two major realms
@@ -189,6 +189,27 @@ export default function Pricing() {
         </div>
       </div>
       <Clients />
+
+      {/*Start your 14 days free trial */}
+      <div className="">
+        <div className="container max-w-[1050px] mx-auto min-h-[188px] flex flex-col justify-center items-center gap-7 py-10">
+          <h2 className="font-bold">Start your 14 days free trial</h2>
+          <h6 className="">
+            Met minim Mollie non desert Alamo est sit cliquey dolor do met sent.
+            RELIT official consequent.
+          </h6>
+          <button className="text-white text-sm bg-turku p-3 rounded-md flex flex-row gap-2 items-center">
+            <h6>Try it free now</h6>
+          </button>
+          <div className="flex gap-8 text-3xl text-turku">
+            <i className="fa-brands fa-twitter "></i>
+            <i className="fa-brands fa-facebook"></i>
+            <i className="fa-brands fa-instagram"></i>
+            <i className="fa-brands fa-linkedin"></i>
+          </div>
+        </div>
+      </div>
+      <Footer />
     </>
   );
 }

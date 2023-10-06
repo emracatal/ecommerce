@@ -47,7 +47,7 @@ export default function Contact() {
 
       {/* GET IN TOUCH body */}
       <div className="">
-        <div className="container max-w-[1050px] mx-auto min-h-[716px]  ">
+        <div className="container max-w-[1050px] mx-auto min-h-[742px]  ">
           <div className="-item-fade relative items-center  ">
             <div className="container text-black flex flex-col justify-center gap-4 pt-[15%] max-w-[600px] ">
               <h5 className="font-bold">CONTACT US</h5>
@@ -72,9 +72,9 @@ export default function Contact() {
         </div>
       </div>
 
-      {/* VISIT OUR OFFICE */}
+      {/* We help small businesses... */}
       <div className="">
-        <div className="container max-w-[1050px] mx-auto min-h-[617px] flex flex-col gap-14">
+        <div className="container max-w-[1050px] mx-auto min-h-[550px] flex flex-col gap-14">
           <div className="text-area text-center">
             <h6 className="font-bold">VISIT OUR OFFICE</h6>
             <h2 className="font-bold">
