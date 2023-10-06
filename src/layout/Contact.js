@@ -12,7 +12,7 @@ export default function Contact() {
           <div className="navbar-light-left text-darkblue font-bold flex gap-2">
             <h3>Bandage</h3>
           </div>
-          <nav className="navbar-light-middle text-darkblue items-center gap-2 ">
+          <nav className="navbar-light-middle text-darkblue items-center gap-2 mobile:hidden">
             <ul className="flex gap-2">
               <li>
                 <Link to="/">Home</Link>
@@ -57,7 +57,7 @@ export default function Contact() {
               </h4>
               <h3 className="font-bold">Phone : +451 215 215</h3>
               <h3 className="font-bold">Fax : +451 215 215</h3>
-              <div className="navbar-dark-right flex gap-8 text-3xl">
+              <div className="flex gap-8 text-3xl">
                 <i className="fa-brands fa-twitter"></i>
                 <i className="fa-brands fa-facebook"></i>
                 <i className="fa-brands fa-instagram"></i>

@@ -76,7 +76,7 @@ YEDEKTE DURMASINI İSTEDİĞİM KODLAR
           <div className="navbar-light-left text-darkblue font-bold flex gap-2">
             <h3>Bandage</h3>
           </div>
-          <nav className="navbar-light-middle text-darkblue items-center gap-2 ">
+          <nav className="navbar-light-middle text-darkblue items-center gap-2  ">
             <ul className="flex gap-2">
               <li>
                 <Link to="/">Home</Link>

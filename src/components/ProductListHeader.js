@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function ProductListHeader() {
   return (
     <>
-      <div className="navbar-dark bg-secondarycolor1 text-white flex justify-center px-10">
+      <div className="navbar-dark bg-secondarycolor1 text-white flex justify-center px-10 mobile:hidden">
         <div className="container  flex flex-grow justify-between items-center min-h-[58px] max-w-[1050px] mx-auto">
           <div className="navbar-dark-left flex gap-2">
             <div className="navbar-dark-phone flex gap-1">
@@ -34,7 +34,7 @@ export default function ProductListHeader() {
           <div className="navbar-light-left text-darkblue font-bold flex gap-2">
             <h3>Bandage</h3>
           </div>
-          <nav className="navbar-light-middle text-darkblue items-center gap-2 ">
+          <nav className="navbar-light-middle text-darkblue items-center gap-2 mobile:hidden">
             <ul className="flex gap-2">
               <li>
                 <Link to="/">Home</Link>

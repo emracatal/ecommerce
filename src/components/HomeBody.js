@@ -129,12 +129,14 @@ export default function HomeBody() {
 
       {/* kırmızılı resim*/}
       <div className="min-h-[682px] flex ">
-        <div className="container flex flex-row justify-center gap-7 px-10 max-w-[1440px] mx-auto ">
-          <img
-            src={containerfluid}
-            alt="containerfluid"
-            className="max-w-[704px] min-h-[682px] object-cover"
-          ></img>
+        <div className="container flex flex-row justify-center gap-7 px-10 max-w-[1440px] mx-auto">
+          <div>
+            <img
+              src={containerfluid}
+              alt="containerfluid"
+              className="max-w-[704px] min-h-[682px] object-cover"
+            ></img>
+          </div>
           <div className="container flex flex-col justify-center gap-7 max-w-[573px] min-h-[326px]">
             <h5 className="font-bold">SUMMER 2020</h5>
             <h1 className="font-bold">Part of the Neural Universe</h1>
@@ -166,10 +168,10 @@ export default function HomeBody() {
         </div>
         <div className="blog-container flex items-center justify-center max-w-[1440px] mx-auto">
           <div className="flex flex-row flex-wrap max-w-[1440px] gap-2 justify-center items-center">
-          {blogs.map((blog) => (
-            <Blogcard key={blog.id} blog={blog} />
-          ))}
-        </div>
+            {blogs.map((blog) => (
+              <Blogcard key={blog.id} blog={blog} />
+            ))}
+          </div>
         </div>
       </div>
     </>

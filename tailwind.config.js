@@ -35,6 +35,19 @@ module.exports = {
         'singleproduct1': "url('./assets/singleproduct1.jpg')",
 
       },
+      screens: {
+        // xl: { max: "1279px" },
+        // // => @media (max-width: 1279px) { ... }
+  
+        // lg: { max: "1023px" },
+        // // => @media (max-width: 1023px) { ... }
+  
+        // md: { max: "767px" },
+        // // => @media (max-width: 767px) { ... }
+  
+        mobile: { max: "639px" },
+        // => @media (max-width: 639px) { ... }
+      },
 
     },
   },

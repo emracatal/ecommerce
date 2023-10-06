@@ -20,7 +20,7 @@ export default function About() {
           <div className="navbar-light-left text-darkblue font-bold flex gap-2">
             <h3>Bandage</h3>
           </div>
-          <nav className="navbar-light-middle text-darkblue items-center gap-2 ">
+          <nav className="navbar-light-middle text-darkblue items-center gap-2 mobile:hidden ">
             <ul className="flex gap-2">
               <li>
                 <Link to="/">Home</Link>
@@ -55,9 +55,9 @@ export default function About() {
 
       {/* ABOUT US body */}
       <div className="  max-w-[1050px] mx-auto min-h-[545px]">
-        <div className="container   ">
-          <div className="-item-fade relative items-center  ">
-            <div className="container text-black flex flex-col justify-center gap-4 pt-[15%] max-w-[600px] ">
+        <div className="container ">
+          <div className="relative items-center mobile:flex mobile:flex-wrap">
+            <div className="container text-black flex flex-col justify-center gap-4 pt-[15%] max-w-[600px] mobile:text-center">
               <h5 className="font-bold">ABOUT COMPANY</h5>
               <h1 className="font-bold">ABOUT US</h1>
               <h4 className="">
@@ -69,17 +69,19 @@ export default function About() {
                 </button>
               </div>
             </div>
+            <div className="">
             <img
               className="absolute w-[100%] top-0 left-0 -z-10"
               src={about1}
             ></img>
+            </div>
           </div>
         </div>
       </div>
 
       {/* problems trying yazan alan */}
       <div className="flex justify-center ">
-        <div className="container  flex flex-row justify-between items-center max-w-[1050px] min-h-[188px] px-6 gap-10">
+        <div className="container  flex flex-row justify-between items-center max-w-[1050px] min-h-[188px] px-6 gap-10 mobile:flex mobile:flex-wrap mobile:justify-center mobile:py-10">
           <div className="flex flex-col gap-6 w-[40%]">
             <h6 className="text-danger">Problems trying</h6>
             <h3 className="font-bold">
@@ -96,7 +98,7 @@ export default function About() {
 
       {/* 15K yazan alan */}
       <div className="flex justify-center ">
-        <div className="container  flex flex-row justify-between items-center max-w-[1050px] min-h-[264px] gap-7">
+        <div className="container  flex flex-row justify-between items-center max-w-[1050px] min-h-[264px] gap-7 mobile:flex mobile:flex-col mobile:py-10">
           <div className="max-w-[240px]">
             <h1 className="font-bold">15K</h1>
             <h5 className="text-lightgray">Happy Customers</h5>
@@ -119,7 +121,7 @@ export default function About() {
       {/* video area */}
       <div className="">
         <div className="container max-w-[1050px] flex justify-center items-center min-h-[764px] mx-auto">
-          <iframe className="rounded-2xl flex items-center justify-center w-[989px] h-[540px]" src="https://www.youtube.com/embed/2nEzfa43VF8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe className="rounded-2xl flex items-center justify-center w-[989px] h-[540px] mobile:w-[307px] mobile:h-[316px] mobile:px-8 mobile:py-10" src="https://www.youtube.com/embed/2nEzfa43VF8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
 
