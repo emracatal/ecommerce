@@ -5,7 +5,7 @@ export default function Footer() {
     <>
       <div className="footer flex flex-col  ">
         <div className="flex justify-center items-center py-10">
-          <div className="container flex justify-between items-center max-w-[1050px] pr-5">
+          <div className="container flex justify-between items-center max-w-[1050px] pr-5 mobile:flex mobile:flex-col mobile:items-start mobile:px-10">
             <div className="text-darkblue font-bold flex gap-2 ">
               <h3>Bandage</h3>
             </div>
@@ -18,7 +18,7 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-wrap justify-center items-center  ">
-          <div className="container justify-between flex flex-wrap max-w-[1050px] py-12">
+          <div className="container justify-between flex flex-wrap max-w-[1050px] py-12 mobile:flex mobile:flex-col mobile:items-start mobile:px-10 mobile:gap-7">
             <ul>
               <h5 className="font-bold pb-5">Company Info</h5>
               <li className="text-sm text-lightgray font-bold pb-2">
@@ -83,7 +83,7 @@ export default function Footer() {
         </div>
 
         <div className="flex justify-center items-center py-6 bg-verylightgray3 " >
-          <p className="container text-lightgray bg-verylightgray3 max-w-[1050px]  ">
+          <p className="container text-lightgray bg-verylightgray3 max-w-[1050px] mobile:flex mobile:flex-col mobile:items-start mobile:px-10 ">
             Made With Love By Finland All Right Reserved
           </p>
         </div>

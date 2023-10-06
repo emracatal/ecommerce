@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import about1 from "../assets/about1.png";
+import about2 from "../assets/about2.png";
 import TeamMemberCard from "../components/TeamMemberCard";
 import ClientsBGWhite from "../components/ClientsBGWhite";
 import testimonials from "../assets/testimonials.png";
@@ -57,7 +58,7 @@ export default function About() {
       <div className="  max-w-[1050px] mx-auto min-h-[545px]">
         <div className="container ">
           <div className="relative items-center mobile:flex mobile:flex-wrap">
-            <div className="container text-black flex flex-col justify-center gap-4 pt-[15%] max-w-[600px] mobile:text-center">
+            <div className="container text-black flex flex-col justify-center gap-4 pt-[15%] max-w-[600px] mobile:text-center mobile:px-10">
               <h5 className="font-bold">ABOUT COMPANY</h5>
               <h1 className="font-bold">ABOUT US</h1>
               <h4 className="">
@@ -71,8 +72,14 @@ export default function About() {
             </div>
             <div className="">
             <img
-              className="absolute w-[100%] top-0 left-0 -z-10"
+              className="absolute w-[100%] top-0 left-0 -z-10 mobile:hidden"
               src={about1}
+            ></img>
+            </div>
+            <div className="hidden mobile:flex mobile:justify-center mobile:m-10">
+            <img
+              className=""
+              src={about2}
             ></img>
             </div>
           </div>
@@ -120,8 +127,8 @@ export default function About() {
 
       {/* video area */}
       <div className="">
-        <div className="container max-w-[1050px] flex justify-center items-center min-h-[764px] mx-auto">
-          <iframe className="rounded-2xl flex items-center justify-center w-[989px] h-[540px] mobile:w-[307px] mobile:h-[316px] mobile:px-8 mobile:py-10" src="https://www.youtube.com/embed/2nEzfa43VF8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div className="container max-w-[1050px] flex justify-center items-center mx-auto ">
+          <iframe className="rounded-2xl flex items-center justify-center w-[989px] h-[540px] mobile:w-[307px] mobile:h-[316px] mobile:m-14" src="https://www.youtube.com/embed/2nEzfa43VF8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
 
@@ -130,7 +137,7 @@ export default function About() {
         <div className="container flex flex-col max-w-[1050px] min-h-[595px] py-20 gap-20">
           <div className="flex flex-col items-center gap-2">
             <h2 className="font-bold">Meet Our Team</h2>
-            <h6 className="text-lightgray">
+            <h6 className="text-lightgray mobile:m-7 mobile:text-center">
               Problems trying to resolve the conflict between the two major
               realms of Classical physics: Newtonian mechanics
             </h6>
@@ -150,7 +157,7 @@ export default function About() {
         <div className="container flex flex-col max-w-[1050px] min-h-[319px] py-10 gap-6">
           <div className="flex flex-col items-center gap-7">
             <h2 className="font-bold">Big Companies Are Here</h2>
-            <h6 className="text-lightgray">
+            <h6 className="text-lightgray mobile:text-center">
               Problems trying to resolve the conflict between the two major
               realms of Classical physics: Newtonian mechanics
             </h6>
@@ -161,8 +168,8 @@ export default function About() {
 
       {/*testimonials */}
       <div className="bg-hovercolor">
-        <div className="max-w-[1050px] min-h-[636px] flex mx-auto">
-          <div className="container text-white flex flex-col justify-center gap-4 pt-[15%] max-w-[600px] ">
+        <div className="max-w-[1050px] min-h-[636px] flex mx-auto mobile:text-center mobile:min-h-[388px] ">
+          <div className="container text-white flex flex-col justify-center gap-4 pt-[15%] max-w-[600px] mobile:p-0 mobile:m-12 mobile:gap-6 ">
             <h5 className="font-bold">WORK WITH US</h5>
             <h2 className="font-bold">Now Let’s grow Yours</h2>
             <h6 className="">
@@ -175,7 +182,7 @@ export default function About() {
               </button>
             </div>
           </div>
-          <img src={testimonials}></img>
+          <img src={testimonials} className="mobile:hidden"></img>
         </div>
       </div>
 
