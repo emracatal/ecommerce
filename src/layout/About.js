@@ -156,7 +156,7 @@ export default function About() {
       <div className="flex justify-center w-full">
         <div className="container flex flex-col max-w-[1050px] min-h-[319px] py-10 gap-6">
           <div className="flex flex-col items-center gap-7">
-            <h2 className="font-bold">Big Companies Are Here</h2>
+            <h2 className="font-bold mobile:text-center">Big Companies Are Here</h2>
             <h6 className="text-lightgray mobile:text-center">
               Problems trying to resolve the conflict between the two major
               realms of Classical physics: Newtonian mechanics

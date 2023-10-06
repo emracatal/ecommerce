@@ -50,7 +50,7 @@ export default function Pricing() {
       <div className="">
         <div className="container max-w-[1050px] mx-auto min-h-[188px] flex flex-col justify-center items-center gap-14 py-12">
           <h5 className="font-bold text-lightgray">PRICING</h5>
-          <h1 className="font-bold">Simple Pricing</h1>
+          <h1 className="font-bold text-center">Simple Pricing</h1>
           <div className="flex items-center gap-3 ">
             <h6 className="font-bold">Home</h6>
             <i class="fa-solid fa-chevron-right gap-3"></i>
@@ -61,8 +61,8 @@ export default function Pricing() {
 
       {/*PRICING */}
       <div className="bg-verylightgray3">
-        <div className="container max-w-[1050px] mx-auto min-h-[800PX] flex flex-col justify-center items-center gap-14 ">
-          <h2 className="font-bold">Pricing</h2>
+        <div className="container max-w-[1050px] mx-auto min-h-[800PX] flex flex-col justify-center items-center gap-14 py-14 mobile:px-5">
+          <h2 className="font-bold items-center">Pricing</h2>
           <h6 className="">
             Problems trying to resolve the conflict between the two major realms
             of Classical physics: Newtonian mechanics
@@ -75,8 +75,8 @@ export default function Pricing() {
               Save 25%
             </button>
           </div>
-          <div className="image-area flex flex-row items-end">
-            <div className="image-area-free flex flex-col items-center justify-center gap-4 py-10 rounded-md border border-turku w-[33%]">
+          <div className="image-area flex flex-row items-end mobile:flex mobile:flex-col">
+            <div className="image-area-free flex flex-col items-center justify-center gap-4 py-10 rounded-md border border-turku w-[33%] mobile:w-[100%]">
               <h3 className="font-bold">FREE</h3>
               <h5 className="font-bold text-lightgray text-center">
                 Organize across all apps by hand
@@ -113,7 +113,7 @@ export default function Pricing() {
                 Try for free
               </button>
             </div>
-            <div className="image-area-standard flex flex-col items-center justify-center gap-4 py-10 w-[33%] rounded-md border border-turku bg-darkblue min-h-[550px]">
+            <div className="image-area-standard flex flex-col items-center justify-center gap-4 py-10 w-[33%] mobile:w-[100%] rounded-md border border-turku bg-darkblue min-h-[550px]">
               <h3 className="font-bold text-white">STANDARD</h3>
               <h5 className="font-bold text-white text-center">
                 Organize across all apps by hand
@@ -149,7 +149,7 @@ export default function Pricing() {
                 Try for free
               </button>
             </div>
-            <div className="image-area-premium flex flex-col items-center justify-center gap-4 py-10 rounded-md border border-turku w-[33%]">
+            <div className="image-area-premium flex flex-col items-center justify-center gap-4 py-10 rounded-md border border-turku w-[33%] mobile:w-[100%]">
               <h3 className="font-bold">PREMIUM</h3>
               <h5 className="font-bold text-lightgray text-center">
                 Organize across all apps by hand
