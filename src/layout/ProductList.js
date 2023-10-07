@@ -37,7 +37,7 @@ export default function ProductList() {
       <ProductListHeader />
       {/* productlist shop başlıklı alan */}
       <div className="flex justify-center bg-verylightgray3 ">
-        <div className="container  flex justify-between items-center max-w-[1050px] min-h-[92px] pr-10">
+        <div className="container  flex justify-between items-center max-w-[1050px] min-h-[92px] pr-10 mobile:flex mobile:flex-col mobile:py-6 mobile:gap-7 ">
           <div className="text-darkblue font-bold flex gap-2 ">
             <h3>Shop</h3>
           </div>
@@ -50,7 +50,7 @@ export default function ProductList() {
       </div>
 
       {/* productlist cloth yazılı 5 fotolu alan */}
-      <div className="shopcard-container flex flex-row flex-wrap gap-1 justify-center max-w-[1050px] pb-12 mx-auto">
+      <div className="shopcard-container flex flex-row flex-wrap gap-1 justify-center max-w-[1050px] pb-12 mx-auto mobile:flex mobile:flex-col mobile:items-center mobile:p-10 mobile:gap-4">
         {shops.map((shopcard) => (
           <Shopcard key={shopcard.id} shopcard={shopcard} />
         ))}
@@ -58,7 +58,7 @@ export default function ProductList() {
 
       {/* filterarea */}
       <div className="flex justify-center bg-verylightgray3">
-        <div className="container  flex flex-row justify-between items-center max-w-[1050px] min-h-[98px] px-3 ">
+        <div className="container  flex flex-row justify-between items-center max-w-[1050px] min-h-[98px] px-3 mobile:flex mobile:flex-col mobile:gap-6 mobile:p-10">
           <h6>Showing all 12 results</h6>
           <div className="flex flex-row gap-3 items-center justify-center">
             <h6>Views: </h6>
@@ -140,7 +140,7 @@ export default function ProductList() {
 
       {/* productcards */}
       <div className="bestseller pb-20 ">
-        <div className="container flex flex-col items-center justify-center max-w-[1050px] py-12 mx-auto">
+        <div className="container flex flex-col items-center justify-center max-w-[1050px] py-12 mx-auto mobile:flex mobile:flex-col mobile:items-center mobile:p-10 mobile:gap-4 ">
           <div className="bestseller-products-container flex flex-row flex-wrap gap-7 items-center justify-center max-w-[1050px] ">
             {products.map((product) => (
               <Productcard2 key={product.id} product={product} />
