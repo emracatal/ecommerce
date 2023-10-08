@@ -130,7 +130,7 @@ export default function Contact() {
             <h5 className="font-bold">WE Can't WAIT TO MEET YOU</h5>
             <h1 className="font-bold">Let's Talk</h1>
             <button className="text-white text-sm bg-turku p-3 rounded-md flex flex-row gap-2 items-center">
-              <h6>Try it free now</h6>
+              <h6><Link to="/ContactForm">Try it free now</Link></h6>
             </button>
           </div>
       </div>

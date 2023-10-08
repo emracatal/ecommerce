@@ -13,6 +13,7 @@ import Contact from "./layout/Contact";
 import Pricing from "./layout/Pricing";
 import Team from "./layout/Team";
 import ProductPage from "./components/ProductPage";
+import ContactForm from "./components/ContactForm";
 
 
 function App() {
@@ -45,6 +46,9 @@ function App() {
           </Route>
           <Route path="/Team" exact>
             <Team />
+          </Route>
+          <Route path="/ContactForm" exact>
+            <ContactForm />
           </Route>
         </Switch>
         {/* <ToastContainer /> */}
