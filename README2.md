@@ -52,6 +52,8 @@ module.exports = {
 - Activate React Router and Links
 - Use **Icon Library**
 
+REACT HOOK FORM:npm install react-hook-form
+
 
 YEDEKTE DURMASINI İSTEDİĞİM KODLAR
       {/* slider2 */}
