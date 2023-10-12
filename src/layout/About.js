@@ -44,12 +44,17 @@ export default function About() {
               </li>
             </ul>
           </nav>
-          <div className="navbar-light-right flex text-turku items-center gap-3 ">
-            <h6 className="">Login</h6>
-            <button className="text-white text-sm bg-turku p-3 rounded-md flex flex-row gap-2 items-center">
+          <div className="navbar-light-right flex text-turku items-center gap-3 mobile:px-10 ">
+            <h6 className="mobile:hidden">Login</h6>
+            <button className="text-white text-sm bg-turku p-3 rounded-md flex flex-row gap-2 items-center mobile:hidden">
               <h6>Become a member</h6>
               <i class="fa-solid fa-arrow-right"></i>
             </button>
+          </div>
+          <div className="navbar-light-right-mobile hidden mobile:flex mobile:text-darkblue mobile:items-center mobile:gap-3 mobile:px-10 ">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-cart-shopping"></i>
+            <i class="fa-solid fa-bars"></i>
           </div>
         </div>
       </div>
@@ -71,16 +76,13 @@ export default function About() {
               </div>
             </div>
             <div className="">
-            <img
-              className="absolute w-[100%] top-0 left-0 -z-10 mobile:hidden"
-              src={about1}
-            ></img>
+              <img
+                className="absolute w-[100%] top-0 left-0 -z-10 mobile:hidden"
+                src={about1}
+              ></img>
             </div>
             <div className="hidden mobile:flex mobile:justify-center mobile:m-10">
-            <img
-              className=""
-              src={about2}
-            ></img>
+              <img className="" src={about2}></img>
             </div>
           </div>
         </div>
@@ -128,7 +130,13 @@ export default function About() {
       {/* video area */}
       <div className="">
         <div className="container max-w-[1050px] flex justify-center items-center mx-auto ">
-          <iframe className="rounded-2xl flex items-center justify-center w-[989px] h-[540px] mobile:w-[307px] mobile:h-[316px] mobile:m-14" src="https://www.youtube.com/embed/2nEzfa43VF8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe
+            className="rounded-2xl flex items-center justify-center w-[989px] h-[540px] mobile:w-[307px] mobile:h-[316px] mobile:m-14"
+            src="https://www.youtube.com/embed/2nEzfa43VF8"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
 
@@ -156,7 +164,9 @@ export default function About() {
       <div className="flex justify-center w-full">
         <div className="container flex flex-col max-w-[1050px] min-h-[319px] py-10 gap-6">
           <div className="flex flex-col items-center gap-7">
-            <h2 className="font-bold mobile:text-center">Big Companies Are Here</h2>
+            <h2 className="font-bold mobile:text-center">
+              Big Companies Are Here
+            </h2>
             <h6 className="text-lightgray mobile:text-center">
               Problems trying to resolve the conflict between the two major
               realms of Classical physics: Newtonian mechanics
