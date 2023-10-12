@@ -29,12 +29,12 @@ export default function HomeHeader() {
         </div>
       </div>
 
-      <div className="navbar-light flex justify-center">
-        <div className="container flex flex-grow justify-between items-center min-h-[58px] max-w-[1440px] px-10">
-          <div className="navbar-light-left text-darkblue font-bold flex gap-2">
+      <div className="navbar-light flex justify-center mobile:px-10">
+        <div className="container flex flex-grow justify-between items-center min-h-[91px] max-w-[1050px] mx-auto">
+          <div className="navbar-light-left text-darkblue font-bold flex gap-2  ">
             <h3>Bandage</h3>
           </div>
-          <nav className="navbar-light-middle text-darkblue items-center gap-2 mobile:hidden">
+          <nav className="navbar-light-middle text-darkblue items-center gap-2 mobile:hidden ">
             <ul className="flex gap-2">
               <li>
                 <Link to="/">Home</Link>
@@ -57,7 +57,7 @@ export default function HomeHeader() {
               </li>
             </ul>
           </nav>
-          <div className="navbar-light-right flex text-turku items-center gap-3 ">
+          <div className="navbar-light-right flex text-turku items-center gap-3 mobile:hidden ">
             <i className="fa-regular fa-user"></i>
             <p className="">Login / Register</p>
             <i className="fa-solid fa-magnifying-glass"></i>
@@ -66,8 +66,31 @@ export default function HomeHeader() {
             <i className="fa-regular fa-heart"></i>
             <p>1</p>
           </div>
+          <div className="navbar-light-right-mobile hidden mobile:flex mobile:text-darkblue mobile:items-center mobile:gap-3 mobile:px-10 ">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-cart-shopping"></i>
+            <i class="fa-solid fa-bars"></i>
+          </div>
+
         </div>
       </div>
+
+      <nav className="navbar-mobile hidden mobile:flex mobile:text-darkblue mobile:text-3xl mobile:items-center mobile:justify-center mobile:py-16">
+        <ul className="flex flex-col items-center gap-5">
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/ProductList">Shop</Link>
+          </li>
+          <li>
+            <Link to="/Pricing">Pricing</Link>
+          </li>
+          <li>
+            <Link to="/Contact">Contact</Link>
+          </li>
+        </ul>
+      </nav>
     </>
   );
 }

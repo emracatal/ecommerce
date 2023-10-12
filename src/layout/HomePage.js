@@ -1,15 +1,18 @@
 import React from 'react'
-import HomeHeader from '../components/HomeHeader'
+import HomeHeader from '../components/HeaderHome'
 import HomeBody from '../components/HomeBody'
 import Footer from '../components/Footer'
+import HeaderInnerPages from '../components/HeaderInnerPages'
 
 export default function HomePage() {
   return (
-    <div>
+    <>
         <HomeHeader />
         <HomeBody />
+        
         <Footer />
-    </div>
+       
+    </>
 
   )
 }

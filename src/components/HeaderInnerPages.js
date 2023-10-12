@@ -1,11 +1,10 @@
-import React from 'react';
+import React from "react";
 import { Link } from "react-router-dom";
-
 
 export default function HeaderInnerPages() {
   return (
-<>
-<div className="navbar-light flex justify-center mobile:px-10">
+    <>
+      <div className="navbar-light flex justify-center mobile:px-10">
         <div className="container flex flex-grow justify-between items-center min-h-[91px] max-w-[1050px] mx-auto">
           <div className="navbar-light-left text-darkblue font-bold flex gap-2  ">
             <h3>Bandage</h3>
@@ -63,5 +62,6 @@ export default function HeaderInnerPages() {
           </li>
         </ul>
       </nav>
-</>  )
+    </>
+  );
 }
