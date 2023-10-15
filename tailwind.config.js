@@ -47,6 +47,9 @@ module.exports = {
   
         mobile: { max: "639px" },
         // => @media (max-width: 639px) { ... }
+
+        tablet: { max: "900px" },
+        // => @media (max-width: 900px) { ... }
       },
 
     },

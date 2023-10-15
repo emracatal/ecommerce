@@ -2,9 +2,8 @@ import React from "react";
 
 import Productcard from "./Productcard";
 import Carousel from "./Carousel";
+import Carousel2 from "./Carousel2";
 import containerfluid from "../assets/containerfluid.png";
-import herocover2 from "../assets/herocover2.jpg";
-import carousel2 from "../assets/carousel2.png";
 
 import Blogcard from "./Blogcard";
 
@@ -27,7 +26,9 @@ export default function HomeBody() {
   ];
   return (
     <>
+      {/* mavi foto slider */}
       <Carousel />
+
       {/* editorspick */}
       <div className="shop-cards">
         <div className="container flex flex-col gap-12 items-center max-w-[1440px] mx-auto py-20">
@@ -76,68 +77,19 @@ export default function HomeBody() {
       </div>
 
       {/* yeşil foto slider */}
-      <div className="slider relative">
-        <div className="container slider-elements  ">
-          <div className="slider-item-fade relative items-center min-h-[716px] ">
-            <img
-              className="absolute w-[100%] top-0 left-0 -z-10"
-              src={carousel2}
-            ></img>
-
-            <div className="container text-white flex flex-col justify-center gap-4 p-[10%] max-w-[1000px] ">
-              <h5 className="font-bold">SUMMER 2020</h5>
-              <h1 className="font-bold">Vita Classic Product</h1>
-              <h4 className="">
-                We know how large objects will act, but things on a small scale.
-              </h4>
-              <div>
-                <button className="rounded bg-green text-lg font-bold px-5 py-2 ">
-                  SHOP NOW
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="slider-item-fade relative items-center min-h-[716px] hidden">
-            <img
-              className="absolute w-[100%] top-0 left-0 -z-10"
-              src={herocover2}
-            ></img>
-
-            <div className="container text-white flex flex-col justify-center gap-4 p-[10%] max-w-[1000px] ">
-              <h5 className="font-bold">SUMMER 2020</h5>
-              <h1 className="font-bold">Vita Classic Product</h1>
-              <h4 className="">
-                We know how large objects will act, but things on a small scale.
-              </h4>
-              <div>
-                <button className="rounded bg-green text-lg font-bold px-5 py-2 ">
-                  SHOP NOW
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="slider-buttons absolute top-0 left-0 items-center flex justify-between w-[100%] h-[100%] text-white text-5xl px-10">
-            <i class="fa-solid fa-chevron-left "></i>
-            <i class="fa-solid fa-chevron-right "></i>
-          </div>
-          <div className="slider-line absolute w-[100%] flex justify-center text-5xl bottom-4">
-            <i class="fa-solid fa-minus text-black"></i>
-            <i class="fa-solid fa-minus text-black"></i>
-          </div>
-        </div>
-      </div>
+      <Carousel2 />
 
       {/* kırmızılı resim*/}
       <div className="min-h-[682px] flex ">
-        <div className="container flex flex-row justify-center gap-7 px-10 max-w-[1440px] mx-auto">
-          <div>
+        <div className="container flex flex-row justify-center gap-7 px-10 max-w-[1440px] mx-auto tablet:flex-col tablet:justify-center tablet:items-center tablet:py-32">
+          <div className="tablet:hidden">
             <img
               src={containerfluid}
               alt="containerfluid"
               className="max-w-[704px] min-h-[682px] object-cover"
             ></img>
           </div>
-          <div className="container flex flex-col justify-center gap-7 max-w-[573px] min-h-[326px]">
+          <div className="container flex flex-col justify-center gap-7 max-w-[573px] min-h-[326px] tablet:items-center tablet:text-center tablet:justify-center">
             <h5 className="font-bold">SUMMER 2020</h5>
             <h1 className="font-bold">Part of the Neural Universe</h1>
             <h4 className="">
@@ -148,6 +100,13 @@ export default function HomeBody() {
                 SHOP NOW
               </button>
             </div>
+          </div>
+          <div className="hidden tablet:flex w-full">
+            <img
+              src={containerfluid}
+              alt="containerfluid"
+              className="max-w-[704px] min-h-[682px] object-cover tablet:w-full"
+            ></img>
           </div>
         </div>
       </div>
