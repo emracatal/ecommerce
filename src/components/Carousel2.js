@@ -6,10 +6,7 @@ export default function Carousel2() {
     <>
       <div className="carousel w-full">
         <div id="slide1" className="carousel-item relative w-full">
-          <img
-            src={carousel2}
-            className="w-full"
-          />
+          <img src={carousel2} className="w-full" />
           <div className="absolute flex justify-between items-center transform -translate-y-1/2 left-5 right-5 top-1/2">
             <a href="#slide2" className="text-white text-4xl">
               ❮
@@ -18,14 +15,15 @@ export default function Carousel2() {
               <h5 className="font-bold">SUMMER 2020</h5>
               <h1 className="font-bold">Vita Classic Product</h1>
               <h4 className="">
-              We know how large objects will act, We know how are objects will act, We know
+                We know how large objects will act, We know how are objects will
+                act, We know
               </h4>
               <div>
                 <button className="rounded bg-green text-lg font-bold px-5 py-2 ">
                   SHOP NOW
                 </button>
               </div>
-              </div>
+            </div>
 
             <a href="#slide2" className="text-white text-4xl">
               ❯
@@ -33,10 +31,7 @@ export default function Carousel2() {
           </div>
         </div>
         <div id="slide2" className="carousel-item relative w-full ">
-          <img
-            src={herocover2}
-            className="w-full"
-          />
+          <img src={herocover2} className="w-full" />
           <div className="absolute flex justify-between items-center transform -translate-y-1/2 left-5 right-5 top-1/2">
             <a href="#slide1" className="text-white text-4xl">
               ❮
@@ -52,7 +47,7 @@ export default function Carousel2() {
                   SHOP NOW
                 </button>
               </div>
-              </div>
+            </div>
             <a href="#slide1" className="text-white text-4xl">
               ❯
             </a>
