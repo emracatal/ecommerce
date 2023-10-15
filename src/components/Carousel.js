@@ -1,18 +1,20 @@
 import React from "react";
 import herocover2 from "../assets/herocover2.jpg";
-
+import carousel2 from "../assets/carousel2.png";
 export default function Carousel() {
   return (
     <>
-      <div className="slider relative min-h-[716px]">
-        <div className="container slider-elements ">
-          <div className="slider-item-fade relative items-center  ">
-            <img
-              className="absolute w-[100%] top-0 left-0 -z-10"
-              src={herocover2}
-            ></img>
-
-            <div className="container text-white flex flex-col justify-center gap-4 p-[10%] max-w-[1000px] ">
+      <div className="carousel w-full">
+        <div id="slide1" className="carousel-item relative w-full">
+          <img
+            src={herocover2}
+            className="w-full"
+          />
+          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide2" className="text-white text-3xl">
+              ❮
+            </a>
+            <div className="container text-white flex flex-col justify-center gap-4 px-5 max-w-[1000px] ">
               <h5 className="font-bold">SUMMER 2020</h5>
               <h1 className="font-bold">NEW COLLECTION</h1>
               <h4 className="">
@@ -23,15 +25,23 @@ export default function Carousel() {
                   SHOP NOW
                 </button>
               </div>
-            </div>
-          </div>
-          <div className="slider-item-fade relative items-center min-h-[716px] hidden">
-            <img
-              className="absolute w-[100%] top-0 left-0 -z-10"
-              src={herocover2}
-            ></img>
+              </div>
 
-            <div className="container text-white flex flex-col justify-center gap-4 p-[10%] max-w-[1000px] ">
+            <a href="#slide2" className="text-white text-3xl">
+              ❯
+            </a>
+          </div>
+        </div>
+        <div id="slide2" className="carousel-item relative w-full">
+          <img
+            src={carousel2}
+            className="w-full"
+          />
+          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide1" className="text-white text-3xl">
+              ❮
+            </a>
+            <div className="container text-white flex flex-col justify-center gap-4 px-5 max-w-[1000px] ">
               <h5 className="font-bold">SUMMER 2020</h5>
               <h1 className="font-bold">NEW COLLECTION</h1>
               <h4 className="">
@@ -42,15 +52,10 @@ export default function Carousel() {
                   SHOP NOW
                 </button>
               </div>
-            </div>
-          </div>
-          <div className="slider-buttons absolute top-0 left-0 items-center flex justify-between w-[100%] h-[100%] text-white text-5xl px-10">
-            <i class="fa-solid fa-chevron-left "></i>
-            <i class="fa-solid fa-chevron-right "></i>
-          </div>
-          <div className="slider-line  absolute w-[100%] flex justify-center text-5xl bottom-4">
-            <i class="fa-solid fa-minus text-black"></i>
-            <i class="fa-solid fa-minus text-black"></i>
+              </div>
+            <a href="#slide1" className="text-white text-3xl">
+              ❯
+            </a>
           </div>
         </div>
       </div>

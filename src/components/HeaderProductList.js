@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function ProductListHeader() {
+export default function HeaderProductList() {
   return (
     <>
       <div className="navbar-dark bg-secondarycolor1 text-white flex justify-center px-10 mobile:hidden">
@@ -30,11 +30,11 @@ export default function ProductListHeader() {
       </div>
 
       <div className="navbar-light flex justify-center">
-        <div className="container flex flex-grow justify-between items-center min-h-[58px] max-w-[1050px] mx-auto">
-          <div className="navbar-light-left text-darkblue font-bold flex gap-2">
+        <div className="container flex flex-grow justify-between items-center min-h-[58px] max-w-[1050px] mx-auto mobile:px-10 mobile:flex mobile:flex-col">
+          <div className="navbar-light-left text-darkblue font-bold flex gap-2 ">
             <h3>Bandage</h3>
           </div>
-          <nav className="navbar-light-middle text-darkblue items-center gap-2 mobile:hidden">
+          <nav className="navbar-light-middle text-darkblue items-center gap-2 ">
             <ul className="flex gap-2">
               <li>
                 <Link to="/">Home</Link>

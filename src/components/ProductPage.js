@@ -1,5 +1,5 @@
 import React from "react";
-import ProductListHeader from "./ProductListHeader";
+import HeaderProductList from "./HeaderProductList";
 import SingleProduct from "./SingleProduct";
 import Productcard3 from "./Productcard3";
 import singleproduct3 from "../assets/singleproduct3.png";
@@ -20,7 +20,7 @@ export default function ProductPage() {
 
   return (
     <>
-      <ProductListHeader />
+      <HeaderProductList />
       <div className="flex justify-center  bg-verylightgray3">
         <div className="container flex justify-start items-center max-w-[1050px] mx-auto min-h-[92px]">
           <div className="flex items-center gap-3 ">
