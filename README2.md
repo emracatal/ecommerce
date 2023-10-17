@@ -112,3 +112,34 @@ YEDEKTE DURMASINI İSTEDİĞİM KODLAR
 
 
       ------------
+
+
+<label className="font-bold text-lg">Password</label>
+          <input className="form-input"
+            type="password"
+            placeholder="Password"
+            {...register("password", {
+              required: true,
+              pattern: {
+                value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/,
+                message:
+                  "Password needs to be min 8 character including numbers, lower case, upper case and special chars",
+              },
+            })}
+          />
+          <p className=" text-red-500">{errors.password?.message}</p>
+
+          <label className="font-bold text-lg">Confirm Password</label>
+          <input className="form-input"
+            type="password"
+            placeholder="Confirm Password"
+            {...register("confirmPassword", {
+              required: true,
+              pattern: {
+                value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/,
+                message:
+                  "Password needs to be matched to second pass input field",
+              },
+            })}
+          />
+          <p className=" text-red-500">{errors.confirmPassword?.message}</p>
