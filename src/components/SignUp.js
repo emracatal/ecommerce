@@ -1,27 +1,34 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import HeaderHome from "./HeaderHome";
 import { useHistory } from "react-router-dom";
+import axiosInstance from "../api/api";
 
-
-export default function SignUpForm() {
+export default function SignUp() {
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors, isDirty, isValid },
   } = useForm({ mode: "onTouched" });
+
   const onSubmit = (data) => {
+    console.log("data:",data);
+    const formData = {};
+        formData.name = data.name;
+        formData.email = data.email;
+        formData.password = data.password;
+        formData.role = selectedRole;
     axiosInstance
-    .post("/SignUpForm", data)
-    .then((response) => {
-      console.log(response.data);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-  }
+      .post("/signup", formData)
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   // handle password eye
   const [passwordEye, setPasswordEye] = useState(false);
@@ -40,15 +47,28 @@ export default function SignUpForm() {
   const password = watch("password");
 
   const history = useHistory();
+  const [roles, setRoles] = useState("customer");
 
-   
+  useEffect(() => {
+    axiosInstance
+      .get("/roles")
+      .then((response) => {
+        setRoles(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
+  const [selectedRole, setSelectedRole] = useState("");
+
   return (
     <>
       <HeaderHome />
       <div className="flex justify-center bg-verylightgray3 ">
         <div className="container  flex justify-between items-center max-w-[1050px] min-h-[92px] pr-10 mobile:flex mobile:flex-col mobile:py-6 mobile:gap-7 ">
           <div className="text-darkblue font-bold flex gap-2 ">
-            <h3>SignUpForm</h3>
+            <h3>SignUp</h3>
           </div>
         </div>
       </div>
@@ -97,8 +117,7 @@ export default function SignUpForm() {
             <input
               type={passwordEye === false ? "password" : "text"}
               className={`w-full h-12 rounded-lg border border-solid border-darkblue${
-                errors.password &&
-                " border-red-400"
+                errors.password && " border-red-400"
               } `}
               {...register("password", {
                 required: "Password is required",
@@ -131,7 +150,7 @@ export default function SignUpForm() {
           </div>
 
           {/* confirm password section */}
-          <label className=" text-base mt-5" >Confirm password:</label>
+          <label className=" text-base mt-5">Confirm password:</label>
           <div className=" relative">
             <input
               type={confirmPasswordEye === false ? "password" : "text"}
@@ -140,8 +159,7 @@ export default function SignUpForm() {
                 return false;
               }}
               className={`w-full h-12 rounded-lg border border-solid border-darkblue ${
-                errors.confirmPassword &&
-                " border-red-400"
+                errors.confirmPassword && " border-red-400"
               } `}
               {...register("confirmPassword", {
                 required: "confirm password is required",
@@ -167,17 +185,22 @@ export default function SignUpForm() {
 
           {/* role section */}
           <label className=" text-base mt-5">Role Selection:</label>
-          <select className="w-full h-12 rounded-lg border border-solid border-darkblue" {...register("role")}>
-            <option value="customer">customer</option>
-            <option value="admin">store</option>
-            <option value="store">admin</option>
+          <select
+            className="w-full h-12 rounded-lg border border-solid border-darkblue"
+            {...register("role")}
+          >
+            <option>{roles[2].code}</option>
+            <option>{roles[1].code} </option>
+            <option>{roles[0].code} </option>
           </select>
           <p className=" text-red-400">{errors.role?.message}</p>
           <button
-            className="w-full h-12 rounded-lg border bg-darkblue text-white mt-5"
+            onChange={(e) => setSelectedRole(e.target.value)}
+            className={`w-full h-12 rounded-lg border mt-5 ${
+              !isValid ? "bg-zinc-400 text-white" : "bg-darkblue text-white"
+            }`}
             disabled={!isValid}
             type="submit"
-           
           >
             Submit
           </button>

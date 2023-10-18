@@ -62,7 +62,9 @@ export default function HomeHeader() {
           </nav>
           <div className="navbar-light-right flex text-turku items-center gap-3 mobile:hidden ">
             <i className="fa-regular fa-user"></i>
-            <p className="">Login / Register</p>
+            <Link to="/SignUp">
+              <p className="">Login / Register </p>
+            </Link>
             <i className="fa-solid fa-magnifying-glass"></i>
             <i className="fa-solid fa-cart-shopping"></i>
             <p>1</p>

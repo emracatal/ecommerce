@@ -14,7 +14,7 @@ import Pricing from "./layout/Pricing";
 import Team from "./layout/Team";
 import ProductPage from "./components/ProductPage";
 import ContactForm from "./components/ContactForm";
-import SignUpForm from "./components/SignUpForm";
+import SignUp from "./components/SignUp";
 
 function App() {
   //const notify = () => toast("toastified!");
@@ -50,8 +50,8 @@ function App() {
         <Route path="/ContactForm" exact>
           <ContactForm />
         </Route>
-        <Route path="/SignUpForm" exact>
-          <SignUpForm />
+        <Route path="/SignUp" exact>
+          <SignUp />
         </Route>
       </Switch>
       {/* <ToastContainer /> */}

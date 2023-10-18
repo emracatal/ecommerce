@@ -17,7 +17,7 @@ export default function Contact() {
           <div className="-item-fade relative items-center  ">
             <div className="container text-black flex flex-col justify-center gap-4 pt-[15%] max-w-[600px] mobile:flex mobile:items-center mobile:justify-center mobile:text-center mobile:p-10">
               <h5 className="font-bold ">CONTACT US</h5>
-              <h1 className="font-bold"><Link to="/SignUpForm">Get in touch today!</Link></h1>
+              <h1 className="font-bold"><Link to="/SignUp">Get in touch today!</Link></h1>
               <h4 className="">
                 We know how large objects will act, but things on a small scale
               </h4>
