@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import contact1 from "../assets/contact1.png";
 import contact2 from "../assets/contact2.png";
 import Footer from "../components/Footer";
-import HeaderInnerPages from "../components/HeaderInnerPages";
+import HeaderHome from "../components/HeaderHome";
 
 export default function Contact() {
   return (
     <>
       {/* header light */}
-      <HeaderInnerPages />
+      <HeaderHome />
 
       {/* GET IN TOUCH body */}
       <div className="">

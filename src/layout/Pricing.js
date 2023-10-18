@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import formcheckinput from "../assets/formcheckinput.svg";
 import Clients from "../components/Clients";
 import Footer from "../components/Footer";
-import HeaderInnerPages from "../components/HeaderInnerPages";
+import HeaderHome from "../components/HeaderHome";
 
 export default function Pricing() {
   return (
     <>
       {/* header light */}
-      <HeaderInnerPages />
+      <HeaderHome />
 
       {/*SIMPLE PRICING */}
       <div className="">

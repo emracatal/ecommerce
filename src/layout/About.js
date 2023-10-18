@@ -6,7 +6,7 @@ import TeamMemberCard from "../components/TeamMemberCard";
 import ClientsBGWhite from "../components/ClientsBGWhite";
 import testimonials from "../assets/testimonials.png";
 import Footer from "../components/Footer";
-import HeaderInnerPages from "../components/HeaderInnerPages";
+import HeaderHome from "../components/HeaderHome";
 
 export default function About() {
   const members = [
@@ -17,7 +17,7 @@ export default function About() {
   return (
     <>
       {/* header light */}
-      <HeaderInnerPages />
+      <HeaderHome />
 
       {/* ABOUT US body */}
       <div className="  max-w-[1050px] mx-auto min-h-[545px]">

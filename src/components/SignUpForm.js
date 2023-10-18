@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
-import HeaderInnerPages from "./HeaderInnerPages";
+import HeaderHome from "./HeaderHome";
 import { useHistory } from "react-router-dom";
 
 
@@ -44,7 +44,7 @@ export default function SignUpForm() {
    
   return (
     <>
-      <HeaderInnerPages />
+      <HeaderHome />
       <div className="flex justify-center bg-verylightgray3 ">
         <div className="container  flex justify-between items-center max-w-[1050px] min-h-[92px] pr-10 mobile:flex mobile:flex-col mobile:py-6 mobile:gap-7 ">
           <div className="text-darkblue font-bold flex gap-2 ">

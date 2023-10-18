@@ -40,9 +40,12 @@ export default function HomeHeader() {
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/ProductList">Shop</Link>
+                <Link to="/ProductList">
+                  Shop
+                  <i className="fa-solid fa-chevron-down fa-sm self-center"></i>
+                </Link>
               </li>
-              <i className="fa-solid fa-chevron-down fa-sm self-center"></i>
+
               <li>
                 <Link to="/About">About</Link>
               </li>
@@ -71,7 +74,6 @@ export default function HomeHeader() {
             <i class="fa-solid fa-cart-shopping"></i>
             <i class="fa-solid fa-bars"></i>
           </div>
-
         </div>
       </div>
 
@@ -84,10 +86,16 @@ export default function HomeHeader() {
             <Link to="/ProductList">Shop</Link>
           </li>
           <li>
-            <Link to="/Pricing">Pricing</Link>
+            <Link to="/About">About</Link>
           </li>
           <li>
             <Link to="/Contact">Contact</Link>
+          </li>
+          <li>
+            <Link to="/Pricing">Pricing</Link>
+          </li>
+          <li>
+            <Link to="/Team">Team</Link>
           </li>
         </ul>
       </nav>
