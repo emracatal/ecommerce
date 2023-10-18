@@ -4,8 +4,8 @@ export default function Pagination() {
   return (
     <div class="flex flex-col items-center justify-center min-h-[74px] bg-white">
 
-      <div class="flex items-center justify-between bg-white px-4 py-3 sm:px-6">
-        <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
+      <div class="flex items-center justify-between bg-white px-4 py-3 ">
+        <div class="">
           <div>
             <nav
               class="isolate inline-flex -space-x-px rounded-md shadow-sm"

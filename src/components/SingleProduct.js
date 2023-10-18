@@ -1,21 +1,14 @@
 import React from 'react'
 import singleproduct1 from "../assets/singleproduct1.jpg";
 import singleproduct2 from "../assets/singleproduct2.jpg";
+import Carousel3 from './Carousel3';
 
 export default function SingleProduct() {
   return (
 <>
 <div className="single-product bg-verylightgray3">
-        <div className="container mx-auto max-w-[1050px] min-h-[598px] flex flex-row item-center justify-center gap-7 ">
-          <div className="left flex flex-col gap-5 max-w-[510px] min-h[450px]">
-            <div className="slider-area flex gap-5">
-              <img src={singleproduct1} className="object-cover"/>
-            </div>
-            <div className="below-slider flex flex-row max-w-[100px] min-h-[75px] gap-5">
-              <img src={singleproduct1} className="object-cover"/>
-              <img src={singleproduct2} className="object-cover"/>
-            </div>
-          </div>
+        <div className="container mx-auto max-w-[1050px] min-h-[598px] flex flex-row item-center justify-center gap-7 mobile:flex-col mobile:px-10">
+            <Carousel3 />
           <div className="right flex max-w-[510px] min-h[450px]">
             <div className="cardbody flex flex-col items-start gap-5">
               <h4 className="font-bold">Floating Phone</h4>

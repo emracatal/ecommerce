@@ -92,23 +92,23 @@ export default function Pricing() {
               </div>
               <div className="flex flex-row">
                 <i class="fa-regular fa-circle-check text-green"></i>
-                <h6 className="font-bold">Unlimited product updates</h6>
+                <h6 className="font-bold text-white">Unlimited product updates</h6>
               </div>
               <div className="flex flex-row">
                 <i class="fa-regular fa-circle-check text-green"></i>
-                <h6 className="font-bold">Unlimited product updates</h6>
+                <h6 className="font-bold text-white">Unlimited product updates</h6>
               </div>
               <div className="flex flex-row">
                 <i class="fa-regular fa-circle-check text-green"></i>
-                <h6 className="font-bold">Unlimited product updates</h6>
+                <h6 className="font-bold text-white">Unlimited product updates</h6>
               </div>
               <div className="flex flex-row">
                 <i class="fa-regular fa-circle-check text-lightgray"></i>
-                <h6 className="font-bold">Unlimited product updates</h6>
+                <h6 className="font-bold text-white">Unlimited product updates</h6>
               </div>
               <div className="flex flex-row">
                 <i class="fa-regular fa-circle-check text-lightgray"></i>
-                <h6 className="font-bold">Unlimited product updates</h6>
+                <h6 className="font-bold text-white">Unlimited product updates</h6>
               </div>
               <button className="text-white bg-turku text-sm rounded-md py-4 px-9">
                 Try for free
@@ -158,8 +158,8 @@ export default function Pricing() {
       {/*Start your 14 days free trial */}
       <div className="">
         <div className="container max-w-[1050px] mx-auto min-h-[188px] flex flex-col justify-center items-center gap-7 py-10 mobile:p-14">
-          <h2 className="font-bold">Start your 14 days free trial</h2>
-          <h6 className="">
+          <h2 className="font-bold text-center">Start your 14 days free trial</h2>
+          <h6 className=" text-center">
             Met minim Mollie non desert Alamo est sit cliquey dolor do met sent.
             RELIT official consequent.
           </h6>

@@ -4,11 +4,11 @@ import carousel2 from "../assets/carousel2.png";
 export default function Carousel() {
   return (
     <>
-      <div className="carousel w-full">
+      <div className="carousel w-full mobile:h-[750px]">
         <div id="slide1" className="carousel-item relative w-full">
           <img
             src={herocover2}
-            className="w-full"
+            className="w-full mobile:object-cover"
           />
           <div className="absolute flex justify-between items-center transform -translate-y-1/2 left-5 right-5 top-1/2">
             <a href="#slide2" className="text-white text-4xl">
@@ -35,7 +35,7 @@ export default function Carousel() {
         <div id="slide2" className="carousel-item relative w-full">
           <img
             src={carousel2}
-            className="w-full"
+            className="w-full mobile:object-cover"
           />
           <div className="absolute flex justify-between items-center transform -translate-y-1/2 left-5 right-5 top-1/2">
             <a href="#slide1" className="text-white text-4xl">

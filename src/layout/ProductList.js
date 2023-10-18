@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import HeaderProductList from "../components/HeaderProductList";
+import HeaderHome from "../components/HeaderHome";
 import Shopcard from "../components/Shopcard";
 import Productcard2 from "../components/Productcard2";
 import Pagination from "../components/Pagination";
@@ -34,7 +34,7 @@ export default function ProductList() {
 
   return (
     <>
-      <HeaderProductList />
+      <HeaderHome />
       {/* productlist shop başlıklı alan */}
       <div className="flex justify-center bg-verylightgray3 ">
         <div className="container  flex justify-between items-center max-w-[1050px] min-h-[92px] pr-10 mobile:flex mobile:flex-col mobile:py-6 mobile:gap-7 ">

@@ -1,5 +1,5 @@
 import React from "react";
-import HeaderProductList from "./HeaderProductList";
+import HeaderHome from "./HeaderHome";
 import SingleProduct from "./SingleProduct";
 import Productcard3 from "./Productcard3";
 import singleproduct3 from "../assets/singleproduct3.png";
@@ -20,9 +20,9 @@ export default function ProductPage() {
 
   return (
     <>
-      <HeaderProductList />
+      <HeaderHome />
       <div className="flex justify-center  bg-verylightgray3">
-        <div className="container flex justify-start items-center max-w-[1050px] mx-auto min-h-[92px]">
+        <div className="container flex justify-start items-center max-w-[1050px] mx-auto min-h-[92px] mobile:flex mobile:justify-center mobile:items-center">
           <div className="flex items-center gap-3 ">
             <h6 className="font-bold">Home</h6>
             <i class="fa-solid fa-chevron-right gap-3"></i>
@@ -35,7 +35,7 @@ export default function ProductPage() {
       <SingleProduct />
       {/* singleproduct product description*/}
       <div className="flex ">
-        <div className="container max-w-[1050px] mx-auto min-h-[72px] flex flex-row items-center justify-center gap-10">
+        <div className="container max-w-[1050px] mx-auto min-h-[72px] flex flex-row items-center justify-center gap-10 mobile:px-10 ">
           <p className="font-bold text-lightgray">Description</p>
           <p className="font-bold text-lightgray">Additional Information</p>
           <div className="flex flex-row gap-1">
@@ -46,9 +46,9 @@ export default function ProductPage() {
       </div>
 
       <div className="flex ">
-        <div className="container max-w-[1050px] min-h-[500px] mx-auto flex flex-row justify-center gap-7">
+        <div className="container max-w-[1050px] min-h-[500px] mx-auto flex flex-row justify-center gap-7 mobile:flex-col mobile:items-center mobile:px-10 mobile:w-[80%]">
           <div className="min-w-[30%]">
-            <img src={singleproduct3} className="" />
+            <img src={singleproduct3} className="object-cover" />
           </div>
           <div className="flex flex-col gap-7 min-w-[30%] ">
             <h3 className="font-bold">the quick fox jumps over</h3>
@@ -101,10 +101,8 @@ export default function ProductPage() {
       {/* bestseller */}
       <div className="flex  bg-verylightgray3">
         <div className="flex mx-auto max-w-[1050px] flex-col gap-6 py-12 ">
-          <div className="flex justify-start items-center">
-            <h3 className="font-bold">BESTSELLER PRODUCTS</h3>
-          </div>
-          <div className="bestseller-products-container flex flex-row flex-wrap gap-5 items-center justify-start">
+          <h3 className="font-bold pl-3 mobile:text-center">BESTSELLER PRODUCTS</h3>
+          <div className="bestseller-products-container flex flex-row flex-wrap gap-5 items-center justify-center">
             {products.map((product) => (
               <Productcard3 key={product.id} product={product} />
             ))}

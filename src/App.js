@@ -19,18 +19,9 @@ import SignUpForm from "./components/SignUpForm";
 function App() {
   //const notify = () => toast("toastified!");
 
-  const axiosInstance = axios.create({
-    baseURL: "https://workinteck-fe-final.onrender.com",
-  });
 
-  axiosInstance
-    .post("/SignUpForm")
-    .then((response) => {
-      console.log(response.data);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+
+
 
   return (
     <div className="App font-montserrat .box-border">

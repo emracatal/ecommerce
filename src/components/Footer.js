@@ -5,7 +5,7 @@ export default function Footer() {
     <>
       <div className="footer flex flex-col  ">
         <div className="container flex justify-center items-center py-10">
-          <div className="container flex justify-between items-center max-w-[1050px] pr-5 mobile:flex mobile:flex-col mobile:items-start mobile:px-10">
+          <div className="container flex justify-between items-center max-w-[1050px] pr-5 mobile:flex mobile:flex-col mobile:items-start mobile:px-10 mobile:gap-3">
             <div className="text-darkblue font-bold flex gap-2 ">
               <h3>Bandage</h3>
             </div>

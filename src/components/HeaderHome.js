@@ -75,7 +75,7 @@ export default function HomeHeader() {
         </div>
       </div>
 
-      <nav className="navbar-mobile hidden mobile:flex mobile:text-darkblue mobile:text-3xl mobile:items-center mobile:justify-center mobile:py-16">
+      <nav className="navbar-mobile hidden mobile:flex mobile:text-darkblue mobile:text-2xl mobile:items-center mobile:justify-center mobile:py-16">
         <ul className="flex flex-col items-center gap-5">
           <li>
             <Link to="/">Home</Link>
