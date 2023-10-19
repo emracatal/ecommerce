@@ -13,23 +13,6 @@ export default function SignUp() {
     formState: { errors, isDirty, isValid },
   } = useForm({ mode: "onTouched" });
 
-  const onSubmit = (data) => {
-    console.log("data:",data);
-    const formData = {};
-        formData.name = data.name;
-        formData.email = data.email;
-        formData.password = data.password;
-        formData.role = selectedRole;
-    axiosInstance
-      .post("/signup", formData)
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
-
   // handle password eye
   const [passwordEye, setPasswordEye] = useState(false);
 
@@ -48,19 +31,41 @@ export default function SignUp() {
 
   const history = useHistory();
   const [roles, setRoles] = useState("customer");
+  const [selectedRole, setSelectedRole] = useState("");
 
   useEffect(() => {
     axiosInstance
       .get("/roles")
       .then((response) => {
         setRoles(response.data);
+        console.log("roles data:", roles);
       })
       .catch((error) => {
         console.error(error);
       });
   }, []);
 
-  const [selectedRole, setSelectedRole] = useState("");
+  const onSubmit = (data) => {
+    console.log("data:", data);
+    console.log( "formdata",[
+      data.name,
+      data.email,
+      data.password,
+      data.role_id,
+      data.storename,
+      data.storetaxID,
+      data.storeBankAccount,
+    ]);
+    axiosInstance
+      .post("/signup", [data])
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+  console.log("selected role:", selectedRole);
 
   return (
     <>
@@ -82,7 +87,7 @@ export default function SignUp() {
           <label className=" text-base mt-5 ">Name:</label>
           <div className="">
             <input
-              className="form-input w-full h-12 rounded-lg border border-solid border-darkblue"
+              className="w-full h-12 rounded-lg border border-solid border-darkblue"
               {...register("name", {
                 required: "Name is required",
                 minLength: {
@@ -98,10 +103,10 @@ export default function SignUp() {
           <label className=" text-base mt-5">Email:</label>
           <div className="">
             <input
-              className="form-input w-full h-12 rounded-lg border border-solid border-darkblue"
+              className="w-full h-12 rounded-lg border border-solid border-darkblue"
               type="email"
               {...register("email", {
-                required: true,
+                required: "Email is required",
                 pattern: {
                   value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                   message: "Invalid email address",
@@ -187,15 +192,81 @@ export default function SignUp() {
           <label className=" text-base mt-5">Role Selection:</label>
           <select
             className="w-full h-12 rounded-lg border border-solid border-darkblue"
-            {...register("role")}
+            {...register("role_id", {
+              onChange: (e) => {
+                if (e.target.value == roles[2].id) setSelectedRole("customer");
+                else if (e.target.value == roles[1].id)
+                  setSelectedRole("store");
+                else setSelectedRole("admin");
+              },
+            })}
           >
-            <option>{roles[2].code}</option>
-            <option>{roles[1].code} </option>
-            <option>{roles[0].code} </option>
+            <option value={roles[2].id}>{roles[2].code}</option>
+            <option value={roles[1].id}>{roles[1].code}</option>
+            <option value={roles[0].id}>{roles[0].code}</option>
           </select>
           <p className=" text-red-400">{errors.role?.message}</p>
+          {selectedRole == "store" && (
+            <div className="store-info flex flex-row justify-evenly mt-5">
+              {/* storename section */}
+              <div className="w-1/3">
+                <label className=" text-base mt-5 ">Store Name:</label>
+                <input
+                  className="h-8 rounded-lg border border-solid border-darkblue"
+                  {...register("storename", {
+                    required: "Store name is required",
+                    minLength: {
+                      value: 3,
+                      message: "Store Name should be at least 3 characters",
+                    },
+                  })}
+                />
+                <p className=" text-red-400 text-sm">
+                  {errors.storename?.message}
+                </p>
+              </div>
+
+              {/* storetaxID section */}
+              <div className="w-1/3">
+                <label className=" text-base mt-5 ">Store Tax ID:</label>
+                <input
+                  className=" h-8 rounded-lg border border-solid border-darkblue"
+                  {...register("storetaxID", {
+                    required: "Store TAX ID is required",
+                    pattern: {
+                      value: /^T\d{4}V\d{6}$/,
+                      message:
+                        "Store Tax ID should match the pattern TXXXXVXXXXXX",
+                    },
+                  })}
+                />
+                <p className=" text-red-400 text-sm">
+                  {errors.storetaxID?.message}
+                </p>
+              </div>
+              {/* storeBankAccount section */}
+              <div className="w-1/3">
+                <label className=" text-base mt-5 ">
+                  Store Bank Account-IBAN:
+                </label>
+                <input
+                  className=" h-8 rounded-lg border border-solid border-darkblue"
+                  {...register("storeBankAccount", {
+                    required: "IBAN is required",
+                    pattern: {
+                      value: /^[A-Z]{2}\d{2}[A-Z0-9]{1,30}$/,
+                      message: "Invalid IBAN format",
+                    },
+                  })}
+                />
+                <p className=" text-red-400 text-sm">
+                  {errors.storeBankAccount?.message}
+                </p>
+              </div>
+            </div>
+          )}
+
           <button
-            onChange={(e) => setSelectedRole(e.target.value)}
             className={`w-full h-12 rounded-lg border mt-5 ${
               !isValid ? "bg-zinc-400 text-white" : "bg-darkblue text-white"
             }`}
