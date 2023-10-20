@@ -5,7 +5,8 @@ import HeaderHome from "./HeaderHome";
 import { useHistory } from "react-router-dom";
 import axiosInstance from "../api/api";
 import ClipLoader from "react-spinners/ClipLoader";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function SignUp() {
   const {
@@ -76,13 +77,35 @@ export default function SignUp() {
     axiosInstance
       .post("/signup", formData)
       .then((response) => {
+        toast.success(
+          "🦄 You need to click link in email to activate your account!",
+          {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          }
+        );
         setLoading(false);
-        history.goBack(); // Redirect to the previous page
-        alert("“You need to click link in email to activate your account!”");
+        history.goBack();
       })
       .catch((error) => {
         setLoading(false);
         console.error("Error:", error);
+        toast.error(`${error}`, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       });
   };
   console.log("selected role:", selectedRole);
@@ -90,8 +113,9 @@ export default function SignUp() {
   return (
     <>
       <HeaderHome />
+      <ToastContainer />
       <div className="flex justify-center bg-verylightgray3 ">
-        <div className="container  flex justify-between items-center max-w-[1050px] min-h-[92px] pr-10 mobile:flex mobile:flex-col mobile:py-6 mobile:gap-7 ">
+        <div className="container flex justify-between items-center max-w-[1050px] min-h-[48px] mobile:flex mobile:flex-col mobile:py-6 mobile:gap-7 ">
           <div className="text-darkblue font-bold flex gap-2 ">
             <h3>SignUp</h3>
           </div>

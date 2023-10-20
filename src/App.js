@@ -1,8 +1,6 @@
 import React from "react";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
 import "./App.css";
-//import "react-toastify/dist/ReactToastify.css";
 import HomePage from "./layout/HomePage";
 import axios from "axios";
 import ProductList from "./layout/ProductList";
@@ -17,12 +15,6 @@ import ContactForm from "./components/ContactForm";
 import SignUp from "./components/SignUp";
 
 function App() {
-  //const notify = () => toast("toastified!");
-
-
-
-
-
   return (
     <div className="App font-montserrat .box-border">
       <Switch>
@@ -54,7 +46,6 @@ function App() {
           <SignUp />
         </Route>
       </Switch>
-      {/* <ToastContainer /> */}
     </div>
   );
 }
