@@ -4,6 +4,8 @@ import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import HeaderHome from "./HeaderHome";
 import { useHistory } from "react-router-dom";
 import axiosInstance from "../api/api";
+import ClipLoader from "react-spinners/ClipLoader";
+
 
 export default function SignUp() {
   const {
@@ -32,6 +34,7 @@ export default function SignUp() {
   const history = useHistory();
   const [roles, setRoles] = useState("customer");
   const [selectedRole, setSelectedRole] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     axiosInstance
@@ -46,23 +49,40 @@ export default function SignUp() {
   }, []);
 
   const onSubmit = (data) => {
-    console.log("data:", data);
-    console.log( "formdata",[
-      data.name,
-      data.email,
-      data.password,
-      data.role_id,
-      data.storename,
-      data.storetaxID,
-      data.storeBankAccount,
-    ]);
+    const {
+      name,
+      email,
+      password,
+      role_id,
+      storename,
+      storetaxID,
+      storeBankAccount,
+    } = data;
+    const formData = {
+      name,
+      email,
+      password,
+      role_id,
+    };
+    if (selectedRole == "store") {
+      formData.store = {
+        name: storename,
+        tax_no: storetaxID,
+        bank_account: storeBankAccount,
+      };
+    }
+    console.log("formdata", formData);
+    setLoading(true);
     axiosInstance
-      .post("/signup", [data])
+      .post("/signup", formData)
       .then((response) => {
-        console.log(response.data);
+        setLoading(false);
+        history.goBack(); // Redirect to the previous page
+        alert("“You need to click link in email to activate your account!”");
       })
       .catch((error) => {
-        console.error(error);
+        setLoading(false);
+        console.error("Error:", error);
       });
   };
   console.log("selected role:", selectedRole);
@@ -246,9 +266,7 @@ export default function SignUp() {
               </div>
               {/* storeBankAccount section */}
               <div className="w-1/3">
-                <label className=" text-base mt-5 ">
-                  Store Bank Account-IBAN:
-                </label>
+                <label className=" text-base mt-5 ">Store Bank Account:</label>
                 <input
                   className=" h-8 rounded-lg border border-solid border-darkblue"
                   {...register("storeBankAccount", {
@@ -269,12 +287,20 @@ export default function SignUp() {
           <button
             className={`w-full h-12 rounded-lg border mt-5 ${
               !isValid ? "bg-zinc-400 text-white" : "bg-darkblue text-white"
-            }`}
-            disabled={!isValid}
+            }
+            ${loading ? "bg-zinc-400 text-white" : "bg-darkblue text-white"}`}
+            disabled={!isValid || loading}
             type="submit"
           >
-            Submit
+            {loading ? "Submitting..." : "Submit"}
           </button>
+          {loading ? (
+            <div className="align-center">
+              <ClipLoader size={30} color={"#755680"} loading={loading} />
+            </div>
+          ) : (
+            ""
+          )}
         </form>
       </div>
     </>
