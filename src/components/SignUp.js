@@ -316,15 +316,8 @@ export default function SignUp() {
             disabled={!isValid || loading}
             type="submit"
           >
-            {loading ? "Submitting..." : "Submit"}
+            {loading ? (<ClipLoader size={30} color={"#755680"} loading={loading} />) : "Submit"}
           </button>
-          {loading ? (
-            <div className="align-center">
-              <ClipLoader size={30} color={"#755680"} loading={loading} />
-            </div>
-          ) : (
-            ""
-          )}
         </form>
       </div>
     </>

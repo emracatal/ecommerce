@@ -1,7 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 export default function HomeHeader() {
+  const title = useSelector((store) =>store.title);
   return (
     <>
       <div className="navbar-dark bg-darkblue text-white flex justify-center px-10 mobile:hidden">
@@ -28,7 +30,6 @@ export default function HomeHeader() {
           </div>
         </div>
       </div>
-
       <div className="navbar-light flex justify-center mobile:px-10">
         <div className="container flex flex-grow justify-between items-center min-h-[91px] max-w-[1440px] mx-auto px-10">
           <div className="navbar-light-left text-darkblue font-bold flex gap-2  ">
