@@ -7,6 +7,8 @@ import axiosInstance from "../api/api";
 import ClipLoader from "react-spinners/ClipLoader";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useDispatch } from "react-redux";
+import { SET_ROLES } from "../store/actions/globalActions";
 
 export default function SignUp() {
   const {
@@ -15,6 +17,8 @@ export default function SignUp() {
     watch,
     formState: { errors, isDirty, isValid },
   } = useForm({ mode: "onTouched" });
+
+  const dispatch = useDispatch();
 
   // handle password eye
   const [passwordEye, setPasswordEye] = useState(false);
@@ -37,16 +41,20 @@ export default function SignUp() {
   const [selectedRole, setSelectedRole] = useState("");
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    axiosInstance
-      .get("/roles")
-      .then((response) => {
-        setRoles(response.data);
-        console.log("roles data:", roles);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+  // useEffect(() => {
+  //   axiosInstance
+  //     .get("/roles")
+  //     .then((response) => {
+  //       dispatch(setRoles(response.data));
+  //       console.log("roles data:", response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // }, []);
+
+    useEffect(() => {
+      dispatch(setRoles())
   }, []);
 
   const onSubmit = (data) => {
@@ -316,7 +324,11 @@ export default function SignUp() {
             disabled={!isValid || loading}
             type="submit"
           >
-            {loading ? (<ClipLoader size={30} color={"#755680"} loading={loading} />) : "Submit"}
+            {loading ? (
+              <ClipLoader size={30} color={"#755680"} loading={loading} />
+            ) : (
+              "Submit"
+            )}
           </button>
         </form>
       </div>
