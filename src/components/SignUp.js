@@ -7,8 +7,8 @@ import axiosInstance from "../api/api";
 import ClipLoader from "react-spinners/ClipLoader";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useDispatch } from "react-redux";
-import { SET_ROLES } from "../store/actions/globalActions";
+import { useDispatch, useSelector } from "react-redux";
+import { SET_ROLES, fetchRoles } from "../store/actions/globalActions";
 
 export default function SignUp() {
   const {
@@ -37,7 +37,7 @@ export default function SignUp() {
   const password = watch("password");
 
   const history = useHistory();
-  const [roles, setRoles] = useState("customer");
+  const roles = useSelector((store) => store.global.roles);
   const [selectedRole, setSelectedRole] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -53,8 +53,8 @@ export default function SignUp() {
   //     });
   // }, []);
 
-    useEffect(() => {
-      dispatch(setRoles())
+  useEffect(() => {
+    dispatch(fetchRoles());
   }, []);
 
   const onSubmit = (data) => {
@@ -99,7 +99,9 @@ export default function SignUp() {
           }
         );
         setLoading(false);
-        history.goBack();
+        setTimeout(() => {
+          history.goBack();
+        }, 3000);
       })
       .catch((error) => {
         setLoading(false);
@@ -239,7 +241,6 @@ export default function SignUp() {
               )}
             </div>
           </div>
-
           {/* role section */}
           <label className=" text-base mt-5">Role Selection:</label>
           <select
@@ -253,9 +254,12 @@ export default function SignUp() {
               },
             })}
           >
-            <option value={roles[2].id}>{roles[2].code}</option>
-            <option value={roles[1].id}>{roles[1].code}</option>
-            <option value={roles[0].id}>{roles[0].code}</option>
+            {roles &&
+              roles.map((role) => (
+                <option key={role.id} value={role.id}>
+                  {role.code}
+                </option>
+              ))}
           </select>
           <p className=" text-red-400">{errors.role?.message}</p>
           {selectedRole == "store" && (
