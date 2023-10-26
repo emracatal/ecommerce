@@ -45,7 +45,7 @@ export default function Team() {
           </h1>
           <div className="flex items-center gap-3 ">
             <h6 className="font-bold">Home</h6>
-            <i class="fa-solid fa-chevron-right gap-3"></i>
+            <i className="fa-solid fa-chevron-right gap-3"></i>
             <h6 className="text-lightgray">Team</h6>
           </div>
         </div>

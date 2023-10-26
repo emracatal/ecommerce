@@ -43,7 +43,7 @@ export default function ProductList() {
           </div>
           <div className="flex items-center gap-3 ">
             <h6 className="font-bold">Home</h6>
-            <i class="fa-solid fa-chevron-right gap-3"></i>
+            <i className="fa-solid fa-chevron-right gap-3"></i>
             <h6 className="">Shop</h6>
           </div>
         </div>
@@ -62,19 +62,19 @@ export default function ProductList() {
           <h6>Showing all 12 results</h6>
           <div className="flex flex-row gap-3 items-center justify-center">
             <h6>Views: </h6>
-            <i class="fa-solid fa-grip border-solid border-2 border-verylightgray2 p-2"></i>
-            <i class="fa-solid fa-list border-solid border-2 border-verylightgray2  p-2"></i>
+            <i className="fa-solid fa-grip border-solid border-2 border-verylightgray2 p-2"></i>
+            <i className="fa-solid fa-list border-solid border-2 border-verylightgray2  p-2"></i>
           </div>
           <div className="flex gap-2">
             <button
               id="dropdownDefaultButton"
               data-dropdown-toggle="dropdown"
-              class="text-sm border-solid border-2 border-verylightgray2  flex gap-3 items-center px-5"
+              className="text-sm border-solid border-2 border-verylightgray2  flex gap-3 items-center px-5"
               type="button"
             >
               Popularity
               <svg
-                class="w-2.5 h-2.5 ml-2.5"
+                className="w-2.5 h-2.5 ml-2.5"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -91,16 +91,16 @@ export default function ProductList() {
             </button>
             <div
               id="dropdown"
-              class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+              className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
             >
               <ul
-                class="py-2 text-sm text-gray-700 dark:text-gray-200"
+                className="py-2 text-sm text-gray-700 dark:text-gray-200"
                 aria-labelledby="dropdownDefaultButton"
               >
                 <li>
                   <a
                     href="#"
-                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                   >
                     Dashboard
                   </a>
@@ -108,7 +108,7 @@ export default function ProductList() {
                 <li>
                   <a
                     href="#"
-                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                   >
                     Settings
                   </a>
@@ -116,7 +116,7 @@ export default function ProductList() {
                 <li>
                   <a
                     href="#"
-                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                   >
                     Earnings
                   </a>
@@ -124,7 +124,7 @@ export default function ProductList() {
                 <li>
                   <a
                     href="#"
-                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                   >
                     Sign out
                   </a>

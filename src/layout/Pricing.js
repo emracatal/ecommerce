@@ -18,7 +18,7 @@ export default function Pricing() {
           <h1 className="font-bold text-center">Simple Pricing</h1>
           <div className="flex items-center gap-3 ">
             <h6 className="font-bold">Home</h6>
-            <i class="fa-solid fa-chevron-right gap-3"></i>
+            <i className="fa-solid fa-chevron-right gap-3"></i>
             <h6 className="text-lightgray">Pricing</h6>
           </div>
         </div>
@@ -49,29 +49,29 @@ export default function Pricing() {
               <div className="flex flex-row items-center gap-4">
                 <h2 className="text-turku">0</h2>
                 <div className="flex flex-col">
-                  <i class="fa-solid fa-dollar-sign text-turku"></i>
+                  <i className="fa-solid fa-dollar-sign text-turku"></i>
                   <h6 className="text-lightblue">Per Month</h6>
                 </div>
               </div>
 
               <div className="flex flex-row">
-                <i class="fa-regular fa-circle-check text-green"></i>
+                <i className="fa-regular fa-circle-check text-green"></i>
                 <h6 className="font-bold">Unlimited product updates</h6>
               </div>
               <div className="flex flex-row">
-                <i class="fa-regular fa-circle-check text-green"></i>
+                <i className="fa-regular fa-circle-check text-green"></i>
                 <h6 className="font-bold">Unlimited product updates</h6>
               </div>
               <div className="flex flex-row">
-                <i class="fa-regular fa-circle-check text-green"></i>
+                <i className="fa-regular fa-circle-check text-green"></i>
                 <h6 className="font-bold">Unlimited product updates</h6>
               </div>
               <div className="flex flex-row">
-                <i class="fa-regular fa-circle-check text-lightgray"></i>
+                <i className="fa-regular fa-circle-check text-lightgray"></i>
                 <h6 className="font-bold">Unlimited product updates</h6>
               </div>
               <div className="flex flex-row">
-                <i class="fa-regular fa-circle-check text-lightgray"></i>
+                <i className="fa-regular fa-circle-check text-lightgray"></i>
                 <h6 className="font-bold">Unlimited product updates</h6>
               </div>
               <button className="text-white bg-darkblue text-sm rounded-md py-4 px-9">
@@ -86,29 +86,39 @@ export default function Pricing() {
               <div className="flex flex-row items-center gap-4">
                 <h2 className="text-turku">9.99</h2>
                 <div className="flex flex-col">
-                  <i class="fa-solid fa-dollar-sign text-turku"></i>
+                  <i className="fa-solid fa-dollar-sign text-turku"></i>
                   <h6 className="text-lightblue">Per Month</h6>
                 </div>
               </div>
               <div className="flex flex-row">
-                <i class="fa-regular fa-circle-check text-green"></i>
-                <h6 className="font-bold text-white">Unlimited product updates</h6>
+                <i className="fa-regular fa-circle-check text-green"></i>
+                <h6 className="font-bold text-white">
+                  Unlimited product updates
+                </h6>
               </div>
               <div className="flex flex-row">
-                <i class="fa-regular fa-circle-check text-green"></i>
-                <h6 className="font-bold text-white">Unlimited product updates</h6>
+                <i className="fa-regular fa-circle-check text-green"></i>
+                <h6 className="font-bold text-white">
+                  Unlimited product updates
+                </h6>
               </div>
               <div className="flex flex-row">
-                <i class="fa-regular fa-circle-check text-green"></i>
-                <h6 className="font-bold text-white">Unlimited product updates</h6>
+                <i className="fa-regular fa-circle-check text-green"></i>
+                <h6 className="font-bold text-white">
+                  Unlimited product updates
+                </h6>
               </div>
               <div className="flex flex-row">
-                <i class="fa-regular fa-circle-check text-lightgray"></i>
-                <h6 className="font-bold text-white">Unlimited product updates</h6>
+                <i className="fa-regular fa-circle-check text-lightgray"></i>
+                <h6 className="font-bold text-white">
+                  Unlimited product updates
+                </h6>
               </div>
               <div className="flex flex-row">
-                <i class="fa-regular fa-circle-check text-lightgray"></i>
-                <h6 className="font-bold text-white">Unlimited product updates</h6>
+                <i className="fa-regular fa-circle-check text-lightgray"></i>
+                <h6 className="font-bold text-white">
+                  Unlimited product updates
+                </h6>
               </div>
               <button className="text-white bg-turku text-sm rounded-md py-4 px-9">
                 Try for free
@@ -122,28 +132,28 @@ export default function Pricing() {
               <div className="flex flex-row items-center gap-4">
                 <h2 className="text-turku">0</h2>
                 <div className="flex flex-col">
-                  <i class="fa-solid fa-dollar-sign text-turku"></i>
+                  <i className="fa-solid fa-dollar-sign text-turku"></i>
                   <h6 className="text-lightblue">Per Month</h6>
                 </div>
               </div>
               <div className="flex flex-row">
-                <i class="fa-regular fa-circle-check text-green"></i>
+                <i className="fa-regular fa-circle-check text-green"></i>
                 <h6 className="font-bold">Unlimited product updates</h6>
               </div>
               <div className="flex flex-row">
-                <i class="fa-regular fa-circle-check text-green"></i>
+                <i className="fa-regular fa-circle-check text-green"></i>
                 <h6 className="font-bold">Unlimited product updates</h6>
               </div>
               <div className="flex flex-row">
-                <i class="fa-regular fa-circle-check text-green"></i>
+                <i className="fa-regular fa-circle-check text-green"></i>
                 <h6 className="font-bold">Unlimited product updates</h6>
               </div>
               <div className="flex flex-row">
-                <i class="fa-regular fa-circle-check text-lightgray"></i>
+                <i className="fa-regular fa-circle-check text-lightgray"></i>
                 <h6 className="font-bold">Unlimited product updates</h6>
               </div>
               <div className="flex flex-row">
-                <i class="fa-regular fa-circle-check text-lightgray"></i>
+                <i className="fa-regular fa-circle-check text-lightgray"></i>
                 <h6 className="font-bold">Unlimited product updates</h6>
               </div>
               <button className="text-white bg-darkblue text-sm rounded-md py-4 px-9">
@@ -158,7 +168,9 @@ export default function Pricing() {
       {/*Start your 14 days free trial */}
       <div className="">
         <div className="container max-w-[1050px] mx-auto min-h-[188px] flex flex-col justify-center items-center gap-7 py-10 mobile:p-14">
-          <h2 className="font-bold text-center">Start your 14 days free trial</h2>
+          <h2 className="font-bold text-center">
+            Start your 14 days free trial
+          </h2>
           <h6 className=" text-center">
             Met minim Mollie non desert Alamo est sit cliquey dolor do met sent.
             RELIT official consequent.

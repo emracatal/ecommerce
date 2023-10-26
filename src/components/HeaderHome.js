@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 export default function HomeHeader() {
-  const title = useSelector((store) =>store.title);
   return (
     <>
       <div className="navbar-dark bg-darkblue text-white flex justify-center px-10 mobile:hidden">
@@ -73,9 +72,9 @@ export default function HomeHeader() {
             <p>1</p>
           </div>
           <div className="navbar-light-right-mobile hidden mobile:flex mobile:text-darkblue mobile:items-center mobile:gap-3 mobile:px-10 ">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <i class="fa-solid fa-cart-shopping"></i>
-            <i class="fa-solid fa-bars"></i>
+            <i className="fa-solid fa-magnifying-glass"></i>
+            <i className="fa-solid fa-cart-shopping"></i>
+            <i className="fa-solid fa-bars"></i>
           </div>
         </div>
       </div>

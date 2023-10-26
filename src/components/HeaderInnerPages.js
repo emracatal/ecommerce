@@ -36,13 +36,13 @@ export default function HeaderInnerPages() {
             <h6 className="mobile:hidden ">Login</h6>
             <button className="text-white text-sm bg-turku p-3 rounded-md flex flex-row gap-2 items-center mobile:hidden">
               <h6>Become a member</h6>
-              <i class="fa-solid fa-arrow-right"></i>
+              <i className="fa-solid fa-arrow-right"></i>
             </button>
           </div>
           <div className="navbar-light-right-mobile hidden mobile:flex mobile:text-darkblue mobile:items-center mobile:gap-3 mobile:px-10 ">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <i class="fa-solid fa-cart-shopping"></i>
-            <i class="fa-solid fa-bars"></i>
+            <i className="fa-solid fa-magnifying-glass"></i>
+            <i className="fa-solid fa-cart-shopping"></i>
+            <i className="fa-solid fa-bars"></i>
           </div>
         </div>
       </div>

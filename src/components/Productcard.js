@@ -16,10 +16,10 @@ export default function Productcard() {
               <h5 className="text-secondarycolor1 font-bold">$6.48</h5>
             </div>
             <div className="colors flex gap-1 ">
-              <i class="fa-solid fa-circle text-turku"></i>
-              <i class="fa-solid fa-circle text-secondarycolor1"></i>
-              <i class="fa-solid fa-circle text-alertcolor"></i>
-              <i class="fa-solid fa-circle text-darkblue"></i>
+              <i className="fa-solid fa-circle text-turku"></i>
+              <i className="fa-solid fa-circle text-secondarycolor1"></i>
+              <i className="fa-solid fa-circle text-alertcolor"></i>
+              <i className="fa-solid fa-circle text-darkblue"></i>
             </div>
           </div>
         </div>

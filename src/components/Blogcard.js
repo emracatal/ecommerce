@@ -19,17 +19,17 @@ export default function Blogcard() {
           </p>
           <div className="time-comment flex justify-between items-center gap-5">
           <div className="time flex gap-2 items-center">
-            <i class="fa-regular fa-clock text-turku"></i>
+            <i className="fa-regular fa-clock text-turku"></i>
             <p className="">22 April 2021</p>
           </div>
           <div className="comments flex gap-2 items-center">
-          <i class="fa-solid fa-chart-simple text-secondarycolor1"></i>
+          <i className="fa-solid fa-chart-simple text-secondarycolor1"></i>
             <p className="">10 comments</p>
           </div>
           </div>
           <div className="flex flex-row items-center">
           <h6 className="font-bold">Learn More</h6>
-          <i class="fa-solid fa-chevron-right text-turku gap-3"></i>
+          <i className="fa-solid fa-chevron-right text-turku gap-3"></i>
           </div>
         </div>
       </div>

@@ -25,7 +25,7 @@ export default function ProductPage() {
         <div className="container flex justify-start items-center max-w-[1050px] mx-auto min-h-[92px] mobile:flex mobile:justify-center mobile:items-center">
           <div className="flex items-center gap-3 ">
             <h6 className="font-bold">Home</h6>
-            <i class="fa-solid fa-chevron-right gap-3"></i>
+            <i className="fa-solid fa-chevron-right gap-3"></i>
             <h6 className="">Shop</h6>
           </div>
         </div>
@@ -67,30 +67,30 @@ export default function ProductPage() {
             <div>
               <h3 className="font-bold">the quick fox jumps over</h3>
               <div className="flex flex-row items-center gap-5">
-                <i class="fa-solid fa-chevron-right text-[9px]"></i>
+                <i className="fa-solid fa-chevron-right text-[9px]"></i>
                 <h6>the quick fox jumps over the lazy dog</h6>
               </div>
               <div className="flex flex-row items-center gap-5">
-                <i class="fa-solid fa-chevron-right text-[9px]"></i>
+                <i className="fa-solid fa-chevron-right text-[9px]"></i>
                 <h6>the quick fox jumps over the lazy dog</h6>
               </div>
               <div className="flex flex-row items-center gap-5">
-                <i class="fa-solid fa-chevron-right text-[9px]"></i>
+                <i className="fa-solid fa-chevron-right text-[9px]"></i>
                 <h6>the quick fox jumps over the lazy dog</h6>
               </div>
             </div>
             <div>
               <h3 className="font-bold">the quick fox jumps over</h3>
               <div className="flex flex-row items-center gap-5">
-                <i class="fa-solid fa-chevron-right text-[9px]"></i>
+                <i className="fa-solid fa-chevron-right text-[9px]"></i>
                 <h6>the quick fox jumps over the lazy dog</h6>
               </div>
               <div className="flex flex-row items-center gap-5">
-                <i class="fa-solid fa-chevron-right text-[9px]"></i>
+                <i className="fa-solid fa-chevron-right text-[9px]"></i>
                 <h6>the quick fox jumps over the lazy dog</h6>
               </div>
               <div className="flex flex-row items-center gap-5">
-                <i class="fa-solid fa-chevron-right text-[9px]"></i>
+                <i className="fa-solid fa-chevron-right text-[9px]"></i>
                 <h6>the quick fox jumps over the lazy dog</h6>
               </div>
             </div>
@@ -101,7 +101,9 @@ export default function ProductPage() {
       {/* bestseller */}
       <div className="flex  bg-verylightgray3">
         <div className="flex mx-auto max-w-[1050px] flex-col gap-6 py-12 ">
-          <h3 className="font-bold pl-3 mobile:text-center">BESTSELLER PRODUCTS</h3>
+          <h3 className="font-bold pl-3 mobile:text-center">
+            BESTSELLER PRODUCTS
+          </h3>
           <div className="bestseller-products-container flex flex-row flex-wrap gap-5 items-center justify-center">
             {products.map((product) => (
               <Productcard3 key={product.id} product={product} />
