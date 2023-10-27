@@ -1,4 +1,3 @@
-import { useDispatch } from "react-redux";
 import axiosInstance from "../../api/api";
 
 export const SET_ROLES = "SET_ROLES";

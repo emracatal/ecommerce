@@ -5,13 +5,12 @@ import {
 } from "../actions/userActions";
 
 const initialState = {
- userObj:{}
-};
+ };
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_USER:
-      return { ...state, userObj: action.payload };
+      return { ...action.payload };
     default:
       return state;
   }

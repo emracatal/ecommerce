@@ -6,13 +6,12 @@ import {
   } from "../actions/storeActions";
   
   const initialState = {
-   storeObj:{}
   };
   
   const storeReducer = (state = initialState, action) => {
     switch (action.type) {
       case SET_STORE:
-        return { ...state, const: action.payload };
+        return { ...action.payload };
       default:
         return state;
     }

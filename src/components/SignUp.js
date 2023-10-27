@@ -8,7 +8,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";
-import { SET_ROLES, fetchRoles } from "../store/actions/globalActions";
+import { fetchRoles } from "../store/actions/globalActions";
 
 export default function SignUp() {
   const {
@@ -54,7 +54,7 @@ export default function SignUp() {
   // }, []);
 
   useEffect(() => {
-    dispatch(fetchRoles());
+   roles.length==0 && dispatch(fetchRoles())
   }, []);
 
   const onSubmit = (data) => {

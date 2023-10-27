@@ -13,6 +13,7 @@ import Team from "./layout/Team";
 import ProductPage from "./components/ProductPage";
 import ContactForm from "./components/ContactForm";
 import SignUp from "./components/SignUp";
+import Login from "./components/Login";
 
 function App() {
   return (
@@ -44,6 +45,9 @@ function App() {
         </Route>
         <Route path="/SignUp" exact>
           <SignUp />
+        </Route>
+        <Route path="/Login" exact>
+          <Login />
         </Route>
       </Switch>
     </div>
