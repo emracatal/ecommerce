@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 export default function HomeHeader() {
+  const user = useSelector((store) => store.user.user);
+
   return (
     <>
       <div className="navbar-dark bg-darkblue text-white flex justify-center px-10 mobile:hidden">
@@ -64,6 +66,7 @@ export default function HomeHeader() {
           <Link to="/Login">
             <i className="fa-regular fa-user"></i>
             </Link>
+            {user && (<p>Email: {user.email}</p>)}
             <Link to="/SignUp">
               <p className="">Login / Register </p>
             </Link>

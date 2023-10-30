@@ -5,6 +5,10 @@ import { useState } from "react";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import ClipLoader from "react-spinners/ClipLoader";
 import axiosInstance from "../api/api";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../store/actions/userActions";
 
 export default function Login() {
   const {
@@ -13,7 +17,9 @@ export default function Login() {
     formState: { errors, isValid },
   } = useForm({ mode: "onTouched" });
 
-  const [loading, setLoading] = useState();
+  const [loading, setLoading] = useState(false);
+  const user = useSelector((store) => store.user.user);
+  const dispatch = useDispatch();
 
   // handle password eye
   const [passwordEye, setPasswordEye] = useState(false);
@@ -21,21 +27,54 @@ export default function Login() {
     setPasswordEye(!passwordEye);
   };
 
-  const onSubmit = (data) => {
-    console.log("formData", data);
-    axiosInstance
-      .post("/login", data)
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
+  const onSubmit = async (data) => {
+    try {
+      const { email, password } = data;
+      const formData = {
+        email,
+        password,
+      };
+      console.log("formData", formData);
+      setLoading(true);
+      const response = await dispatch(login(formData));
+      // axiosInstance
+      //   .post("/login", formData)
+      //   .then(function (response) {
+      console.log(response);
+      toast.success("🚀 Welcome " + response.name, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
       });
+      setLoading(false);
+      setTimeout(() => {
+        //history.goBack();
+      }, 3000);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+      toast.error(`${error.response.data.message}`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
   };
 
   return (
     <>
       <HeaderHome />
+      <ToastContainer />
       <div className="flex justify-center bg-verylightgray3 ">
         <div className="container flex justify-between items-center max-w-[1050px] min-h-[48px] mobile:flex mobile:flex-col mobile:py-6 mobile:gap-7 ">
           <div className="text-darkblue font-bold flex gap-2 ">
@@ -117,7 +156,7 @@ export default function Login() {
             )}
           </button>
         </form>
-      </div>
+          </div>
     </>
   );
 }
