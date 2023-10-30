@@ -54,7 +54,7 @@ export default function SignUp() {
   // }, []);
 
   useEffect(() => {
-   roles.length==0 && dispatch(fetchRoles())
+    roles.length == 0 && dispatch(fetchRoles());
   }, []);
 
   const onSubmit = (data) => {
