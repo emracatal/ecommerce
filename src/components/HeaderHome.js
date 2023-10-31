@@ -1,6 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import MD5 from "crypto-js/md5";
+
 
 export default function HomeHeader() {
   const user = useSelector((store) => store.user);
@@ -67,15 +69,19 @@ export default function HomeHeader() {
               <div className="flex gap-1 items-center text-base">
                 <i className="far fa-user"></i>
                 <Link to="/Login">Login /</Link>
-                <Link to="/SignUp">Register</Link>
+                <Link to="className=">Register</Link>
               </div>
-            ) :
-            (
+            ) : (
               <div className="flex gap-1 items-center text-base">
-                <i className="far fa-user"></i>
-                <p className="text-sm">{(user.name)}</p>
+                <img
+                  src={`https://www.gravatar.com/avatar/${MD5(
+                    user.email
+                  )}?s=24`}
+                  className="border-2 border-solid rounded-[50%]"
+                />
+                <p className="text-sm">{user.name}</p>
               </div>
-            ) }
+            )}
             <i className="fa-solid fa-magnifying-glass"></i>
             <i className="fa-solid fa-cart-shopping"></i>
             <p>1</p>
