@@ -65,11 +65,11 @@ export default function HomeHeader() {
             </ul>
           </nav>
           <div className="navbar-light-right flex text-turku items-center gap-3 mobile:hidden ">
-            {!user ? (
+            {!Object.keys(user).length ? (
               <div className="flex gap-1 items-center text-base">
                 <i className="far fa-user"></i>
                 <Link to="/Login">Login /</Link>
-                <Link to="className=">Register</Link>
+                <Link to="/SignUp">Register</Link>
               </div>
             ) : (
               <div className="flex gap-1 items-center text-base">
