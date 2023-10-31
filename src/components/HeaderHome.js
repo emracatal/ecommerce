@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 export default function HomeHeader() {
-  const user = useSelector((store) => store.user.user);
+  const user = useSelector((store) => store.user);
 
   return (
     <>
@@ -63,13 +63,19 @@ export default function HomeHeader() {
             </ul>
           </nav>
           <div className="navbar-light-right flex text-turku items-center gap-3 mobile:hidden ">
-          <Link to="/Login">
-            <i className="fa-regular fa-user"></i>
-            </Link>
-            {user && (<p>Email: {user.email}</p>)}
-            <Link to="/SignUp">
-              <p className="">Login / Register </p>
-            </Link>
+            {!user ? (
+              <div className="flex gap-1 items-center text-base">
+                <i className="far fa-user"></i>
+                <Link to="/Login">Login /</Link>
+                <Link to="/SignUp">Register</Link>
+              </div>
+            ) :
+            (
+              <div className="flex gap-1 items-center text-base">
+                <i className="far fa-user"></i>
+                <p className="text-sm">{(user.name)}</p>
+              </div>
+            ) }
             <i className="fa-solid fa-magnifying-glass"></i>
             <i className="fa-solid fa-cart-shopping"></i>
             <p>1</p>

@@ -9,6 +9,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../store/actions/userActions";
+import { useHistory } from "react-router-dom";
 
 export default function Login() {
   const {
@@ -18,6 +19,7 @@ export default function Login() {
   } = useForm({ mode: "onTouched" });
 
   const [loading, setLoading] = useState(false);
+  const history = useHistory();
   const user = useSelector((store) => store.user.user);
   const dispatch = useDispatch();
 
@@ -53,7 +55,7 @@ export default function Login() {
       });
       setLoading(false);
       setTimeout(() => {
-        //history.goBack();
+        history.push("/");
       }, 3000);
     } catch (error) {
       console.log(error);
@@ -156,7 +158,7 @@ export default function Login() {
             )}
           </button>
         </form>
-          </div>
+      </div>
     </>
   );
 }
