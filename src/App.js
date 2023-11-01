@@ -6,7 +6,6 @@ import axios from "axios";
 import ProductList from "./layout/ProductList";
 import ProductList1 from "./layout/ProductList1";
 import About from "./layout/About";
-
 import Contact from "./layout/Contact";
 import Pricing from "./layout/Pricing";
 import Team from "./layout/Team";
@@ -14,9 +13,30 @@ import ProductPage from "./components/ProductPage";
 import ContactForm from "./components/ContactForm";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
+import axiosInstance from "./api/api";
+import { setUser } from "./store/actions/userActions";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 
 function App() {
-  return (
+const [token,setToken] = useState("")
+const dispatch = useDispatch();
+const user = useSelector((store)=>store.user)
+
+useEffect(() => {
+  token.length && axiosInstance.get("/verify")
+  .then(function (response) {
+    dispatch(setUser(response.data))
+    user.length && setToken(user.token)
+  })
+  .catch(function (error) {
+    console.log(error);
+    localStorage.removeItem("token")
+  })
+}, []);
+
+return (
     <div className="App font-montserrat .box-border">
       <Switch>
         <Route path="/" exact>

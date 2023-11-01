@@ -23,6 +23,18 @@ export const setRoles = (roles) => {
   };
 };
 
+
+
+
+export const fetchCategories = () => async (dispatch) => {
+  try {
+    const response = await axiosInstance.get("/categories");
+    dispatch({ type: "FETCH_CATEGORIES_SUCCESS", payload: response.data });
+  } catch (error) {
+    dispatch({ type: "FETCH_CATEGORIES_FAILURE" });
+  }
+};
+
 export const setCategories = (categories) => {
   return {
     type: SET_CATEGORIES,

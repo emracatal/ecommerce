@@ -7,6 +7,7 @@ export const login = (formData) => {
     try {
       const response = await axiosInstance.post("/login", formData);
       dispatch(setUser(response.data));
+      localStorage.setItem("token", response.data.token);
       return response.data;
     } catch (error) {
       throw error;
