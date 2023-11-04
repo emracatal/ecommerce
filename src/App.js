@@ -18,25 +18,28 @@ import { setUser } from "./store/actions/userActions";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import axiosWithAuth from "./api/axiosWithAuth";
 
 function App() {
-const [token,setToken] = useState("")
-const dispatch = useDispatch();
-const user = useSelector((store)=>store.user)
+  const dispatch = useDispatch();
+  const user = useSelector((store) => store.user);
+  const token = localStorage.getItem("token");
 
-useEffect(() => {
-  token.length && axiosInstance.get("/verify")
-  .then(function (response) {
-    dispatch(setUser(response.data))
-    user.length && setToken(user.token)
-  })
-  .catch(function (error) {
-    console.log(error);
-    localStorage.removeItem("token")
-  })
-}, []);
+  useEffect(() => {
+    if (token) {
+      axiosWithAuth()
+        .get("/verify")
+        .then(function (response) {
+          dispatch(setUser(response.data));
+        })
+        .catch(function (error) {
+          console.log(error);
+          localStorage.setItem("token", "");
+        });
+    }
+  }, []);
 
-return (
+  return (
     <div className="App font-montserrat .box-border">
       <Switch>
         <Route path="/" exact>

@@ -4,13 +4,15 @@
 //     - theme: {String}
 //     - language: {String} //roller çekilecek thunk ile, store reducer yazılacak
 import {
-  SET_ROLES,
-  SET_CATEGORIES,
-  SET_THEME,
-  SET_LANGUAGE,
   FETCH_ROLES_SUCCESS,
   FETCH_ROLES_FAILURE,
-  } from "../actions/globalActions";
+  SET_ROLES,
+  FETCH_CATEGORIES_REQUEST,
+  FETCH_CATEGORIES_SUCCESS,
+  FETCH_CATEGORIES_FAILURE,
+  SET_THEME,
+  SET_LANGUAGE,
+} from "../actions/globalActions";
 
 const initialState = {
   roles: [],
@@ -30,8 +32,24 @@ const globalReducer = (state = initialState, action) => {
       return state;
     case SET_ROLES:
       return { ...state, role: action.payload };
-    case SET_CATEGORIES:
-      return { ...state, categories: action.payload };
+    case FETCH_CATEGORIES_REQUEST:
+      return {
+        ...state,
+        loading: true,
+        error: null,
+      };
+    case FETCH_CATEGORIES_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        categories: action.payload,
+      };
+    case FETCH_CATEGORIES_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.error,
+      };
     case SET_THEME:
       return { ...state, theme: action.payload };
     case SET_LANGUAGE:

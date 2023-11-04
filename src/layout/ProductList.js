@@ -50,10 +50,8 @@ export default function ProductList() {
       </div>
 
       {/* productlist cloth yazılı 5 fotolu alan */}
-      <div className="shopcard-container flex flex-row flex-wrap gap-1 justify-center max-w-[1050px] pb-12 mx-auto mobile:flex mobile:flex-col mobile:items-center mobile:p-10 mobile:gap-4">
-        {shops.map((shopcard) => (
-          <Shopcard key={shopcard.id} shopcard={shopcard} />
-        ))}
+      <div className="shopcard-container flex flex-row flex-wrap gap-1 justify-center max-w-[1050px] py-9 mx-auto mobile:flex mobile:flex-col mobile:items-center mobile:p-10 mobile:gap-4 ">
+        <Shopcard />
       </div>
 
       {/* filterarea */}
