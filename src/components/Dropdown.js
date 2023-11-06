@@ -12,9 +12,9 @@ export default function Example() {
   const categories = useSelector((state) => state.global.categories);
 
   return (
-    <Menu as="div" className="relative inline-block text-left ">
+    <Menu as="div" className="relative inline-block text-left w-full">
       <div>
-        <Menu.Button className="inline-flex w-full justify-center hover:bg-gray-50">
+        <Menu.Button className="inline-flex w-full justify-start hover:bg-gray-50">
           {/* <ChevronDownIcon className="text-sm h-6 w-6 text-gray-400" aria-hidden="true" /> */}
           <i className="fa-solid fa-chevron-down fa-sm self-center"></i>
         </Menu.Button>
@@ -29,7 +29,7 @@ export default function Example() {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute z-10 mt-2 transform w-screen origin-top bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items className="absolute z-10 mt-2 transform -translate-x-[90px] w-[320px] flex justify-evenly origin-top bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="p-1">
             <Menu.Item>
               {({ active }) => (
@@ -40,7 +40,7 @@ export default function Example() {
                     "block text-xs"
                   )}
                 >
-                  <div className="flex flex-row gap-7">
+                  <div className="flex flex-row gap-12 ">
                     <div className="min-w-max bg-white rounded ">
                       {categories
                         .filter((category, i) => category.gender === "k")
