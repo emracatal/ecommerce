@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import MD5 from "crypto-js/md5";
-
+import Dropdown from "./Dropdown";
 
 export default function HomeHeader() {
   const user = useSelector((store) => store.user);
@@ -43,13 +43,12 @@ export default function HomeHeader() {
               <li>
                 <Link to="/">Home</Link>
               </li>
-              <li>
-                <Link to="/ProductList">
-                  Shop
-                  <i className="fa-solid fa-chevron-down fa-sm self-center"></i>
-                </Link>
-              </li>
-
+              <div className="flex gap-0">
+                <li>
+                  <Link to="/ProductList">Shop</Link>
+                </li>
+                <Dropdown />
+              </div>
               <li>
                 <Link to="/About">About</Link>
               </li>
