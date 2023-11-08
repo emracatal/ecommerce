@@ -4,11 +4,13 @@
 // - active page: {Number}
 // - fetch state: {String} “NOT_FETCHED” | “FETCHING” | “FETCHED” | “FAILED” TODO:const tanımlayıp oradan initial tanımla, o objeden setle
 import {
-  SET_PRODUCT_LIST,
-  SET_PRODUCT_COUNT,
+    SET_PRODUCT_COUNT,
   SET_PAGE_COUNT,
   SET_ACTIVE_PAGE,
   SET_FETCH_STATE,
+  FETCH_PRODUCTS_REQUEST,
+  FETCH_PRODUCTS_SUCCESS,
+  FETCH_PRODUCTS_FAILURE,
 } from "../actions/productActions";
 
 const initialState = {
@@ -21,8 +23,25 @@ const initialState = {
 
 const poductReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_PRODUCT_LIST:
-      return { ...state, productList: action.payload };
+    case FETCH_PRODUCTS_REQUEST:
+      return {
+        ...state,
+        loading: true,
+        error: null,
+      };
+    case FETCH_PRODUCTS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        productList: action.payload,
+      };
+    case FETCH_PRODUCTS_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.error,
+      };
+
     case SET_PRODUCT_COUNT:
       return { ...state, totalProductCount: action.payload };
     case SET_PAGE_COUNT:

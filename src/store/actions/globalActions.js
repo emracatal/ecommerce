@@ -29,8 +29,8 @@ export const fetchCategories = () => {
   return (dispatch) => {
     dispatch({ type: FETCH_CATEGORIES_REQUEST });
 
-    axios
-      .get("https://workintech-fe-ecommerce.onrender.com/categories")
+    axiosInstance
+      .get("/categories")
       .then((response) => {
         dispatch({
           type: FETCH_CATEGORIES_SUCCESS,
@@ -45,6 +45,7 @@ export const fetchCategories = () => {
       });
   };
 };
+
 
 export const setTheme = (theme) => {
   return {

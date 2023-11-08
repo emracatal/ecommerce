@@ -115,16 +115,16 @@ export default function Login() {
               } `}
               {...register("password", {
                 required: "Password is required",
-                pattern: {
-                  value:
-                    /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/,
-                  message:
-                    "Password needs to be min 8 character including numbers, lower case, upper case and special chars",
-                },
-                minLength: {
-                  value: 8,
-                  message: "Minimum Required length is 8",
-                },
+                // pattern: {
+                //   value:
+                //     /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/,
+                //   message:
+                //     "Password needs to be min 8 character including numbers, lower case, upper case and special chars",
+                // },
+                // minLength: {
+                //   value: 8,
+                //   message: "Minimum Required length is 8",
+                // },
               })}
             />
             {errors.password && (

@@ -17,21 +17,6 @@ export default function ProductList() {
     { id: 5, name: "shopcard5", price: 39.99 },
   ];
 
-  const products = [
-    { id: 1, name: "product1", price: 19.99 },
-    { id: 2, name: "product2", price: 19.99 },
-    { id: 3, name: "product3", price: 39.99 },
-    { id: 4, name: "product4", price: 49.99 },
-    { id: 5, name: "product5", price: 19.99 },
-    { id: 6, name: "product6", price: 19.99 },
-    { id: 7, name: "product7", price: 19.99 },
-    { id: 8, name: "product8", price: 19.99 },
-    { id: 9, name: "product9", price: 19.99 },
-    { id: 10, name: "product10", price: 19.99 },
-    { id: 11, name: "product9", price: 19.99 },
-    { id: 12, name: "product10", price: 19.99 },
-  ];
-
   return (
     <>
       <HeaderHome />
@@ -140,9 +125,7 @@ export default function ProductList() {
       <div className="bestseller pb-20 ">
         <div className="container flex flex-col items-center justify-center max-w-[1050px] py-12 mx-auto mobile:flex mobile:flex-col mobile:items-center mobile:p-10 mobile:gap-4 ">
           <div className="bestseller-products-container flex flex-row flex-wrap gap-7 items-center justify-center max-w-[1050px] ">
-            {products.map((product) => (
-              <Productcard2 key={product.id} product={product} />
-            ))}
+            <Productcard2 />
           </div>
         </div>
       </div>
