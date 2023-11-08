@@ -20,11 +20,11 @@ export default function Productcard2() {
     <>
       {products.map((product) => (
         <Link to="/ProductPage">
-          <div className="card max-w-[239px]">
-            <img src={product.images[0].url} className=""></img>
+          <div className="card max-w-[239px] min-h-[526px] shadow-lg hover:bg-verylightgray2 hover:scale-105">
+            <img src={product.images[0].url} className="shadow-sm "></img>
             <div className="cardbody flex flex-auto flex-col items-center gap-2 py-6">
               <h5 className="font-bold">{product.name}</h5>
-              <p>{product.description}</p>
+              <p className="text-center line-clamp-2">{product.description}</p>
               <div className="price flex flex-row gap-3">
                 <h5 className="text-lightgray">
                   {product.stock > 0 ? "In Stock" : "Out Of Stock"}

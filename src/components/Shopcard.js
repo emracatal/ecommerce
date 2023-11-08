@@ -21,7 +21,7 @@ export default function Shopcard() {
           <div
             style={{ backgroundImage: `url(${category.img})` }}
             alt="x"
-            className="card max-w-[205px] min-h-[223px] w-[100%] items-center flex justify-center flex-col text-white bg-cover bg-center"
+            className="card max-w-[205px] min-h-[223px] w-[100%] items-center flex justify-center flex-col text-white bg-cover bg-center hover:scale-105"
           >
             <a href={`/shopping/${category.gender}/${category.code}`}>
               <h5 className="font-bold text-center">
