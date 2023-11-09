@@ -32,10 +32,17 @@ export default function ProductList1() {
       </div>
 
       <div className="navbar-light flex justify-center">
-        <div onClick={() => setMenuOpen(!menuOpen)} className="md:hidden cursor-pointer px-4 py-2"> {/* hamburger menu icin */}
+        <div
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden cursor-pointer px-4 py-2"
+        >
+          {" "}
+          {/* hamburger menu icin */}
           <i className="fa-solid fa-bars"></i>
         </div>
-        <div className={`${menuOpen ? '' : 'hidden'} md:block`}> {/* hamburger menu icin */}
+        <div className={`${menuOpen ? "" : "hidden"} md:block`}>
+          {" "}
+          {/* hamburger menu icin */}
           <div className="container max-w-[1440px] w-[100%]">
             <div className="navbar-light-inner flex flex-col md:flex-row justify-between items-center">
               <div className="navbar-light-bandageText mb-4 md:mb-0">
@@ -43,27 +50,35 @@ export default function ProductList1() {
               </div>
               <div className="nav mb-4 md:mb-0">
                 <ul className="flex flex-col md:flex-row items-start md:items-center gap-y-4 md:gap-x-4">
-                  <li><Link to="/">Home</Link></li>
-                  <li><Link to="/ProductList">Shop</Link></li>
+                  <li>
+                    <Link to="/">Home</Link>
+                  </li>
+                  <li>
+                    <Link to="/Shop">Shop</Link>
+                  </li>
                   <i className="fa-solid fa-chevron-down fa-sm"></i>
-                  <li><Link to="/About">About</Link></li>
-                  <li><Link to="/Contact">Contact</Link></li>
+                  <li>
+                    <Link to="/About">About</Link>
+                  </li>
+                  <li>
+                    <Link to="/Contact">Contact</Link>
+                  </li>
                 </ul>
               </div>
               <div className="navbar-light-right text-turku flex flex-col md:flex-row items-start md:items-center gap-y-4 md:gap-x-4">
-                <div className="flex items-center"> 
+                <div className="flex items-center">
                   <i className="fa-regular fa-user mr-2"></i>
                   <p>Login / Register</p>
                 </div>
                 <i className="fa-solid fa-magnifying-glass"></i>
-                <div className="flex items-center"> 
+                <div className="flex items-center">
                   <i className="fa-solid fa-cart-shopping mr-2"></i>
                   <p>1</p>
                 </div>
-                <div className="flex items-center"> 
+                <div className="flex items-center">
                   <i className="fa-regular fa-heart mr-2"></i>
                   <p>1</p>
-              </div>
+                </div>
               </div>
             </div>
           </div>

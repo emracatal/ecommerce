@@ -45,7 +45,7 @@ export default function HomeHeader() {
               </li>
               <div className="flex gap-0">
                 <li>
-                  <Link to="/ProductList">Shop</Link>
+                  <Link to="/Shop">Shop</Link>
                 </li>
                 <Dropdown />
               </div>
@@ -101,7 +101,7 @@ export default function HomeHeader() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/ProductList">Shop</Link>
+            <Link to="/Shop">Shop</Link>
           </li>
           <li>
             <Link to="/About">About</Link>
