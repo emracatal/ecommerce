@@ -1,5 +1,7 @@
 TODO
->>HEADERHOME'da şunu değiştir
-          <Link to="/Login">
-            <i className="fa-regular fa-user"></i>
-            </Link>
+
+> /verify by thunk action, move to userReducer
+> move categories to App.js DONE
+> change url from productlist to shop DONE
+> change title to lovercase DONE
+> remove map key error

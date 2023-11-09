@@ -46,15 +46,19 @@ export default function Example() {
                         .filter((category, i) => category.gender === "k")
                         .map((filteredCategory, i) => (
                           <a
-                            href={`/shopping/${filteredCategory.gender}/${filteredCategory.code}`}
+                            href={`/shopping/${
+                              filteredCategory.gender === "k"
+                                ? "kadın"
+                                : "erkek"
+                            }/${filteredCategory.title.toLowerCase()}`}
                             key={i}
                             className="block w-full text-xs"
                           >
                             <h6 className="text-left hover:font-bold ">
                               {filteredCategory.gender === "k"
                                 ? "Kadın"
-                                : "Erkek"}{" "}
-                              {filteredCategory.title}
+                                : "Erkek"}
+                              {filteredCategory.title.toLowerCase()}
                             </h6>
                           </a>
                         ))}
@@ -64,14 +68,18 @@ export default function Example() {
                         .filter((category, i) => category.gender === "e")
                         .map((filteredCategory, i) => (
                           <a
-                            href={`/shopping/${filteredCategory.gender}/${filteredCategory.code}`}
+                            href={`/shopping/${
+                              filteredCategory.gender === "k"
+                                ? "kadın"
+                                : "erkek"
+                            }/${filteredCategory.title.toLowerCase()}`}
                             key={i}
                             className="block w-full text-xs"
                           >
                             <h6 className="text-left hover:font-bold ">
                               {filteredCategory.gender === "e"
                                 ? "Erkek"
-                                : "Kadın"}{" "}
+                                : "Kadın"}
                               {filteredCategory.title}
                             </h6>
                           </a>
