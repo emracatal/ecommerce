@@ -5,12 +5,7 @@ import { fetchCategories, setCategories } from "../store/actions/globalActions";
 import { useEffect } from "react";
 
 export default function Shopcard() {
-  const dispatch = useDispatch();
   const categories = useSelector((state) => state.global.categories);
-
-  useEffect(() => {
-    categories.length == 0 && dispatch(fetchCategories());
-  }, []);
 
   return (
     <>

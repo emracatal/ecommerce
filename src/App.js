@@ -19,11 +19,17 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import axiosWithAuth from "./api/axiosWithAuth";
+import { fetchCategories } from "./store/actions/globalActions";
 
 function App() {
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
   const token = localStorage.getItem("token");
+  const categories = useSelector((state) => state.global.categories);
+
+  useEffect(() => {
+    categories.length == 0 && dispatch(fetchCategories());
+  }, []);
 
   useEffect(() => {
     if (token) {
