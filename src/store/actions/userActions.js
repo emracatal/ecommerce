@@ -1,4 +1,5 @@
 import axiosInstance from "../../api/api";
+import axiosWithAuth from "../../api/axiosWithAuth";
 
 export const SET_USER = "SET_USER";
 
@@ -21,3 +22,30 @@ export const setUser = (userObj) => {
     payload: userObj,
   };
 };
+
+export const getUserByVerify = () => (dispatch) => {
+  axiosWithAuth()
+    .get("/verify")
+    .then(function (response) {
+      dispatch(setUser(response.data));
+    })
+    .catch(function (error) {
+      console.log(error);
+      localStorage.setItem("token", "");
+    });
+};
+
+// APP.JS'deki verify code
+// useEffect(() => {
+//   if (token) {
+//     axiosWithAuth()
+//       .get("/verify")
+//       .then(function (response) {
+//         dispatch(setUser(response.data));
+//       })
+//       .catch(function (error) {
+//         console.log(error);
+//         localStorage.setItem("token", "");
+//       });
+//   }
+// }, []);

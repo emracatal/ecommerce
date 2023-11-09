@@ -14,7 +14,7 @@ import ContactForm from "./components/ContactForm";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import axiosInstance from "./api/api";
-import { setUser } from "./store/actions/userActions";
+import { getUserByVerify, setUser } from "./store/actions/userActions";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -33,15 +33,7 @@ function App() {
 
   useEffect(() => {
     if (token) {
-      axiosWithAuth()
-        .get("/verify")
-        .then(function (response) {
-          dispatch(setUser(response.data));
-        })
-        .catch(function (error) {
-          console.log(error);
-          localStorage.setItem("token", "");
-        });
+      dispatch(getUserByVerify());
     }
   }, []);
 
