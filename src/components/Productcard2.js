@@ -3,23 +3,17 @@ import productlist1 from "../assets/productlist1.png";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProducts } from "../store/actions/productActions";
 
 export default function Productcard2() {
-  const dispatch = useDispatch();
   const products = useSelector((store) => store.product.productList.products);
-
-  useEffect(() => {
-    dispatch(fetchProducts());
-  }, []);
 
   if (!products?.length) {
     return <div>Loading...</div>;
   }
   return (
     <>
-      {products.map((product) => (
-        <Link to="/ProductPage">
+      {products.map((product, i) => (
+        <Link key={i} to="/ProductPage">
           <div className="card max-w-[239px] min-h-[526px] shadow-lg hover:bg-verylightgray2 hover:scale-105">
             <img src={product.images[0].url} className="shadow-sm "></img>
             <div className="cardbody flex flex-auto flex-col items-center gap-2 py-6">
@@ -30,7 +24,7 @@ export default function Productcard2() {
                   {product.stock > 0 ? "In Stock" : "Out Of Stock"}
                 </h5>
                 <h5 className="text-secondarycolor1 font-bold">
-                  {product.price}
+                  TL {product.price}
                 </h5>
               </div>
               <div className="colors flex gap-1 ">

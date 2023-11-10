@@ -12,13 +12,18 @@ export default function Shopcard() {
       {categories
         .sort((a, b) => b.rating - a.rating)
         .slice(0, 5)
-        .map((category) => (
+        .map((category, i) => (
           <div
+            key={i}
             style={{ backgroundImage: `url(${category.img})` }}
             alt="x"
             className="card max-w-[205px] min-h-[223px] w-[100%] items-center flex justify-center flex-col text-white bg-cover bg-center hover:scale-105"
           >
-            <a href={`/shopping/${category.gender}/${category.title}`}>
+            <a
+              href={`/shopping/${
+                category.gender === "k" ? "kadın" : "erkek"
+              }/${category.title.toLowerCase()}`}
+            >
               <h5 className="font-bold text-center">
                 {category.gender === "k" ? "KADIN" : "ERKEK"}
               </h5>

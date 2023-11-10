@@ -54,14 +54,14 @@ export default function ProductList1() {
                     <Link to="/">Home</Link>
                   </li>
                   <li>
-                    <Link to="/Shop">Shop</Link>
+                    <Link to="/shop">Shop</Link>
                   </li>
                   <i className="fa-solid fa-chevron-down fa-sm"></i>
                   <li>
-                    <Link to="/About">About</Link>
+                    <Link to="/about">About</Link>
                   </li>
                   <li>
-                    <Link to="/Contact">Contact</Link>
+                    <Link to="/contact">Contact</Link>
                   </li>
                 </ul>
               </div>

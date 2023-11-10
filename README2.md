@@ -1,35 +1,36 @@
-**************PROJECT SETUP
+**\*\***\*\***\*\***PROJECT SETUP
 
 - Create github repo
-git init
+  git init
 
 - Create React Project
-npx create-react-app e-commerce
+  npx create-react-app e-commerce
 
 - Install all dependencies
 
-    - Redux & Redux Thunk
-    npm install react-redux redux
-    npm install redux-thunk
+      - Redux & Redux Thunk
+      npm install react-redux redux
+      npm install redux-thunk
 
-    - React Router v5
-    npm i react-router-dom@5
+      - React Router v5
+      npm i react-router-dom@5
 
-    - Tailwind
-npm install -D tailwindcss
+      - Tailwind
 
-npx tailwindcss init 
+  npm install -D tailwindcss
 
-/** @type {import('tailwindcss').Config} */
+npx tailwindcss init
+
+/** @type {import('tailwindcss').Config} \*/
 module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}  
+content: [
+"./src/**/\*.{js,jsx,ts,tsx}",
+],
+theme: {
+extend: {},
+},
+plugins: [],
+}
 
 @tailwind base;
 @tailwind components;
@@ -41,8 +42,7 @@ module.exports = {
     - Toastify
     npm install --save react-toastify
 
-**************CREATE UI
-    ## Description
+**\*\***\*\***\*\***CREATE UI ## Description
 
 - Create Figma Designs: https://www.figma.com/file/tXhNJv706AWM0lXlyxLH9l/E-commerce-UI---Figma-Ecommerce-UI-Kit-(Demo-Version)-(Community)?type=design&node-id=2793%3A708&mode=design&t=RdSUAxl5CbngLvsT-1
 - Use **only Flex** Layout
@@ -54,45 +54,46 @@ module.exports = {
 
 REACT HOOK FORM:npm install react-hook-form
 
-
 YEDEKTE DURMASINI İSTEDİĞİM KODLAR
-      {/* slider2 */}
-      <div className="slider-area bg-carousel2 min-h-[716px] ">
-        <div className="container text-white flex flex-col justify-center gap-4 p-[10%] max-w-[1440px] ">
-          <h5 className="font-bold">SUMMER 2020</h5>
-          <h1 className="font-bold">Vita Classic Product</h1>
-          <h4 className="">
-            We know how large objects will act, but things on a small scale.
-          </h4>
-          <div>
-            <button className="rounded bg-green text-lg font-bold px-5 py-2 ">
-              SHOP NOW
-            </button>
-          </div>
-        </div>
-      </div>
+{/_ slider2 _/}
+
+<div className="slider-area bg-carousel2 min-h-[716px] ">
+<div className="container text-white flex flex-col justify-center gap-4 p-[10%] max-w-[1440px] ">
+<h5 className="font-bold">SUMMER 2020</h5>
+<h1 className="font-bold">Vita Classic Product</h1>
+<h4 className="">
+We know how large objects will act, but things on a small scale.
+</h4>
+<div>
+<button className="rounded bg-green text-lg font-bold px-5 py-2 ">
+SHOP NOW
+</button>
+</div>
+</div>
+</div>
 
 -------------------------- hamburgerli navbar----------------
-      <div className="navbar-light flex justify-center">
-        <div className="container flex flex-grow justify-between items-center min-h-[58px] max-w-[1440px]">
-          <div className="navbar-light-left text-darkblue font-bold flex gap-2">
-            <h3>Bandage</h3>
-          </div>
-          <nav className="navbar-light-middle text-darkblue items-center gap-2  ">
-            <ul className="flex gap-2">
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/ProductList">Shop</Link>
-              </li>
-              <i className="fa-solid fa-chevron-down fa-sm self-center"></i>
-              <li>
-                <Link to="/About">About</Link>
-              </li>
+
+<div className="navbar-light flex justify-center">
+<div className="container flex flex-grow justify-between items-center min-h-[58px] max-w-[1440px]">
+<div className="navbar-light-left text-darkblue font-bold flex gap-2">
+<h3>Bandage</h3>
+</div>
+<nav className="navbar-light-middle text-darkblue items-center gap-2  ">
+<ul className="flex gap-2">
+<li>
+<Link to="/">Home</Link>
+</li>
+<li>
+<Link to="/ProductList">Shop</Link>
+</li>
+<i className="fa-solid fa-chevron-down fa-sm self-center"></i>
+<li>
+<Link to="/about">About</Link>
+</li>
 
               <li>
-                <Link to="/Contact">Contact</Link>
+                <Link to="/contact">Contact</Link>
               </li>
                           </ul>
           </nav>
@@ -113,21 +114,21 @@ YEDEKTE DURMASINI İSTEDİĞİM KODLAR
 
       ------------
 
-
 <label className="font-bold text-lg">Password</label>
-          <input className="form-input"
-            type="password"
-            placeholder="Password"
-            {...register("password", {
-              required: true,
-              pattern: {
-                value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/,
-                message:
-                  "Password needs to be min 8 character including numbers, lower case, upper case and special chars",
-              },
-            })}
-          />
-          <p className=" text-red-500">{errors.password?.message}</p>
+<input className="form-input"
+type="password"
+placeholder="Password"
+{...register("password", {
+required: true,
+pattern: {
+value: /^(?=._\d)(?=._[a-z])(?=._[A-Z])(?=._[!@#$%^&*]).{8,}$/,
+message:
+"Password needs to be min 8 character including numbers, lower case, upper case and special chars",
+},
+})}
+/>
+
+<p className=" text-red-500">{errors.password?.message}</p>
 
           <label className="font-bold text-lg">Confirm Password</label>
           <input className="form-input"

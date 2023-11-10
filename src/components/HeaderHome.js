@@ -45,21 +45,21 @@ export default function HomeHeader() {
               </li>
               <div className="flex gap-0">
                 <li>
-                  <Link to="/Shop">Shop</Link>
+                  <Link to="/shop">Shop</Link>
                 </li>
                 <Dropdown />
               </div>
               <li>
-                <Link to="/About">About</Link>
+                <Link to="/about">About</Link>
               </li>
               <li>
-                <Link to="/Contact">Contact</Link>
+                <Link to="/contact">Contact</Link>
               </li>
               <li>
-                <Link to="/Pricing">Pricing</Link>
+                <Link to="/pricing">Pricing</Link>
               </li>
               <li>
-                <Link to="/Team">Team</Link>
+                <Link to="/team">Team</Link>
               </li>
             </ul>
           </nav>
@@ -101,19 +101,19 @@ export default function HomeHeader() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/Shop">Shop</Link>
+            <Link to="/shop">Shop</Link>
           </li>
           <li>
-            <Link to="/About">About</Link>
+            <Link to="/about">About</Link>
           </li>
           <li>
-            <Link to="/Contact">Contact</Link>
+            <Link to="/contact">Contact</Link>
           </li>
           <li>
-            <Link to="/Pricing">Pricing</Link>
+            <Link to="/pricing">Pricing</Link>
           </li>
           <li>
-            <Link to="/Team">Team</Link>
+            <Link to="/team">Team</Link>
           </li>
         </ul>
       </nav>

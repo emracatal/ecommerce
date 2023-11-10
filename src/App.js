@@ -20,21 +20,25 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import axiosWithAuth from "./api/axiosWithAuth";
 import { fetchCategories } from "./store/actions/globalActions";
-
+import { fetchProducts } from "./store/actions/productActions";
 function App() {
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
   const token = localStorage.getItem("token");
   const categories = useSelector((state) => state.global.categories);
-
-  useEffect(() => {
-    categories.length == 0 && dispatch(fetchCategories());
-  }, []);
+  const products = useSelector((store) => store.product.productList.products);
 
   useEffect(() => {
     if (token) {
       dispatch(getUserByVerify());
     }
+  }, []);
+  useEffect(() => {
+    categories.length == 0 && dispatch(fetchCategories());
+  }, []);
+
+  useEffect(() => {
+    dispatch(fetchProducts());
   }, []);
 
   return (
@@ -43,22 +47,22 @@ function App() {
         <Route path="/" exact>
           <HomePage />
         </Route>
-        <Route path="/Shop" exact>
+        <Route path="/shop" exact>
           <ProductList />
         </Route>
-        <Route path="/About" exact>
+        <Route path="/about" exact>
           <About />
         </Route>
-        <Route path="/Contact" exact>
+        <Route path="/contact" exact>
           <Contact />
         </Route>
         <Route path="/ProductPage" exact>
           <ProductPage />
         </Route>
-        <Route path="/Pricing" exact>
+        <Route path="/pricing" exact>
           <Pricing />
         </Route>
-        <Route path="/Team" exact>
+        <Route path="/team" exact>
           <Team />
         </Route>
         <Route path="/ContactForm" exact>

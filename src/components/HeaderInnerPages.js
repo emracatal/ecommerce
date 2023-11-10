@@ -19,16 +19,16 @@ export default function HeaderInnerPages() {
               </li>
               <i className="fa-solid fa-chevron-down fa-sm self-center"></i>
               <li>
-                <Link to="/About">About</Link>
+                <Link to="/about">About</Link>
               </li>
               <li>
-                <Link to="/Contact">Contact</Link>
+                <Link to="/contact">Contact</Link>
               </li>
               <li>
-                <Link to="/Pricing">Pricing</Link>
+                <Link to="/pricing">Pricing</Link>
               </li>
               <li>
-                <Link to="/Team">Team</Link>
+                <Link to="/team">Team</Link>
               </li>
             </ul>
           </nav>
@@ -55,10 +55,10 @@ export default function HeaderInnerPages() {
             <Link to="/ProductList">Shop</Link>
           </li>
           <li>
-            <Link to="/Pricing">Pricing</Link>
+            <Link to="/pricing">Pricing</Link>
           </li>
           <li>
-            <Link to="/Contact">Contact</Link>
+            <Link to="/contact">Contact</Link>
           </li>
         </ul>
       </nav>

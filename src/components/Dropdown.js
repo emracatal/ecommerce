@@ -56,9 +56,9 @@ export default function Example() {
                           >
                             <h6 className="text-left hover:font-bold ">
                               {filteredCategory.gender === "k"
-                                ? "Kadın"
-                                : "Erkek"}
-                              {filteredCategory.title.toLowerCase()}
+                                ? "Kadın "
+                                : "Erkek "}
+                              {filteredCategory.title}
                             </h6>
                           </a>
                         ))}
@@ -78,8 +78,8 @@ export default function Example() {
                           >
                             <h6 className="text-left hover:font-bold ">
                               {filteredCategory.gender === "e"
-                                ? "Erkek"
-                                : "Kadın"}
+                                ? "Erkek "
+                                : "Kadın "}
                               {filteredCategory.title}
                             </h6>
                           </a>

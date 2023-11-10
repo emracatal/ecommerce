@@ -93,9 +93,9 @@ export default function About() {
           <iframe
             className="rounded-2xl flex items-center justify-center w-[989px] h-[540px] mobile:w-[307px] mobile:h-[316px] mobile:m-14"
             src="https://www.youtube.com/embed/2nEzfa43VF8"
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
+            allowFullScreen
           ></iframe>
         </div>
       </div>
