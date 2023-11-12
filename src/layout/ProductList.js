@@ -48,73 +48,29 @@ export default function ProductList() {
             <i className="fa-solid fa-grip border-solid border-2 border-verylightgray2 p-2"></i>
             <i className="fa-solid fa-list border-solid border-2 border-verylightgray2  p-2"></i>
           </div>
-          <div className="flex gap-2">
-            <button
-              id="dropdownDefaultButton"
-              data-dropdown-toggle="dropdown"
-              className="text-sm border-solid border-2 border-verylightgray2  flex gap-3 items-center px-5"
-              type="button"
-            >
-              Popularity
-              <svg
-                className="w-2.5 h-2.5 ml-2.5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 10 6"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="m1 1 4 4 4-4"
-                />
-              </svg>
-            </button>
-            <div
-              id="dropdown"
-              className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
-            >
-              <ul
-                className="py-2 text-sm text-gray-700 dark:text-gray-200"
-                aria-labelledby="dropdownDefaultButton"
-              >
-                <li>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    Dashboard
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    Settings
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    Earnings
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    Sign out
-                  </a>
-                </li>
-              </ul>
+
+          <div className="flex gap-2 items-center">
+            <input
+              type="text"
+              placeholder="Search..."
+              className="text-sm border-solid border-2 border-verylightgray2  flex gap-3 items-center p-1.5"
+            ></input>
+            {/* <!-- Dropdown menu --> */}
+            <div className="sort-selection text-sm border-solid border-2 border-verylightgray2 p-1.5 ">
+              <form action="#">
+                <label htmlFor="sort"></label>
+                <select name="sort" id="sort" className="sort-selection--style">
+                  <option value="lowestPrice">Price(lowest)</option>
+                  <option value="highestPrice">Price(highest)</option>
+                  <option value="lowestRating">Rating(lowest)</option>
+                  <option value="highestRating">Rating(highest)</option>
+                </select>
+              </form>
             </div>
-            <button className="text-white text-sm bg-turku p-3 border-solid border-2 border-verylightgray2 px-5">
+
+            {/* <!-- Filter button --> */}
+
+            <button className="text-white text-sm bg-turku border-solid border-2 border-verylightgray2 py-1.5 px-3 ">
               Filter
             </button>
           </div>
