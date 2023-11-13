@@ -6,16 +6,11 @@ import Productcard2 from "../components/Productcard2";
 import Pagination from "../components/Pagination";
 import Footer from "../components/Footer";
 import Clients from "../components/Clients";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function ProductList() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const shops = [
-    { id: 1, name: "shopcard1", price: 19.99 },
-    { id: 2, name: "shopcard2", price: 19.99 },
-    { id: 3, name: "shopcard3", price: 39.99 },
-    { id: 4, name: "shopcard4", price: 39.99 },
-    { id: 5, name: "shopcard5", price: 39.99 },
-  ];
+  const dispatch = useDispatch();
+  const categories = useSelector((state) => state.global.categories);
 
   return (
     <>
@@ -50,6 +45,22 @@ export default function ProductList() {
           </div>
 
           <div className="flex gap-2 items-center">
+            {/* <!-- Dropdown menu categories --> */}
+            <div className="sort-selection text-sm border-solid border-2 border-verylightgray2 p-1.5 ">
+              <form action="#">
+                <label htmlFor="sort"></label>
+                <select name="sort" id="sort" className="sort-selection--style">
+                  {categories &&
+                    categories.map((category) => (
+                      <option value={category.id}>
+                        {category.gender === "k" ? "Kadın " : "Erkek "}
+                        {category.title}
+                      </option>
+                    ))}
+                </select>
+              </form>
+            </div>
+            {/* <!-- Search input area  --> */}
             <input
               type="text"
               placeholder="Search..."
