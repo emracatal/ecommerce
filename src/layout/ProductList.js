@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import HeaderHome from "../components/HeaderHome";
 import Shopcard from "../components/Shopcard";
@@ -7,10 +7,49 @@ import Pagination from "../components/Pagination";
 import Footer from "../components/Footer";
 import Clients from "../components/Clients";
 import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts } from "../store/actions/productActions";
 
 export default function ProductList() {
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.global.categories);
+  const products = useSelector((store) => store.product.productList.products);
+
+  const [filters, setFilters] = useState({
+    categoryId: "",
+    filterText: "",
+    sortBy: "",
+  });
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, []);
+
+  const handleCategoryChange = (event) => {
+    setFilters({
+      ...filters,
+      categoryId: event.target.value,
+    });
+  };
+
+  const handleFilterTextChange = (event) => {
+    setFilters({
+      ...filters,
+      filterText: event.target.value,
+    });
+  };
+
+  const handleSortByChange = (event) => {
+    setFilters({
+      ...filters,
+      sortBy: event.target.value,
+    });
+  };
+
+  const handleFilterClick = () => {
+    dispatch(
+      fetchProducts(filters.categoryId, filters.filterText, filters.sortBy)
+    );
+  };
 
   return (
     <>
@@ -49,10 +88,17 @@ export default function ProductList() {
             <div className="sort-selection text-sm border-solid border-2 border-verylightgray2 p-1.5 ">
               <form action="#">
                 <label htmlFor="sort"></label>
-                <select name="sort" id="sort" className="sort-selection--style">
+                <select
+                  name="sort"
+                  id="sort"
+                  value={filters.categoryId}
+                  onChange={handleCategoryChange}
+                  className="sort-selection--style"
+                >
+                  <option value="">Select category</option>
                   {categories &&
-                    categories.map((category) => (
-                      <option value={category.id}>
+                    categories.map((category, i) => (
+                      <option value={category.id} key={i}>
                         {category.gender === "k" ? "Kadın " : "Erkek "}
                         {category.title}
                       </option>
@@ -62,6 +108,8 @@ export default function ProductList() {
             </div>
             {/* <!-- Search input area  --> */}
             <input
+              value={filters.filterText}
+              onChange={handleFilterTextChange}
               type="text"
               placeholder="Search..."
               className="text-sm border-solid border-2 border-verylightgray2  flex gap-3 items-center p-1.5"
@@ -70,18 +118,28 @@ export default function ProductList() {
             <div className="sort-selection text-sm border-solid border-2 border-verylightgray2 p-1.5 ">
               <form action="#">
                 <label htmlFor="sort"></label>
-                <select name="sort" id="sort" className="sort-selection--style">
-                  <option value="lowestPrice">Price(lowest)</option>
-                  <option value="highestPrice">Price(highest)</option>
-                  <option value="lowestRating">Rating(lowest)</option>
-                  <option value="highestRating">Rating(highest)</option>
+                <select
+                  value={filters.sortBy}
+                  onChange={handleSortByChange}
+                  name="sort"
+                  id="sort"
+                  className="sort-selection--style"
+                >
+                  <option value="">Sort by</option>
+                  <option value="price:asc">Price(Low to High)</option>
+                  <option value="price:desc">Price(High to Low)</option>
+                  <option value="rating:asc">Low Rated</option>
+                  <option value="rating:desc">Top Rated</option>
                 </select>
               </form>
             </div>
 
             {/* <!-- Filter button --> */}
 
-            <button className="text-white text-sm bg-turku border-solid border-2 border-verylightgray2 py-1.5 px-3 ">
+            <button
+              onClick={handleFilterClick}
+              className="text-white text-sm bg-turku border-solid border-2 border-verylightgray2 py-1.5 px-3 "
+            >
               Filter
             </button>
           </div>

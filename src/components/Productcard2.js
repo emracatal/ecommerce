@@ -21,10 +21,22 @@ export default function Productcard2() {
               <p className="text-center line-clamp-2">{product.description}</p>
               <div className="price flex flex-row gap-3">
                 <h5 className="text-lightgray">
-                  {product.stock > 0 ? "In Stock" : "Out Of Stock"}
-                </h5>
+                  {[...Array(5)].map((star, index) => {
+                    const ratingValue = index + 1;
+                    return (
+                      <span key={index}>
+                        {/* If the product's rating is equal to or greater than the current index, show a filled star */}
+                        {product.rating >= ratingValue ? (
+                          <i className="fa-solid fa-star text-yellow-500"></i>
+                        ) : (
+                          <i className="fa-regular fa-star text-yellow-500"></i>
+                        )}
+                      </span>
+                    );
+                  })}
+                </h5>{" "}
                 <h5 className="text-secondarycolor1 font-bold">
-                  TL {product.price}
+                  {product.price} TL
                 </h5>
               </div>
               <div className="colors flex gap-1 ">

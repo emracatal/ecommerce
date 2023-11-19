@@ -255,8 +255,8 @@ export default function SignUp() {
             })}
           >
             {roles &&
-              roles.reverse().map((role) => (
-                <option key={role.id} value={role.id}>
+              roles.reverse().map((role, i) => (
+                <option key={i} value={role.id}>
                   {role.code}
                 </option>
               ))}

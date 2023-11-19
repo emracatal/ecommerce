@@ -105,8 +105,8 @@ export default function ProductPage() {
             BESTSELLER PRODUCTS
           </h3>
           <div className="bestseller-products-container flex flex-row flex-wrap gap-5 items-center justify-center">
-            {products.map((product) => (
-              <Productcard3 key={product.id} product={product} />
+            {products.map((product, i) => (
+              <Productcard3 key={i} product={product} />
             ))}
           </div>
         </div>

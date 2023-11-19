@@ -69,8 +69,8 @@ export default function HomeBody() {
         </div>
         <div className="bestseller-products-container flex items-center justify-center max-w-[1440px]">
           <div className="flex flex-row flex-wrap max-w-[1050px] gap-7 justify-center items-canter">
-            {products.map((product) => (
-              <Productcard key={product.id} product={product} />
+            {products.map((product, i) => (
+              <Productcard key={i} product={product} />
             ))}
           </div>
         </div>
@@ -127,8 +127,8 @@ export default function HomeBody() {
         </div>
         <div className="blog-container flex items-center justify-center max-w-[1440px] mx-auto">
           <div className="flex flex-row flex-wrap max-w-[1440px] gap-2 justify-center items-center">
-            {blogs.map((blog) => (
-              <Blogcard key={blog.id} blog={blog} />
+            {blogs.map((blog, i) => (
+              <Blogcard key={i} blog={blog} />
             ))}
           </div>
         </div>

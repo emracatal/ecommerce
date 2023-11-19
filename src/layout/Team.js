@@ -90,8 +90,8 @@ export default function Team() {
           </div>
           <div className="team-container flex items-center justify-center max-w-[1050px] mx-auto">
             <div className="flex flex-row flex-wrap max-w-[1050px] gap-10 justify-center items-center">
-              {members.map((member) => (
-                <TeamMemberCard key={member.id} member={member} />
+              {members.map((member, i) => (
+                <TeamMemberCard key={i} member={member} />
               ))}
             </div>
           </div>

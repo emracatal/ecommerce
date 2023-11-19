@@ -8,11 +8,25 @@ export const SET_PAGE_COUNT = "SET_PAGE_COUNT";
 export const SET_ACTIVE_PAGE = "SET_ACTIVE_PAGE";
 export const SET_FETCH_STATE = "SET_FETCH_STATE";
 
-export const fetchProducts = () => {
+export const fetchProducts = (categoryId, filterText, sortBy) => {
   return (dispatch) => {
     dispatch({ type: FETCH_PRODUCTS_REQUEST });
+    let url = "/products";
+    let filterParams = [];
+    if (categoryId) {
+      filterParams.push(`category=${categoryId}`);
+    }
+    if (filterText) {
+      filterParams.push(`search=${filterText}`);
+    }
+    if (sortBy) {
+      filterParams.push(`sort=${sortBy}`);
+    }
+    if (filterParams.length > 0) {
+      url += `?${filterParams.join("&")}`;
+    }
     axiosInstance
-      .get("/products")
+      .get(url)
       .then((response) => {
         dispatch({
           type: FETCH_PRODUCTS_SUCCESS,
