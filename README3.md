@@ -1,7 +1,2 @@
-TODO
-
-> /verify by thunk action, move to userReducer DONE
-> move categories to App.js DONE
-> change url from productlist to shop DONE
-> change title to lovercase DONE
-> remove map key error DONE
+ProductList'e bir filters state ekleyip içine categoryId,filterText ve sortBy ekledim, handleChange'ler ile state güncelledim.
+HandleClick'e bir fetchProducts thunk action ile ilgili filtrelerle fetch yaptım.

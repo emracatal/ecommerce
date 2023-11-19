@@ -20,10 +20,6 @@ export default function ProductList() {
     sortBy: "",
   });
 
-  useEffect(() => {
-    dispatch(fetchProducts());
-  }, []);
-
   const handleCategoryChange = (event) => {
     setFilters({
       ...filters,
