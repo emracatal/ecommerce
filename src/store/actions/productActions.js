@@ -17,7 +17,7 @@ export const fetchProducts = (categoryId, filterText, sortBy) => {
       filterParams.push(`category=${categoryId}`);
     }
     if (filterText) {
-      filterParams.push(`search=${filterText}`);
+      filterParams.push(`filter=${filterText}`);
     }
     if (sortBy) {
       filterParams.push(`sort=${sortBy}`);

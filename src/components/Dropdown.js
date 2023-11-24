@@ -46,7 +46,7 @@ export default function Example() {
                         .filter((category, i) => category.gender === "k")
                         .map((filteredCategory, i) => (
                           <a
-                            href={`/shopping/${
+                            href={`/shop/${
                               filteredCategory.gender === "k"
                                 ? "kadın"
                                 : "erkek"

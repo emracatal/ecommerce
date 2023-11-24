@@ -47,6 +47,7 @@ export default function ProductList() {
     );
   };
 
+  console.log("filters:", filters);
   return (
     <>
       <HeaderHome />
