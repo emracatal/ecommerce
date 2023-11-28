@@ -86,7 +86,7 @@ export default function ProductList() {
 
           <div className="flex gap-2 items-center">
             {/* <!-- Dropdown menu categories --> */}
-            <div className="sort-selection text-sm border-solid border-2 border-verylightgray2 p-1.5 ">
+            {/* <div className="sort-selection text-sm border-solid border-2 border-verylightgray2 p-1.5 ">
               <form action="#">
                 <label htmlFor="sort"></label>
                 <select
@@ -106,7 +106,7 @@ export default function ProductList() {
                     ))}
                 </select>
               </form>
-            </div>
+            </div> */}
             {/* <!-- Search input area  --> */}
             <input
               value={filters.filterText}
