@@ -1,5 +1,6 @@
 import React from "react";
 import productlist1 from "../assets/productlist1.png";
+import noprodfound from "../assets/noprodfound.png";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,7 +9,11 @@ export default function Productcard2() {
   const products = useSelector((store) => store.product.productList.products);
 
   if (!products?.length) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <img src={noprodfound} alt="Loading..." />
+      </div>
+    );
   }
   return (
     <>

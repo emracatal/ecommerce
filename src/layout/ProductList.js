@@ -8,9 +8,11 @@ import Footer from "../components/Footer";
 import Clients from "../components/Clients";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../store/actions/productActions";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 export default function ProductList() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const categories = useSelector((state) => state.global.categories);
   const products = useSelector((store) => store.product.productList.products);
 
@@ -27,6 +29,7 @@ export default function ProductList() {
       sortBy: "",
     });
     dispatch(fetchProducts(categoryId, "", ""));
+    console.log(categories);
   };
 
   const handleFilterTextChange = (event) => {
@@ -66,12 +69,10 @@ export default function ProductList() {
           </div>
         </div>
       </div>
-
       {/* productlist cloth yazılı 5 fotolu alan */}
       <div className="shopcard-container flex flex-row flex-wrap gap-1 justify-center max-w-[1050px] py-9 mx-auto mobile:flex mobile:flex-col mobile:items-center mobile:p-10 mobile:gap-4 ">
         <Shopcard onChange={handleCategoryChange} />
       </div>
-
       {/* filterarea */}
       <div className="flex justify-center bg-verylightgray3">
         <div className="container  flex flex-row justify-between items-center max-w-[1050px] min-h-[98px] px-3 mobile:flex mobile:flex-col mobile:gap-6 mobile:p-10">
@@ -148,7 +149,6 @@ export default function ProductList() {
           </div>
         </div>
       </div>
-
       {/* productcards */}
       <div className="bestseller pb-20 ">
         <div className="container flex flex-col items-center justify-center max-w-[1050px] py-12 mx-auto mobile:flex mobile:flex-col mobile:items-center mobile:p-10 mobile:gap-4 ">
@@ -157,13 +157,10 @@ export default function ProductList() {
           </div>
         </div>
       </div>
-
       {/* pagination */}
-      <Pagination />
-
+      {products?.length && <Pagination />}
       {/* clients */}
       <Clients />
-
       {/* footer */}
       <Footer />
     </>
