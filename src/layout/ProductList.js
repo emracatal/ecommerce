@@ -73,7 +73,11 @@ export default function ProductList() {
       {/* filterarea */}
       <div className="flex justify-center bg-verylightgray3">
         <div className="container  flex flex-row justify-between items-center max-w-[1050px] min-h-[98px] px-3 mobile:flex mobile:flex-col mobile:gap-6 mobile:p-10">
-          <h6>Showing all 12 results</h6>
+          <h6>
+            {!products
+              ? "Loading"
+              : "Showing all " + `${products.length}` + " results"}
+          </h6>
           <div className="flex flex-row gap-3 items-center justify-center">
             <h6>Views: </h6>
             <i className="fa-solid fa-grip border-solid border-2 border-verylightgray2 p-2"></i>
