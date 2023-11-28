@@ -20,11 +20,13 @@ export default function ProductList() {
     sortBy: "",
   });
 
-  const handleCategoryChange = (event) => {
+  const handleCategoryChange = (categoryId) => {
     setFilters({
-      ...filters,
-      categoryId: event.target.value,
+      categoryId: categoryId,
+      filterText: "",
+      sortBy: "",
     });
+    dispatch(fetchProducts(categoryId, "", ""));
   };
 
   const handleFilterTextChange = (event) => {
@@ -67,7 +69,7 @@ export default function ProductList() {
 
       {/* productlist cloth yazılı 5 fotolu alan */}
       <div className="shopcard-container flex flex-row flex-wrap gap-1 justify-center max-w-[1050px] py-9 mx-auto mobile:flex mobile:flex-col mobile:items-center mobile:p-10 mobile:gap-4 ">
-        <Shopcard />
+        <Shopcard onChange={handleCategoryChange} />
       </div>
 
       {/* filterarea */}

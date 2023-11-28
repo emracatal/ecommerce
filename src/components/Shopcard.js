@@ -3,9 +3,16 @@ import productcover2 from "../assets/productcover2.png";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCategories, setCategories } from "../store/actions/globalActions";
 import { useEffect } from "react";
+import { fetchProducts } from "../store/actions/productActions";
 
-export default function Shopcard() {
+export default function Shopcard({ onChange }) {
+  const dispatch = useDispatch();
+
   const categories = useSelector((state) => state.global.categories);
+
+  const handleCategoryClick = (categoryId) => {
+    onChange(categoryId);
+  };
 
   return (
     <>
@@ -14,7 +21,8 @@ export default function Shopcard() {
         .slice(0, 5)
         .map((category, i) => (
           <div
-            key={i}
+            key={category.id}
+            onClick={() => handleCategoryClick(category.id)}
             style={{ backgroundImage: `url(${category.img})` }}
             alt="x"
             className="card max-w-[205px] min-h-[223px] w-[100%] items-center flex justify-center flex-col text-white bg-cover bg-center hover:scale-105"
