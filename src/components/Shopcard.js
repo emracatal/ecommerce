@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCategories, setCategories } from "../store/actions/globalActions";
 import { useEffect } from "react";
 import { fetchProducts } from "../store/actions/productActions";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 export default function Shopcard({ onChange }) {
   const dispatch = useDispatch();
@@ -20,7 +21,10 @@ export default function Shopcard({ onChange }) {
         .sort((a, b) => b.rating - a.rating)
         .slice(0, 5)
         .map((category, i) => (
-          <div
+          <Link
+            to={`/shopping/${
+              category.gender === "k" ? "kadın" : "erkek"
+            }/${category.title.toLowerCase()}`}
             key={category.id}
             onClick={() => handleCategoryClick(category.id)}
             style={{ backgroundImage: `url(${category.img})` }}
@@ -37,7 +41,7 @@ export default function Shopcard({ onChange }) {
             </h5>
             <h5 className="text-center">{category.title}</h5>
             {/* </a> */}
-          </div>
+          </Link>
         ))}
     </>
   );

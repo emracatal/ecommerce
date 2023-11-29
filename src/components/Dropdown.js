@@ -2,14 +2,20 @@ import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Example() {
+export default function Example({ onChange }) {
   const dispatch = useDispatch();
+
   const categories = useSelector((state) => state.global.categories);
+
+  const handleCategoryClick = (categoryId) => {
+    onChange(categoryId);
+  };
 
   return (
     <Menu as="div" className="relative inline-block text-left w-full">
@@ -45,13 +51,22 @@ export default function Example() {
                       {categories
                         .filter((category, i) => category.gender === "k")
                         .map((filteredCategory, i) => (
-                          <a
-                            href={`/shop/${
+                          <Link
+                            to={`/shopping/${
                               filteredCategory.gender === "k"
                                 ? "kadın"
                                 : "erkek"
                             }/${filteredCategory.title.toLowerCase()}`}
-                            key={i}
+                            // <a
+                            //   href={`/shopping/${
+                            //     filteredCategory.gender === "k"
+                            //       ? "kadın"
+                            //       : "erkek"
+                            //   }/${filteredCategory.title.toLowerCase()}`}
+                            key={filteredCategory.id}
+                            onClick={() =>
+                              handleCategoryClick(filteredCategory.id)
+                            }
                             className="block w-full text-xs"
                           >
                             <h6 className="text-left hover:font-bold ">
@@ -60,12 +75,15 @@ export default function Example() {
                                 : "Erkek "}
                               {filteredCategory.title}
                             </h6>
-                          </a>
+                          </Link>
                         ))}
                     </div>
                     <div className="min-w-max bg-white rounded ">
                       {categories
-                        .filter((category, i) => category.gender === "e")
+                        .filter(
+                          (filteredCategory, i) =>
+                            filteredCategory.gender === "e"
+                        )
                         .map((filteredCategory, i) => (
                           <a
                             href={`/shopping/${
@@ -73,7 +91,7 @@ export default function Example() {
                                 ? "kadın"
                                 : "erkek"
                             }/${filteredCategory.title.toLowerCase()}`}
-                            key={i}
+                            key={filteredCategory.id}
                             className="block w-full text-xs"
                           >
                             <h6 className="text-left hover:font-bold ">

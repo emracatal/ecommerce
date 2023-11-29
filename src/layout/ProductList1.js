@@ -54,7 +54,7 @@ export default function ProductList1() {
                     <Link to="/">Home</Link>
                   </li>
                   <li>
-                    <Link to="/shop">Shop</Link>
+                    <Link to="/shopping">Shop</Link>
                   </li>
                   <i className="fa-solid fa-chevron-down fa-sm"></i>
                   <li>

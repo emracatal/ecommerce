@@ -8,13 +8,17 @@ import Footer from "../components/Footer";
 import Clients from "../components/Clients";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../store/actions/productActions";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import {
+  useHistory,
+  useParams,
+} from "react-router-dom/cjs/react-router-dom.min";
 
 export default function ProductList() {
   const dispatch = useDispatch();
   const history = useHistory();
   const categories = useSelector((state) => state.global.categories);
   const products = useSelector((store) => store.product.productList.products);
+  let { gender, category } = useParams();
 
   const [filters, setFilters] = useState({
     categoryId: "",
@@ -29,7 +33,6 @@ export default function ProductList() {
       sortBy: "",
     });
     dispatch(fetchProducts(categoryId, "", ""));
-    console.log(categories);
   };
 
   const handleFilterTextChange = (event) => {
@@ -70,6 +73,7 @@ export default function ProductList() {
         </div>
       </div>
       {/* productlist cloth yazılı 5 fotolu alan */}
+
       <div className="shopcard-container flex flex-row flex-wrap gap-1 justify-center max-w-[1050px] py-9 mx-auto mobile:flex mobile:flex-col mobile:items-center mobile:p-10 mobile:gap-4 ">
         <Shopcard onChange={handleCategoryChange} />
       </div>

@@ -1,11 +1,33 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useParams } from "react-router-dom";
 import MD5 from "crypto-js/md5";
 import Dropdown from "./Dropdown";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { fetchProducts } from "../store/actions/productActions";
 
 export default function HomeHeader() {
   const user = useSelector((store) => store.user);
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const categories = useSelector((state) => state.global.categories);
+  const products = useSelector((store) => store.product.productList.products);
+  let { gender, category } = useParams();
+
+  const [filters, setFilters] = useState({
+    categoryId: "",
+    filterText: "",
+    sortBy: "",
+  });
+
+  const handleCategoryChange = (categoryId) => {
+    setFilters({
+      categoryId: categoryId,
+      filterText: "",
+      sortBy: "",
+    });
+    dispatch(fetchProducts(categoryId, "", ""));
+  };
 
   return (
     <>
@@ -45,9 +67,9 @@ export default function HomeHeader() {
               </li>
               <div className="flex gap-0">
                 <li>
-                  <Link to="/shop">Shop</Link>
+                  <Link to="/shopping">Shop</Link>
                 </li>
-                <Dropdown />
+                <Dropdown onChange={handleCategoryChange} />
               </div>
               <li>
                 <Link to="/about">About</Link>
@@ -101,7 +123,7 @@ export default function HomeHeader() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/shop">Shop</Link>
+            <Link to="/shopping">Shop</Link>
           </li>
           <li>
             <Link to="/about">About</Link>

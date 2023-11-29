@@ -21,11 +21,13 @@ import { useEffect } from "react";
 import axiosWithAuth from "./api/axiosWithAuth";
 import { fetchCategories } from "./store/actions/globalActions";
 import { fetchProducts } from "./store/actions/productActions";
+
 function App() {
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
   const token = localStorage.getItem("token");
   const categories = useSelector((state) => state.global.categories);
+
   const products = useSelector((store) => store.product.productList.products);
 
   useEffect(() => {
@@ -47,7 +49,7 @@ function App() {
         <Route path="/" exact>
           <HomePage />
         </Route>
-        <Route path="/shop" exact>
+        <Route path="/shopping">
           <ProductList />
         </Route>
         <Route path="/about" exact>
