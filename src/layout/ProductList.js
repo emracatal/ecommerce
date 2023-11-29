@@ -148,7 +148,20 @@ export default function ProductList() {
               onClick={handleFilterClick}
               className="text-white text-sm bg-turku border-solid border-2 border-verylightgray2 py-1.5 px-3 "
             >
-              Filter
+              <Link
+                to={`/shopping/${
+                  categories.find((cat) => cat.id === filters.categoryId)
+                    ?.gender === "k"
+                    ? "kadın"
+                    : "erkek"
+                }/${categories
+                  .find((cat) => cat.id === filters.categoryId)
+                  ?.title.toLowerCase()}/?filter=${filters.filterText}/&sort=${
+                  filters.sortBy
+                }`}
+              >
+                Filter
+              </Link>
             </button>
           </div>
         </div>
