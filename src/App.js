@@ -28,19 +28,11 @@ function App() {
   const token = localStorage.getItem("token");
   const categories = useSelector((state) => state.global.categories);
 
-  const products = useSelector((store) => store.product.productList.products);
-
   useEffect(() => {
     if (token) {
       dispatch(getUserByVerify());
     }
-  }, []);
-  useEffect(() => {
     categories.length == 0 && dispatch(fetchCategories());
-  }, []);
-
-  useEffect(() => {
-    dispatch(fetchProducts());
   }, []);
 
   return (

@@ -11,7 +11,6 @@ export default function HomeHeader() {
   const dispatch = useDispatch();
   const history = useHistory();
   const categories = useSelector((state) => state.global.categories);
-  const products = useSelector((store) => store.product.productList.products);
   let { gender, category } = useParams();
 
   const [filters, setFilters] = useState({

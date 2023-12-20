@@ -6,17 +6,14 @@ export default function Carousel() {
     <>
       <div className="carousel w-full mobile:h-[750px]">
         <div id="slide1" className="carousel-item relative w-full">
-          <img
-            src={herocover2}
-            className="w-full mobile:object-cover"
-          />
+          <img src={herocover2} className="w-full mobile:object-cover" />
           <div className="absolute flex justify-between items-center transform -translate-y-1/2 left-5 right-5 top-1/2">
             <a href="#slide2" className="text-white text-4xl">
               ❮
             </a>
             <div className="container text-white flex flex-col justify-center gap-4 px-5 max-w-[1000px] ">
               <h5 className="font-bold">SUMMER 2020</h5>
-              <h1 className="font-bold">NEW COLLECTION</h1>
+              <h1 className="font-bold">en havalı MEHMET KAAN</h1>
               <h4 className="">
                 We know how large objects will act, but things on a small scale.
               </h4>
@@ -25,7 +22,7 @@ export default function Carousel() {
                   SHOP NOW
                 </button>
               </div>
-              </div>
+            </div>
 
             <a href="#slide2" className="text-white text-4xl">
               ❯
@@ -33,10 +30,7 @@ export default function Carousel() {
           </div>
         </div>
         <div id="slide2" className="carousel-item relative w-full">
-          <img
-            src={carousel2}
-            className="w-full mobile:object-cover"
-          />
+          <img src={carousel2} className="w-full mobile:object-cover" />
           <div className="absolute flex justify-between items-center transform -translate-y-1/2 left-5 right-5 top-1/2">
             <a href="#slide1" className="text-white text-4xl">
               ❮
@@ -52,7 +46,7 @@ export default function Carousel() {
                   SHOP NOW
                 </button>
               </div>
-              </div>
+            </div>
             <a href="#slide1" className="text-white text-4xl">
               ❯
             </a>

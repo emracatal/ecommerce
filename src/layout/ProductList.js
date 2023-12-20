@@ -7,18 +7,28 @@ import Pagination from "../components/Pagination";
 import Footer from "../components/Footer";
 import Clients from "../components/Clients";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProducts } from "../store/actions/productActions";
+import { fetchProducts, setProducts } from "../store/actions/productActions";
 import {
   useHistory,
   useParams,
 } from "react-router-dom/cjs/react-router-dom.min";
+import InfiniteScroll from "react-infinite-scroll-component";
+import axiosInstance from "../api/api";
 
 export default function ProductList() {
   const dispatch = useDispatch();
   const history = useHistory();
   const categories = useSelector((state) => state.global.categories);
-  const products = useSelector((store) => store.product.productList.products);
-  let { gender, category } = useParams();
+  const products = useSelector((store) => store.product.productList);
+  const [offset, setOffset] = useState(25);
+  const limit = 24;
+  const [hasMore, setHasMore] = useState(true);
+
+  console.log(products);
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, []);
 
   const [filters, setFilters] = useState({
     categoryId: "",
@@ -55,7 +65,26 @@ export default function ProductList() {
     );
   };
 
-  console.log("filters:", filters);
+  const fetchMoreProducts = () => {
+    axiosInstance
+      .get(`/products/?offset=${offset}&limit=${limit}`)
+      .then((response) => {
+        console.log("INFINITE RESPONSE , ", response);
+        dispatch(setProducts(response.data.products));
+        setOffset(offset + limit);
+        setHasMore(true);
+      })
+      .catch((error) => {
+        console.error("Error fetching more data:", error);
+      });
+  };
+
+  // useEffect(() => {
+  //   if (totalProductCount && products?.length === totalProductCount) {
+  //     setHasMore(false);
+  //   }
+  // }, [products]); TODO UYARLA!!
+
   return (
     <>
       <HeaderHome />
@@ -83,7 +112,7 @@ export default function ProductList() {
           <h6>
             {!products
               ? "Loading"
-              : "Showing all " + `${products.length}` + " results"}
+              : "Showing all " + `${products?.length}` + " results"}
           </h6>
           <div className="flex flex-row gap-3 items-center justify-center">
             <h6>Views: </h6>
@@ -92,28 +121,6 @@ export default function ProductList() {
           </div>
 
           <div className="flex gap-2 items-center">
-            {/* <!-- Dropdown menu categories --> */}
-            {/* <div className="sort-selection text-sm border-solid border-2 border-verylightgray2 p-1.5 ">
-              <form action="#">
-                <label htmlFor="sort"></label>
-                <select
-                  name="sort"
-                  id="sort"
-                  value={filters.categoryId}
-                  onChange={handleCategoryChange}
-                  className="sort-selection--style"
-                >
-                  <option value="">Select category</option>
-                  {categories &&
-                    categories.map((category, i) => (
-                      <option value={category.id} key={i}>
-                        {category.gender === "k" ? "Kadın " : "Erkek "}
-                        {category.title}
-                      </option>
-                    ))}
-                </select>
-              </form>
-            </div> */}
             {/* <!-- Search input area  --> */}
             <input
               value={filters.filterText}
@@ -169,9 +176,21 @@ export default function ProductList() {
       {/* productcards */}
       <div className="bestseller pb-20 ">
         <div className="container flex flex-col items-center justify-center max-w-[1050px] py-12 mx-auto mobile:flex mobile:flex-col mobile:items-center mobile:p-10 mobile:gap-4 ">
-          <div className="bestseller-products-container flex flex-row flex-wrap gap-7 items-center justify-center max-w-[1050px] ">
-            <Productcard2 />
-          </div>
+          <InfiniteScroll
+            dataLength={products ? products.length : 0}
+            next={fetchMoreProducts}
+            hasMore={hasMore}
+            loader={<h4>Loading...</h4>}
+            endMessage={
+              <p style={{ textAlign: "center" }}>
+                <b>Yay! You have seen it all</b>
+              </p>
+            }
+          >
+            <div className="bestseller-products-container flex flex-row flex-wrap gap-7 items-center justify-center max-w-[1050px] ">
+              <Productcard2 products={products} />
+            </div>
+          </InfiniteScroll>
         </div>
       </div>
       {/* pagination */}
