@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,15 +10,21 @@ function classNames(...classes) {
 
 export default function Example({ onChange }) {
   const dispatch = useDispatch();
+  const [toggle, setToggle] = useState(false);
 
   const categories = useSelector((state) => state.global.categories);
 
   const handleCategoryClick = (categoryId) => {
     onChange(categoryId);
+    setToggle(false);
   };
 
   return (
-    <Menu as="div" className="relative inline-block text-left w-full">
+    <Menu
+      onClick={() => setToggle(!toggle)}
+      as="div"
+      className="relative inline-block text-left w-full"
+    >
       <div>
         <Menu.Button className="inline-flex w-full justify-start hover:bg-gray-50">
           {/* <ChevronDownIcon className="text-sm h-6 w-6 text-gray-400" aria-hidden="true" /> */}
@@ -27,6 +33,7 @@ export default function Example({ onChange }) {
       </div>
 
       <Transition
+        show={toggle}
         as={Fragment}
         enter="transition ease-out duration-100"
         enterFrom="transform opacity-0 scale-95"

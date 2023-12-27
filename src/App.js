@@ -2,9 +2,7 @@ import React from "react";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
 import HomePage from "./layout/HomePage";
-import axios from "axios";
 import ProductList from "./layout/ProductList";
-import ProductList1 from "./layout/ProductList1";
 import About from "./layout/About";
 import Contact from "./layout/Contact";
 import Pricing from "./layout/Pricing";
@@ -13,14 +11,10 @@ import ProductPage from "./components/ProductPage";
 import ContactForm from "./components/ContactForm";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
-import axiosInstance from "./api/api";
 import { getUserByVerify, setUser } from "./store/actions/userActions";
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import axiosWithAuth from "./api/axiosWithAuth";
 import { fetchCategories } from "./store/actions/globalActions";
-import { fetchProducts } from "./store/actions/productActions";
 
 function App() {
   const dispatch = useDispatch();

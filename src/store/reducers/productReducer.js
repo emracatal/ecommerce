@@ -12,6 +12,7 @@ import {
   FETCH_PRODUCTS_REQUEST,
   FETCH_PRODUCTS_SUCCESS,
   FETCH_PRODUCTS_FAILURE,
+  SET_TOTALPRODUCTS,
 } from "../actions/productActions";
 
 const initialState = {
@@ -48,6 +49,9 @@ const productReducer = (state = initialState, action) => {
         ...state,
         productList: [...state.productList, ...action.payload],
       };
+
+    case SET_TOTALPRODUCTS:
+      return { ...state, totalProductCount: action.payload };
 
     case SET_PRODUCT_COUNT:
       return { ...state, totalProductCount: action.payload };

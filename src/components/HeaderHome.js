@@ -6,26 +6,21 @@ import Dropdown from "./Dropdown";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { fetchProducts } from "../store/actions/productActions";
 
-export default function HomeHeader() {
+export default function HomeHeader({ onCategoryChange }) {
   const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
   const history = useHistory();
   const categories = useSelector((state) => state.global.categories);
-  let { gender, category } = useParams();
+  const [offset, setOffset] = useState(0);
+  const limit = 24;
 
-  const [filters, setFilters] = useState({
-    categoryId: "",
-    filterText: "",
-    sortBy: "",
-  });
-
-  const handleCategoryChange = (categoryId) => {
-    setFilters({
-      categoryId: categoryId,
-      filterText: "",
-      sortBy: "",
-    });
-    dispatch(fetchProducts(categoryId, "", ""));
+  const handleCategoryChange = (category) => {
+    dispatch(
+      fetchProducts({ category, filter: "", sort: "", limit, offset: 0 })
+    );
+    if (onCategoryChange) {
+      onCategoryChange(category);
+    }
   };
 
   return (

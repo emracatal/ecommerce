@@ -20,64 +20,87 @@ export default function ProductList() {
   const history = useHistory();
   const categories = useSelector((state) => state.global.categories);
   const products = useSelector((store) => store.product.productList);
-  const [offset, setOffset] = useState(25);
+  const [offset, setOffset] = useState(0);
   const limit = 24;
   const [hasMore, setHasMore] = useState(true);
-
+  const totalProductCount = useSelector(
+    (store) => store.product.totalProductCount
+  );
   console.log(products);
 
   useEffect(() => {
-    dispatch(fetchProducts());
+    dispatch(fetchProducts({ limit, offset }));
+    setOffset(offset + limit);
   }, []);
 
   const [filters, setFilters] = useState({
-    categoryId: "",
-    filterText: "",
-    sortBy: "",
+    category: "",
+    filter: "",
+    sort: "",
   });
 
-  const handleCategoryChange = (categoryId) => {
+  const handleCategoryChange = (category) => {
     setFilters({
-      categoryId: categoryId,
-      filterText: "",
-      sortBy: "",
+      category: category,
+      filter: "",
+      sort: "",
     });
-    dispatch(fetchProducts(categoryId, "", ""));
+    dispatch(
+      fetchProducts({ category, filter: "", sort: "", limit, offset: 0 })
+    );
+    setOffset(24);
   };
 
-  const handleFilterTextChange = (event) => {
+  const handlefilterChange = (event) => {
     setFilters({
       ...filters,
-      filterText: event.target.value,
+      filter: event.target.value,
     });
   };
 
-  const handleSortByChange = (event) => {
+  const handlesortChange = (event) => {
     setFilters({
       ...filters,
-      sortBy: event.target.value,
+      sort: event.target.value,
     });
   };
 
   const handleFilterClick = () => {
-    dispatch(
-      fetchProducts(filters.categoryId, filters.filterText, filters.sortBy)
-    );
+    const { category, filter, sort } = filters;
+    dispatch(fetchProducts({ category, filter, sort, limit, offset: 0 }));
+    setOffset(24);
   };
 
   const fetchMoreProducts = () => {
+    const apipath = `/products?filter=${filters.filter}&sort=${filters.sort}&limit=${limit}&offset=${offset}&category=${filters.category}`;
     axiosInstance
-      .get(`/products/?offset=${offset}&limit=${limit}`)
+      .get(apipath)
       .then((response) => {
-        console.log("INFINITE RESPONSE , ", response);
+        console.log("INFINITE RESPONSE: ", response);
         dispatch(setProducts(response.data.products));
         setOffset(offset + limit);
-        setHasMore(true);
+        if (totalProductCount && products?.length === totalProductCount) {
+          setHasMore(false);
+        }
       })
       .catch((error) => {
         console.error("Error fetching more data:", error);
       });
   };
+
+  // const fetchMoreProducts = () => {
+  //   axiosInstance
+  //     .get(`/products/?offset=${offset}&limit=${limit}`)
+  //     .then((response) => {
+  //       console.log("INFINITE RESPONSE , ", response);
+  //       dispatch(setProducts(response.data.products));
+  //       setOffset(offset + limit);
+  //       setHasMore(true);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error fetching more data:", error);
+  //     });
+  // };
 
   // useEffect(() => {
   //   if (totalProductCount && products?.length === totalProductCount) {
@@ -87,7 +110,7 @@ export default function ProductList() {
 
   return (
     <>
-      <HeaderHome />
+      <HeaderHome onCategoryChange={handleCategoryChange} />
       {/* productlist shop başlıklı alan */}
       <div className="flex justify-center bg-verylightgray3 ">
         <div className="container  flex justify-between items-center max-w-[1050px] min-h-[92px] pr-10 mobile:flex mobile:flex-col mobile:py-6 mobile:gap-7 ">
@@ -123,8 +146,8 @@ export default function ProductList() {
           <div className="flex gap-2 items-center">
             {/* <!-- Search input area  --> */}
             <input
-              value={filters.filterText}
-              onChange={handleFilterTextChange}
+              value={filters.filter}
+              onChange={handlefilterChange}
               type="text"
               placeholder="Search..."
               className="text-sm border-solid border-2 border-verylightgray2  flex gap-3 items-center p-1.5"
@@ -134,8 +157,8 @@ export default function ProductList() {
               <form action="#">
                 <label htmlFor="sort"></label>
                 <select
-                  value={filters.sortBy}
-                  onChange={handleSortByChange}
+                  value={filters.sort}
+                  onChange={handlesortChange}
                   name="sort"
                   id="sort"
                   className="sort-selection--style"
@@ -157,14 +180,14 @@ export default function ProductList() {
             >
               <Link
                 to={`/shopping/${
-                  categories.find((cat) => cat.id === filters.categoryId)
+                  categories.find((cat) => cat.id === filters.category)
                     ?.gender === "k"
                     ? "kadın"
                     : "erkek"
                 }/${categories
-                  .find((cat) => cat.id === filters.categoryId)
-                  ?.title.toLowerCase()}/?filter=${filters.filterText}/&sort=${
-                  filters.sortBy
+                  .find((cat) => cat.id === filters.category)
+                  ?.title.toLowerCase()}/?filter=${filters.filter}/&sort=${
+                  filters.sort
                 }`}
               >
                 Filter
@@ -182,9 +205,9 @@ export default function ProductList() {
             hasMore={hasMore}
             loader={<h4>Loading...</h4>}
             endMessage={
-              <p style={{ textAlign: "center" }}>
-                <b>Yay! You have seen it all</b>
-              </p>
+              <h5 className="items-center text-center m-10 font-bold">
+                Yay! You have seen it all
+              </h5>
             }
           >
             <div className="bestseller-products-container flex flex-row flex-wrap gap-7 items-center justify-center max-w-[1050px] ">
@@ -193,8 +216,7 @@ export default function ProductList() {
           </InfiniteScroll>
         </div>
       </div>
-      {/* pagination */}
-      {products?.length && <Pagination />}
+
       {/* clients */}
       <Clients />
       {/* footer */}

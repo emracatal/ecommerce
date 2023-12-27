@@ -8,31 +8,19 @@ export const SET_PRODUCT_COUNT = "SET_PRODUCT_COUNT";
 export const SET_PAGE_COUNT = "SET_PAGE_COUNT";
 export const SET_ACTIVE_PAGE = "SET_ACTIVE_PAGE";
 export const SET_FETCH_STATE = "SET_FETCH_STATE";
+export const SET_TOTALPRODUCTS = "SET_TOTALPRODUCTS ";
 
-export const fetchProducts = (categoryId, filterText, sortBy) => {
+export const fetchProducts = (params) => {
   return (dispatch) => {
     dispatch({ type: FETCH_PRODUCTS_REQUEST });
-    let apipath = "/products";
-    let filterParams = [];
-    if (categoryId) {
-      filterParams.push(`category=${categoryId}`);
-    }
-    if (filterText) {
-      filterParams.push(`filter=${filterText}`);
-    }
-    if (sortBy) {
-      filterParams.push(`sort=${sortBy}`);
-    }
-    if (filterParams.length > 0) {
-      apipath += `?${filterParams.join("&")}`;
-    }
     axiosInstance
-      .get(apipath)
-      .then((response) => {
+      .get("products", { params })
+      .then((res) => {
         dispatch({
           type: FETCH_PRODUCTS_SUCCESS,
-          payload: response.data.products,
+          payload: res.data.products,
         });
+        dispatch({ type: SET_TOTALPRODUCTS, payload: res.data.total });
       })
       .catch((error) => {
         dispatch({
