@@ -36,13 +36,13 @@ export default function Login() {
         email,
         password,
       };
-      console.log("formData", formData);
+      //console.log("formData", formData);
       setLoading(true);
       const response = await dispatch(login(formData));
       // axiosInstance
       //   .post("/login", formData)
       //   .then(function (response) {
-      console.log(response);
+      //console.log(response);
       toast.success("🚀 Welcome " + response.name, {
         position: "top-right",
         autoClose: 5000,
@@ -58,7 +58,7 @@ export default function Login() {
         history.push("/");
       }, 3000);
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       setLoading(false);
       toast.error(`${error.response.data.message}`, {
         position: "top-right",

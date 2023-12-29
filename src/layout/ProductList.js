@@ -26,7 +26,7 @@ export default function ProductList() {
   const totalProductCount = useSelector(
     (store) => store.product.totalProductCount
   );
-  console.log(products);
+  //console.log(products);
 
   useEffect(() => {
     dispatch(fetchProducts({ limit, offset }));
@@ -76,7 +76,7 @@ export default function ProductList() {
     axiosInstance
       .get(apipath)
       .then((response) => {
-        console.log("INFINITE RESPONSE: ", response);
+        //console.log("INFINITE RESPONSE: ", response);
         dispatch(setProducts(response.data.products));
         setOffset(offset + limit);
         if (totalProductCount && products?.length === totalProductCount) {

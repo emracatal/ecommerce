@@ -5,6 +5,7 @@ import MD5 from "crypto-js/md5";
 import Dropdown from "./Dropdown";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { fetchProducts } from "../store/actions/productActions";
+import Logout from "./Logout";
 
 export default function HomeHeader({ onCategoryChange }) {
   const user = useSelector((store) => store.user);
@@ -95,6 +96,7 @@ export default function HomeHeader({ onCategoryChange }) {
                   className="border-2 border-solid rounded-[50%]"
                 />
                 <p className="text-sm">{user.name}</p>
+                <Logout></Logout>
               </div>
             )}
             <i className="fa-solid fa-magnifying-glass"></i>

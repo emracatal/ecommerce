@@ -80,7 +80,7 @@ export default function SignUp() {
         bank_account: storeBankAccount,
       };
     }
-    console.log("formdata", formData);
+    //console.log("formdata", formData);
     setLoading(true);
     axiosInstance
       .post("/signup", formData)
@@ -118,7 +118,7 @@ export default function SignUp() {
         });
       });
   };
-  console.log("selected role:", selectedRole);
+  //console.log("selected role:", selectedRole);
 
   return (
     <>

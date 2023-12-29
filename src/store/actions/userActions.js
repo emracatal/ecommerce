@@ -2,6 +2,7 @@ import axiosInstance from "../../api/api";
 import axiosWithAuth from "../../api/axiosWithAuth";
 
 export const SET_USER = "SET_USER";
+export const LOGOUT_USER = "LOGOUT_USER";
 
 export const login = (formData) => {
   return async (dispatch) => {
@@ -33,6 +34,15 @@ export const getUserByVerify = () => (dispatch) => {
       console.log(error);
       localStorage.setItem("token", "");
     });
+};
+
+export const logout = () => {
+  return (dispatch) => {
+    dispatch({
+      type: LOGOUT_USER,
+    });
+    localStorage.removeItem("token");
+  };
 };
 
 // APP.JS'deki verify code
