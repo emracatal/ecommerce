@@ -203,7 +203,7 @@ export default function ProductList() {
             dataLength={products ? products.length : 0}
             next={fetchMoreProducts}
             hasMore={hasMore}
-            loader={<h4>Loading...</h4>}
+            loader={<h4>No product found</h4>}
             endMessage={
               <h5 className="items-center text-center m-10 font-bold">
                 Yay! You have seen it all
