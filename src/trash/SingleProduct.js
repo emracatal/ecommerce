@@ -1,7 +1,7 @@
 import React from "react";
 import singleproduct1 from "../assets/singleproduct1.jpg";
 import singleproduct2 from "../assets/singleproduct2.jpg";
-import Carousel3 from "./Carousel3";
+import Carousel3 from "../components/Carousel3";
 
 export default function SingleProduct() {
   return (

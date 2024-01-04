@@ -31,16 +31,10 @@ export default function Shopcard({ onChange }) {
             alt="x"
             className="card max-w-[205px] min-h-[223px] w-[100%] items-center flex justify-center flex-col text-white bg-cover bg-center hover:scale-105"
           >
-            {/* <a
-              href={`/shop/${
-                category.gender === "k" ? "kadın" : "erkek"
-              }/${category.title.toLowerCase()}`}
-            > */}
             <h5 className="font-bold text-center">
               {category.gender === "k" ? "KADIN" : "ERKEK"}
             </h5>
             <h5 className="text-center">{category.title}</h5>
-            {/* </a> */}
           </Link>
         ))}
     </>

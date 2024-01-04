@@ -88,26 +88,6 @@ export default function ProductList() {
       });
   };
 
-  // const fetchMoreProducts = () => {
-  //   axiosInstance
-  //     .get(`/products/?offset=${offset}&limit=${limit}`)
-  //     .then((response) => {
-  //       console.log("INFINITE RESPONSE , ", response);
-  //       dispatch(setProducts(response.data.products));
-  //       setOffset(offset + limit);
-  //       setHasMore(true);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching more data:", error);
-  //     });
-  // };
-
-  // useEffect(() => {
-  //   if (totalProductCount && products?.length === totalProductCount) {
-  //     setHasMore(false);
-  //   }
-  // }, [products]); TODO UYARLA!!
-
   return (
     <>
       <HeaderHome onCategoryChange={handleCategoryChange} />
@@ -186,7 +166,7 @@ export default function ProductList() {
                     : "erkek"
                 }/${categories
                   .find((cat) => cat.id === filters.category)
-                  ?.title.toLowerCase()}/?filter=${filters.filter}/&sort=${
+                  ?.title.toLowerCase()}/filter=${filters.filter}/&sort=${
                   filters.sort
                 }`}
               >

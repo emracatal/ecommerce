@@ -17,7 +17,12 @@ export default function Productcard2({ products }) {
       ) : ( */}
       <>
         {products?.map((product, i) => (
-          <Link key={i} to="/ProductPage">
+          <Link
+            key={i}
+            to={`/product/${product.category_id}/${product.id}/${product.name
+              .toLowerCase()
+              .replaceAll(" ", "-")}`}
+          >
             <div className="card max-w-[239px] min-h-[526px] shadow-lg hover:bg-verylightgray2 hover:scale-105">
               <img
                 src={product.images[0].url}

@@ -64,12 +64,6 @@ export default function Example({ onChange }) {
                                 ? "kadın"
                                 : "erkek"
                             }/${filteredCategory.title.toLowerCase()}`}
-                            // <a
-                            //   href={`/shopping/${
-                            //     filteredCategory.gender === "k"
-                            //       ? "kadın"
-                            //       : "erkek"
-                            //   }/${filteredCategory.title.toLowerCase()}`}
                             key={filteredCategory.id}
                             onClick={() =>
                               handleCategoryClick(filteredCategory.id)
@@ -92,22 +86,25 @@ export default function Example({ onChange }) {
                             filteredCategory.gender === "e"
                         )
                         .map((filteredCategory, i) => (
-                          <a
-                            href={`/shopping/${
+                          <Link
+                            to={`/shopping/${
                               filteredCategory.gender === "k"
                                 ? "kadın"
                                 : "erkek"
                             }/${filteredCategory.title.toLowerCase()}`}
                             key={filteredCategory.id}
+                            onClick={() =>
+                              handleCategoryClick(filteredCategory.id)
+                            }
                             className="block w-full text-xs"
                           >
                             <h6 className="text-left hover:font-bold ">
-                              {filteredCategory.gender === "e"
-                                ? "Erkek "
-                                : "Kadın "}
+                              {filteredCategory.gender === "k"
+                                ? "Kadın "
+                                : "Erkek "}
                               {filteredCategory.title}
                             </h6>
-                          </a>
+                          </Link>
                         ))}
                     </div>
                   </div>

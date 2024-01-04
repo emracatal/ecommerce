@@ -6,6 +6,7 @@ import Carousel2 from "./Carousel2";
 import containerfluid from "../assets/containerfluid.png";
 
 import Blogcard from "./Blogcard";
+import Productcard2 from "./Productcard2";
 
 export default function HomeBody() {
   const products = [

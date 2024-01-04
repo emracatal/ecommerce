@@ -1,5 +1,6 @@
 import axios from "axios";
 import axiosInstance from "../../api/api";
+import axiosInstanceLocal from "../../api/apiLocal";
 export const FETCH_ROLES_SUCCESS = "FETCH_ROLES_SUCCESS";
 export const FETCH_ROLES_FAILURE = "FETCH_ROLES_FAILURE";
 export const SET_ROLES = "SET_ROLES";
@@ -29,8 +30,8 @@ export const fetchCategories = () => {
   return (dispatch) => {
     dispatch({ type: FETCH_CATEGORIES_REQUEST });
 
-    axiosInstance
-      .get("/categories")
+    axiosInstanceLocal
+      .get("/categories/")
       .then((response) => {
         dispatch({
           type: FETCH_CATEGORIES_SUCCESS,
@@ -45,7 +46,6 @@ export const fetchCategories = () => {
       });
   };
 };
-
 
 export const setTheme = (theme) => {
   return {

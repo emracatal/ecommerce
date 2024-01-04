@@ -15,6 +15,7 @@ import { getUserByVerify, setUser } from "./store/actions/userActions";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchCategories } from "./store/actions/globalActions";
+import Productcard2 from "./components/Productcard2";
 
 function App() {
   const dispatch = useDispatch();
@@ -44,7 +45,7 @@ function App() {
         <Route path="/contact" exact>
           <Contact />
         </Route>
-        <Route path="/ProductPage" exact>
+        <Route exact path="/product/:categoryId/:productId/:productNameSlug">
           <ProductPage />
         </Route>
         <Route path="/pricing" exact>

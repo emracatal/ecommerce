@@ -44,18 +44,3 @@ export const logout = () => {
     localStorage.removeItem("token");
   };
 };
-
-// APP.JS'deki verify code
-// useEffect(() => {
-//   if (token) {
-//     axiosWithAuth()
-//       .get("/verify")
-//       .then(function (response) {
-//         dispatch(setUser(response.data));
-//       })
-//       .catch(function (error) {
-//         console.log(error);
-//         localStorage.setItem("token", "");
-//       });
-//   }
-// }, []);

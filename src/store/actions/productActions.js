@@ -38,17 +38,6 @@ export const setProducts = (product) => {
   };
 };
 
-// axiosInstance
-//       .get(`/products/?offset=${offset}&limit=${limit}`)
-//       .then((response) => {
-//         console.log("INFINITE RESPONSE , ", response);
-//         dispatch(setProducts([...products, ...response.data.products]));
-//         setOffset(offset + limit);
-//       })
-//       .catch((error) => {
-//         console.error("Error fetching more data:", error);
-//       });
-
 export const setProductCount = () => {
   return {
     type: SET_PRODUCT_COUNT,
