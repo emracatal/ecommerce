@@ -31,7 +31,7 @@ export const fetchCategories = () => {
     dispatch({ type: FETCH_CATEGORIES_REQUEST });
 
     axiosInstanceLocal
-      .get("/categories/")
+      .get("/categories")
       .then((response) => {
         dispatch({
           type: FETCH_CATEGORIES_SUCCESS,
