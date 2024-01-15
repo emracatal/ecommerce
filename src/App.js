@@ -17,6 +17,7 @@ import { useEffect } from "react";
 import { fetchCategories } from "./store/actions/globalActions";
 import Productcard2 from "./components/Productcard2";
 import ScrollToTop from "./components/ScrollToTop";
+import ShoppingCardDropdown from "./components/ShoppingCardDropdown";
 
 function App() {
   const dispatch = useDispatch();
@@ -55,15 +56,16 @@ function App() {
         <Route path="/team" exact>
           <Team />
         </Route>
-        <Route path="/ContactForm" exact>
+        <Route path="/sontactForm" exact>
           <ContactForm />
         </Route>
-        <Route path="/SignUp" exact>
+        <Route path="/signUp" exact>
           <SignUp />
         </Route>
-        <Route path="/Login" exact>
+        <Route path="/login" exact>
           <Login />
         </Route>
+        <Route path="/cart" exact></Route>
       </Switch>
     </div>
   );

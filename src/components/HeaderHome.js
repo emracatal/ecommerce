@@ -106,8 +106,10 @@ export default function HomeHeader({ onCategoryChange }) {
               </div>
             )}
             <i className="fa-solid fa-magnifying-glass"></i>
-            <i className="fa-solid fa-cart-shopping"></i>
-            <p>{totalQuantity}</p>
+            <Link to="/cart" className="flex gap-1">
+              <i className="fa-solid fa-cart-shopping"></i>
+              <p>{totalQuantity}</p>
+            </Link>
             <i className="fa-regular fa-heart"></i>
             <p>1</p>
           </div>

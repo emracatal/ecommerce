@@ -3,6 +3,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart } from "../store/actions/shoppingCartActions";
+import { Link } from "react-router-dom";
 
 export default function ShoppingCardDropdown({ isVisible, onClose }) {
   const dispatch = useDispatch();
@@ -130,12 +131,13 @@ export default function ShoppingCardDropdown({ isVisible, onClose }) {
                         Shipping and taxes calculated at checkout.
                       </p>
                       <div className="mt-6">
-                        <a
-                          href="#"
+                        <Link
+                          to="/cart"
                           className="flex items-center justify-center rounded-md border border-transparent bg-turku px-5 py-2 text-sm font-bold text-white shadow-sm"
+                          onClick={onClose}
                         >
-                          Checkout
-                        </a>
+                          Go to cart
+                        </Link>
                       </div>
                       <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                         <p>
