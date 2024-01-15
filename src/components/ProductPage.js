@@ -12,12 +12,19 @@ import {
 } from "react-router-dom/cjs/react-router-dom.min";
 import Carousel3 from "./Carousel3";
 import axiosInstance from "../api/api";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addToCart,
+  increaseProductCount,
+} from "../store/actions/shoppingCartActions";
+import { toast } from "react-toastify";
 
 export default function ProductPage() {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const history = useHistory();
   const [isCartDropdownVisible, setIsCartDropdownVisible] = useState(false);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     axiosInstance
@@ -30,17 +37,9 @@ export default function ProductPage() {
       });
   }, []);
 
-  // const handleAddToCart = () => {
-  //   const productInCart = cartItems.find(item => item.product.id === productId);
-
-  //   if (productInCart) {
-  //     dispatch(increaseProductCount(productId));
-  //   } else {
-  //     dispatch(addToCart({ id: productId, /* other product details */ }));
-  //   }
-  // };
-
-  const handleAddToCart = () => {
+  const handleAddToCart = (product) => {
+    console.log("handleAddToCart triggered");
+    dispatch(addToCart(product));
     setIsCartDropdownVisible(true);
   };
 
@@ -105,7 +104,8 @@ export default function ProductPage() {
               </div>
               <div className="flex gap-3 pt-10">
                 <button
-                  onClick={handleAddToCart}
+                  onClick={() => handleAddToCart(product)}
+                  id={productId}
                   className="rounded bg-turku text-sm text-white font-bold px-5 py-2 "
                 >
                   Add to cart

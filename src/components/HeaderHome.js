@@ -14,6 +14,7 @@ export default function HomeHeader({ onCategoryChange }) {
   const categories = useSelector((state) => state.global.categories);
   const [offset, setOffset] = useState(0);
   const limit = 24;
+  const shoppingCartList = useSelector((store) => store.shoppingCart.cart);
 
   const handleCategoryChange = (category) => {
     dispatch(
@@ -23,6 +24,11 @@ export default function HomeHeader({ onCategoryChange }) {
       onCategoryChange(category);
     }
   };
+
+  const totalQuantity = shoppingCartList.reduce(
+    (acc, item) => acc + item.count,
+    0
+  );
 
   return (
     <>
@@ -101,7 +107,7 @@ export default function HomeHeader({ onCategoryChange }) {
             )}
             <i className="fa-solid fa-magnifying-glass"></i>
             <i className="fa-solid fa-cart-shopping"></i>
-            <p>1</p>
+            <p>{totalQuantity}</p>
             <i className="fa-regular fa-heart"></i>
             <p>1</p>
           </div>

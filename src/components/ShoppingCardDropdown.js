@@ -1,36 +1,23 @@
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-
-const products = [
-  {
-    id: 1,
-    name: "Throwback Hip Bag",
-    href: "#",
-    color: "Salmon",
-    price: "$90.00",
-    quantity: 1,
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg",
-    imageAlt:
-      "Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.",
-  },
-  {
-    id: 2,
-    name: "Medium Stuff Satchel",
-    href: "#",
-    color: "Blue",
-    price: "$32.00",
-    quantity: 1,
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg",
-    imageAlt:
-      "Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.",
-  },
-  // More products...
-];
+import { useDispatch, useSelector } from "react-redux";
+import { removeFromCart } from "../store/actions/shoppingCartActions";
 
 export default function ShoppingCardDropdown({ isVisible, onClose }) {
+  const dispatch = useDispatch();
+
+  const shoppingCardList = useSelector((store) => store.shoppingCart.cart);
+
+  const subtotal = shoppingCardList.reduce(
+    (acc, p) => acc + p.count * p.product.price,
+    0
+  );
+
+  const handleRemoveItem = (productId) => {
+    dispatch(removeFromCart(productId));
+  };
+
   return (
     <Transition.Root show={isVisible} as={Fragment}>
       <Dialog
@@ -62,7 +49,7 @@ export default function ShoppingCardDropdown({ isVisible, onClose }) {
                 leaveFrom="translate-x-0"
                 leaveTo="translate-x-full"
               >
-                <Dialog.Panel className="pointer-events-auto w-screen max-w-md">
+                <Dialog.Panel className="pointer-events-auto w-screen max-w-sm">
                   <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                     <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                       <div className="flex items-start justify-between">
@@ -88,43 +75,43 @@ export default function ShoppingCardDropdown({ isVisible, onClose }) {
                             role="list"
                             className="-my-6 divide-y divide-gray-200"
                           >
-                            {products.map((product) => (
-                              <li key={product.id} className="flex py-6">
-                                <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                            {shoppingCardList.map((p, index) => (
+                              <li key={index} className="flex py-6">
+                                <div className="h-auto w-24 flex-shrink-0 overflow-hidden rounded-md ">
                                   <img
-                                    src={product.imageSrc}
-                                    alt={product.imageAlt}
+                                    src={p.product.images[0].url}
+                                    alt="product image"
                                     className="h-full w-full object-cover object-center"
                                   />
                                 </div>
-
-                                <div className="ml-4 flex flex-1 flex-col">
-                                  <div>
-                                    <div className="flex justify-between text-base font-medium text-gray-900">
-                                      <h5>
-                                        <a href={product.href}>
-                                          {product.name}
-                                        </a>
-                                      </h5>
-                                      <p className="ml-4">{product.price}</p>
-                                    </div>
-                                    <p className="mt-1 text-xs text-gray-500">
-                                      {product.color}
-                                    </p>
+                                <div className="flex flex-1 flex-col justify-evenly p-2">
+                                  <div className="flex justify-between text-base font-medium text-gray-900">
+                                    <h5>
+                                      <a href={p.product.href}>
+                                        {p.product.name}
+                                      </a>
+                                    </h5>
                                   </div>
-                                  <div className="flex flex-1 items-end justify-between text-sm">
-                                    <p className="text-gray-500">
-                                      Qty {product.quantity}
-                                    </p>
 
-                                    <div className="flex">
-                                      <button
-                                        type="button"
-                                        className="font-medium text-turku"
-                                      >
-                                        Remove
-                                      </button>
-                                    </div>
+                                  <div className="flex justify-between text-base ">
+                                    <h6 className="text-gray-500">
+                                      Quantity: {p.count}
+                                    </h6>
+                                    <h6 className="">
+                                      {(p.count * p.product.price).toFixed(2)}{" "}
+                                      TL
+                                    </h6>
+                                  </div>
+                                  <div className="flex">
+                                    <button
+                                      type="button"
+                                      className="font-medium text-sm text-turku"
+                                      onClick={() =>
+                                        handleRemoveItem(p.product.id)
+                                      }
+                                    >
+                                      Remove
+                                    </button>
                                   </div>
                                 </div>
                               </li>
@@ -136,8 +123,8 @@ export default function ShoppingCardDropdown({ isVisible, onClose }) {
 
                     <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                       <div className="flex justify-between text-base font-medium text-gray-900">
-                        <p>Subtotal</p>
-                        <p>$262.00</p>
+                        <h6>Subtotal</h6>
+                        <h6>{subtotal.toFixed(2)} TL</h6>
                       </div>
                       <p className="mt-0.5 text-sm text-gray-500">
                         Shipping and taxes calculated at checkout.
@@ -145,7 +132,7 @@ export default function ShoppingCardDropdown({ isVisible, onClose }) {
                       <div className="mt-6">
                         <a
                           href="#"
-                          className="flex items-center justify-center rounded-md border border-transparent bg-turku px-6 py-3 text-sm font-medium text-white shadow-sm"
+                          className="flex items-center justify-center rounded-md border border-transparent bg-turku px-5 py-2 text-sm font-bold text-white shadow-sm"
                         >
                           Checkout
                         </a>
