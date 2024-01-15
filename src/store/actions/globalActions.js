@@ -30,7 +30,7 @@ export const fetchCategories = () => {
   return (dispatch) => {
     dispatch({ type: FETCH_CATEGORIES_REQUEST });
 
-    axiosInstanceLocal
+    axiosInstance
       .get("/categories")
       .then((response) => {
         dispatch({

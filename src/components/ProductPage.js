@@ -5,6 +5,7 @@ import Productcard3 from "./Productcard3";
 import singleproduct3 from "../assets/singleproduct3.png";
 import Clients from "./Clients";
 import Footer from "./Footer";
+import ShoppingCardDropdown from "./ShoppingCardDropdown";
 import {
   useHistory,
   useParams,
@@ -16,6 +17,7 @@ export default function ProductPage() {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const history = useHistory();
+  const [isCartDropdownVisible, setIsCartDropdownVisible] = useState(false);
 
   useEffect(() => {
     axiosInstance
@@ -27,6 +29,20 @@ export default function ProductPage() {
         console.error("Error fetching product:", error);
       });
   }, []);
+
+  // const handleAddToCart = () => {
+  //   const productInCart = cartItems.find(item => item.product.id === productId);
+
+  //   if (productInCart) {
+  //     dispatch(increaseProductCount(productId));
+  //   } else {
+  //     dispatch(addToCart({ id: productId, /* other product details */ }));
+  //   }
+  // };
+
+  const handleAddToCart = () => {
+    setIsCartDropdownVisible(true);
+  };
 
   return (
     <>
@@ -88,8 +104,11 @@ export default function ProductPage() {
                 <i className="fa-solid fa-circle text-darkblue"></i>
               </div>
               <div className="flex gap-3 pt-10">
-                <button className="rounded bg-turku text-sm text-white font-bold px-5 py-2 ">
-                  Select Options
+                <button
+                  onClick={handleAddToCart}
+                  className="rounded bg-turku text-sm text-white font-bold px-5 py-2 "
+                >
+                  Add to cart
                 </button>
                 <i className="fa-regular fa-heart border-solid border-2 border-verylightgray2 p-2 rounded-full"></i>
                 <i className="fa-solid fa-cart-shopping border-solid border-2 round border-verylightgray2 p-2 rounded-full"></i>
@@ -163,7 +182,10 @@ export default function ProductPage() {
           </div>
         </div>
       </div>
-
+      <ShoppingCardDropdown
+        isVisible={isCartDropdownVisible}
+        onClose={() => setIsCartDropdownVisible(false)}
+      />
       {/* bestseller */}
       <div className="flex  bg-verylightgray3">
         <div className="flex mx-auto max-w-[1050px] flex-col gap-6 py-12 ">
