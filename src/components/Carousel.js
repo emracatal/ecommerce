@@ -13,7 +13,7 @@ export default function Carousel() {
             </a>
             <div className="container text-white flex flex-col justify-center gap-4 px-5 max-w-[1000px] ">
               <h5 className="font-bold">SUMMER 2020</h5>
-              <h1 className="font-bold">en havalı MEHMET KAAN</h1>
+              <h1 className="font-bold">NEW COLLECTION</h1>
               <h4 className="">
                 We know how large objects will act, but things on a small scale.
               </h4>

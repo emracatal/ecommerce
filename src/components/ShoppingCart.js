@@ -1,14 +1,27 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import HeaderHome from "./HeaderHome";
+import {
+  removeFromCart,
+  updateItemCount,
+} from "../store/actions/shoppingCartActions";
 
 export default function ShoppingCart() {
   const shoppingCardList = useSelector((store) => store.shoppingCart.cart);
+  const dispatch = useDispatch();
 
   const subtotal = shoppingCardList.reduce(
     (acc, p) => acc + p.count * p.product.price,
     0
   );
+
+  const handleRemoveItem = (productId) => {
+    dispatch(removeFromCart(productId));
+  };
+
+  const handleUpdateItemCount = (productId, newCount) => {
+    dispatch(updateItemCount(productId, newCount));
+  };
 
   return (
     <>
@@ -39,7 +52,7 @@ export default function ShoppingCart() {
                   {/* Product Details */}
                   <div className="flex flex-row justify-between items-center w-full p-2">
                     {/* Product Name */}
-                    <div className="flex flex-col justify-between p-2">
+                    <div className="flex flex-col justify-between w-[40%]">
                       <h5>
                         <a href={p.product.href}>{p.product.name}</a>
                       </h5>
@@ -48,22 +61,42 @@ export default function ShoppingCart() {
                       </h5>
                     </div>
                     {/* Quantity and Price */}
+                    <div className="flex flex-row justify-between w-[50%] mobile:flex-col">
+                      <div className="flex flex-row justify-between gap-2 mobile:justify-start ">
+                        <button
+                          type="button"
+                          onClick={() =>
+                            handleUpdateItemCount(p.product.id, p.count - 1)
+                          }
+                        >
+                          <i class="fa-solid fa-minus"></i>
+                        </button>
+                        <h6 className="text-lightgray-500 text-base text-center border border-solid border-lightgray rounded-lg  p-2 px-3">
+                          {p.count}
+                        </h6>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            handleUpdateItemCount(p.product.id, p.count + 1)
+                          }
+                        >
+                          <i class="fa-solid fa-plus"></i>
+                        </button>
+                      </div>
+                      <h6 className="">
+                        {(p.count * p.product.price).toFixed(2)} TL
+                      </h6>
 
-                    <h6 className="text-gray-500">Quantity: {p.count}</h6>
+                      {/* Remove Button */}
 
-                    <h6 className="">
-                      {(p.count * p.product.price).toFixed(2)} TL
-                    </h6>
-
-                    {/* Remove Button */}
-
-                    <button
-                      type="button"
-                      className="font-medium text-sm text-turku"
-                      // onClick={() => handleRemoveItem(p.product.id)}
-                    >
-                      Remove
-                    </button>
+                      <button
+                        type="button"
+                        className="font-medium text-sm text-turku mobile:self-start"
+                        onClick={() => handleRemoveItem(p.product.id)}
+                      >
+                        Remove
+                      </button>
+                    </div>
                   </div>
                 </li>
               ))}

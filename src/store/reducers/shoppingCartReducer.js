@@ -16,7 +16,7 @@ import {
   SET_PAYMENT,
   SET_ADDRESS,
   ADD_TO_CART,
-  INCREASE_PRODUCT_COUNT,
+  UPDATE_PRODUCT_COUNT,
   REMOVE_FROM_CART,
 } from "../actions/shoppingCartActions";
 
@@ -35,7 +35,6 @@ const shoppingCartReducer = (state = initialState, action) => {
       );
 
       if (existingProduct) {
-        // If the product already exists in the cart, increase the count
         return {
           ...state,
           cart: state.cart.map((item) =>
@@ -45,24 +44,22 @@ const shoppingCartReducer = (state = initialState, action) => {
           ),
         };
       } else {
-        // If the product is not in the cart, add it
         return {
           ...state,
           cart: [...state.cart, { count: 1, checked: true, product }],
         };
       }
 
-    case INCREASE_PRODUCT_COUNT:
-      const { productId } = action.payload;
-
+    case UPDATE_PRODUCT_COUNT:
       return {
         ...state,
         cart: state.cart.map((item) =>
-          item.product.id === productId
-            ? { ...item, count: item.count + 1 }
+          item.product.id === action.payload.productId
+            ? { ...item, count: action.payload.newCount }
             : item
         ),
       };
+
     case REMOVE_FROM_CART:
       const { productId: removedProductId } = action.payload;
       return {

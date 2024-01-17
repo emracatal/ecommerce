@@ -2,7 +2,7 @@ export const SET_CART = "SET_CART";
 export const SET_PAYMENT = "SET_PAYMENT";
 export const SET_ADDRESS = "SET_ADDRESS";
 export const ADD_TO_CART = "ADD_TO_CART";
-export const INCREASE_PRODUCT_COUNT = "INCREASE_PRODUCT_COUNT";
+export const UPDATE_PRODUCT_COUNT = "UPDATE_PRODUCT_COUNT";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 
 export const addToCart = (product) => ({
@@ -10,10 +10,12 @@ export const addToCart = (product) => ({
   payload: { product },
 });
 
-export const increaseProductCount = (productId) => ({
-  type: INCREASE_PRODUCT_COUNT,
-  payload: { productId },
-});
+export const updateItemCount = (productId, newCount) => {
+  return {
+    type: UPDATE_PRODUCT_COUNT,
+    payload: { productId, newCount },
+  };
+};
 
 export const removeFromCart = (productId) => ({
   type: REMOVE_FROM_CART,
