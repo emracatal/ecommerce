@@ -18,6 +18,7 @@ import { fetchCategories } from "./store/actions/globalActions";
 import Productcard2 from "./components/Productcard2";
 import ScrollToTop from "./components/ScrollToTop";
 import ShoppingCardDropdown from "./components/ShoppingCardDropdown";
+import ShoppingCart from "./components/ShoppingCart";
 
 function App() {
   const dispatch = useDispatch();
@@ -65,7 +66,9 @@ function App() {
         <Route path="/login" exact>
           <Login />
         </Route>
-        <Route path="/cart" exact></Route>
+        <Route path="/cart" exact>
+          <ShoppingCart />
+        </Route>
       </Switch>
     </div>
   );
