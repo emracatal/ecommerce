@@ -19,6 +19,8 @@ import Productcard2 from "./components/Productcard2";
 import ScrollToTop from "./components/ScrollToTop";
 import ShoppingCardDropdown from "./components/ShoppingCardDropdown";
 import ShoppingCart from "./components/ShoppingCart";
+import Protected from "./components/Protected";
+import Address from "./components/Address";
 
 function App() {
   const dispatch = useDispatch();
@@ -68,6 +70,12 @@ function App() {
         </Route>
         <Route path="/cart" exact>
           <ShoppingCart />
+        </Route>
+        <Route path="/protected">
+          <Protected PageComponent={Address} fromURL={"/protected"} />
+        </Route>
+        <Route path="/address" exact>
+          <Address />
         </Route>
       </Switch>
     </div>

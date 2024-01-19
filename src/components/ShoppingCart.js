@@ -39,9 +39,9 @@ export default function ShoppingCart() {
         </div>
       </div>
       {/* Shopping Cart Items */}
-      <div className="flex justify-center mobile:flex-col gap-4">
-        <div className="container flex flex-col items-center pr-2 pt-2 max-w-[1050px] mobile:p-0">
-          <div className="">
+      <div className="flex justify-center mobile:flex-col gap-4 ">
+        <div className="container flex flex-col pr-2 pt-2 max-w-[1050px] mobile:p-0">
+          <div className="flex">
             {shoppingCardList.length === 0 ? (
               <h5>Shopping cart is empty.</h5>
             ) : (
@@ -109,62 +109,64 @@ export default function ShoppingCart() {
                 ))}
               </ul>
             )}
-          </div>
-        </div>
-        {shoppingCardList.length > 0 && (
-          <div
-            id="summary"
-            class="w-1/4 px-2 py-2 border border-solid border-gray rounded-sm mobile:w-full "
-          >
-            <h1 class="font-semibold text-xl border-b pb-2">Order Summary</h1>
-            <div class="">
-              <div class="flex justify-between py-2 text-sm ">
-                <span>Subtotal</span>
-                <span>{subtotal.toFixed(2)} TL</span>
-              </div>
-            </div>
-            <div class="">
-              <div class="flex justify-between py-2 text-sm ">
-                <span>Shipping</span>
-                <span>30 TL</span>
-              </div>
-            </div>
+            {shoppingCardList.length > 0 && (
+              <div
+                id="summary"
+                class="w-1/4 px-2 py-2 border border-solid border-turku rounded-sm mobile:w-full "
+              >
+                <h1 class="font-semibold text-xl border-b py-2">
+                  Order Summary
+                </h1>
+                <div class="">
+                  <div class="flex justify-between py-2 text-sm ">
+                    <span>Subtotal</span>
+                    <span>{subtotal.toFixed(2)} TL</span>
+                  </div>
+                </div>
+                <div class="">
+                  <div class="flex justify-between py-2 text-sm ">
+                    <span>Shipping</span>
+                    <span>30 TL</span>
+                  </div>
+                </div>
 
-            <div class="">
-              <div class="flex justify-between py-2 text-sm ">
-                <span>Discount - Free Shipping over 150 TL </span>
-                <span>{discount} TL</span>
-              </div>
-            </div>
+                <div class="">
+                  <div class="flex justify-between py-2 text-sm ">
+                    <span>Discount - Free Shipping over 150 TL </span>
+                    <span>{discount} TL</span>
+                  </div>
+                </div>
 
-            {subtotal < 150 && (
-              <div class="">
-                <div class="flex justify-between text-xs text-danger">
-                  <span>
-                    Free delivery if you add {(150 - subtotal).toFixed(2)} TL to
-                    your shopping cart
-                  </span>
+                {subtotal < 150 && (
+                  <div class="">
+                    <div class="flex justify-between text-xs text-danger">
+                      <span>
+                        Free delivery if you add {(150 - subtotal).toFixed(2)}{" "}
+                        TL to your shopping cart
+                      </span>
+                    </div>
+                  </div>
+                )}
+
+                <div class="border-t mt-4">
+                  <div class="flex font-semibold justify-between py-2 text-sm ">
+                    <span>Total cost</span>
+                    <span>{(subtotal + 30 + discount).toFixed(2)} TL</span>
+                  </div>
+                  <div className="mt-2">
+                    <Link
+                      to="/protected"
+                      className="flex items-center justify-center rounded-md border border-transparent bg-turku px-2 py-2 text-sm font-bold text-white shadow-sm"
+                      //onClick={onClose}
+                    >
+                      Checkout
+                    </Link>
+                  </div>
                 </div>
               </div>
             )}
-
-            <div class="border-t mt-4">
-              <div class="flex font-semibold justify-between py-2 text-sm ">
-                <span>Total cost</span>
-                <span>{(subtotal + 30 + discount).toFixed(2)} TL</span>
-              </div>
-              <div className="mt-2">
-                <Link
-                  to="/cart"
-                  className="flex items-center justify-center rounded-md border border-transparent bg-turku px-2 py-2 text-sm font-bold text-white shadow-sm"
-                  //onClick={onClose}
-                >
-                  Checkout
-                </Link>
-              </div>
-            </div>
           </div>
-        )}
+        </div>
       </div>
     </>
   );
