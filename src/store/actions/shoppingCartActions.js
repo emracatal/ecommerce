@@ -1,3 +1,6 @@
+import { toast } from "react-toastify";
+import axiosWithAuth from "../../api/axiosWithAuth";
+
 export const SET_CART = "SET_CART";
 export const SET_PAYMENT = "SET_PAYMENT";
 export const SET_ADDRESS = "SET_ADDRESS";
@@ -22,6 +25,37 @@ export const removeFromCart = (productId) => ({
   payload: { productId },
 });
 
+export const fetchAddresses = () => (dispatch) => {
+  axiosWithAuth()
+    .get("user/address")
+    .then(function (response) {
+      console.log(response);
+      dispatch(setAddress(response.data));
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+};
+
+export const setNewAddress = (formData) => (dispatch) => {
+  axiosWithAuth()
+    .post("user/address", formData)
+    .then(function (response) {
+      toast.success("New address saved");
+    })
+    .catch((err) => {
+      console.error(err);
+      toast.error("New address couldn't saved");
+    });
+};
+
+export const setAddress = (address) => {
+  return {
+    type: SET_ADDRESS,
+    payload: address,
+  };
+};
+
 // export const setCart=(cart)=>{
 //     return {
 //         type:SET_CART,
@@ -33,12 +67,5 @@ export const removeFromCart = (productId) => ({
 //     return {
 //         type:SET_PAYMENT,
 //         payload:payment,
-//     }
-// }
-
-// export const setAddress=(address)=>{
-//     return {
-//         type:SET_ADDRESS,
-//         payload:address,
 //     }
 // }

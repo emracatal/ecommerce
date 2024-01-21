@@ -23,7 +23,7 @@ import {
 const initialState = {
   cart: [],
   // payment: {},
-  // address: {},
+  address: [],
 };
 
 const shoppingCartReducer = (state = initialState, action) => {
@@ -73,6 +73,7 @@ const shoppingCartReducer = (state = initialState, action) => {
       return { ...state, payment: action.payload };
     case SET_ADDRESS:
       return { ...state, address: action.payload };
+
     default:
       return state;
   }

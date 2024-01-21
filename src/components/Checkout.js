@@ -1,19 +1,12 @@
 import React, { useEffect, useState } from "react";
 import HeaderHome from "./HeaderHome";
 import {
-  isCityCode,
-  isCityCodeLike,
-  castCityCode,
-  isCityName,
-  isCityNameLike,
-  castCityName,
-  findDistance,
-  findClosestCities,
-  getCityNames,
-  getDistrictsOfEachCity,
-} from "turkey-neighbourhoods";
+  fetchAddresses,
+  setNewAddress,
+} from "../store/actions/shoppingCartActions";
+import { getCityNames } from "turkey-neighbourhoods";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { isValidDateValue } from "@testing-library/user-event/dist/utils";
 import axiosWithAuth from "../api/axiosWithAuth";
 
@@ -29,7 +22,7 @@ export default function Checkout() {
     defaultValues: {
       title: "",
       name: "",
-      lastName: "",
+      surname: "",
       phone: "",
       city: "",
       district: "",
@@ -39,46 +32,46 @@ export default function Checkout() {
     mode: "onTouched",
   });
 
-  const onFormSubmit = (formData) => {
-    const postData = {
-      title: formData.title,
-      name: formData.name,
-      lastName: formData.lastName,
-      phone: formData.phone,
-      address: formData.address,
-      city: formData.city,
-      district: formData.district,
-      neighborhood: formData.neighborhood,
-    };
-    console.log(postData);
-    setTimeout(() => {}, 1000);
-  };
-
   const cities = getCityNames();
 
-  const [savedAddresses, setSavedAddresses] = useState([]);
+  const addresses = useSelector((store) => store.shoppingCart.address);
   const [selectedAddress, setSelectedAddress] = useState(null);
+  const [isNewAddressVisible, setNewAddressVisible] = useState(false);
 
   const handleAddressSelection = (address) => {
     setSelectedAddress(address);
   };
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axiosWithAuth().get("/user/address");
-        if (response.status !== 200) {
-          console.error("Error fetching addresses:", response.statusText);
-          return;
-        }
-        setSavedAddresses(response.data);
-      } catch (error) {
-        console.error("Error fetching addresses:", error.message);
-      }
-    };
-
-    fetchData();
+    dispatch(fetchAddresses());
+    console.log(addresses);
   }, []);
+
+  const onFormSubmit = async (formData) => {
+    try {
+      console.log(formData);
+      const postData = {
+        title: formData.title,
+        name: formData.name,
+        surname: formData.surname,
+        phone: formData.phone,
+        address: formData.address,
+        city: formData.city,
+        district: formData.district,
+        neighborhood: formData.neighborhood,
+      };
+      console.log(formData);
+      console.log(postData);
+
+      await dispatch(setNewAddress(postData));
+
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      dispatch(fetchAddresses());
+    } catch (error) {
+      console.error("Error adding new address:", error);
+    }
+  };
 
   return (
     <>
@@ -93,17 +86,52 @@ export default function Checkout() {
 
       {/* address */}
       <div className="flex justify-center ">
-        <div className="container flex items-start max-w-[1050px] gap-5">
-          <div className="flex flex-col justify-center  w-[50%] gap-1">
+        <div className="container flex items-start max-w-[1050px] gap-5 mobile:flex-wrap">
+          <div className="flex flex-col justify-center  w-[50%] gap-1 mobile:w-[80%] mobile:justify-center">
             <div>
               <h1 class="font-semibold text-xl py-1">
                 1-Select delivery address
               </h1>
             </div>
+
+            <div class="flex flex-col justify-start">
+              {addresses && addresses.length > 0 ? (
+                addresses.map((address, index) => (
+                  <div
+                    key={index}
+                    className="flex flex-row items-center border border-gray-200 rounded dark:border-gray-700 my-2"
+                  >
+                    <input
+                      id={`bordered-radio-${index}`}
+                      type="radio"
+                      value=""
+                      name="bordered-radio"
+                      className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                    />
+                    <label
+                      htmlFor={`bordered-radio-${index}`}
+                      className="w-full py-1 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                    >
+                      <h6 className="font-bold">{address?.title}</h6>
+                      <p>
+                        {address?.address +
+                          " " +
+                          address?.neighborhood +
+                          " " +
+                          address?.district +
+                          " " +
+                          address?.city}
+                      </p>
+                    </label>
+                  </div>
+                ))
+              ) : (
+                <p>No addresses available.</p>
+              )}
+            </div>
+
             <button
-              onClick={() =>
-                document.getElementById("myDIV").classList.toggle("hidden")
-              }
+              onClick={() => setNewAddressVisible(!isNewAddressVisible)}
               className="border border-gray-400 text-gray-600 shadow-lg p-2 rounded-md cursor-pointer text-center"
             >
               <h3> + </h3>
@@ -112,8 +140,11 @@ export default function Checkout() {
 
             <div
               id="myDIV"
-              className="hidden"
-              class="container mx-auto pt-1 border-2 border-verylightgray rounded-lg"
+              className={
+                isNewAddressVisible
+                  ? "container mx-auto pt-1 border-2 border-verylightgray rounded-lg"
+                  : "hidden"
+              }
             >
               <div class="mx-auto max-w-xl">
                 <form
@@ -148,7 +179,7 @@ export default function Checkout() {
                     </div>
                   </div>
 
-                  {/* firstname lastname */}
+                  {/* name surname */}
 
                   <div class="flex flex-wrap -mx-3 mb-1">
                     <div class="w-full md:w-1/2 px-3 mb-1 md:mb-1">
@@ -178,12 +209,12 @@ export default function Checkout() {
                     <div class="w-full md:w-1/2 px-3">
                       <label
                         class="block  tracking-wide text-gray-700 text-xs font-bold mb-1"
-                        for="grid-last-name"
+                        for="grid-surname"
                       >
-                        Last Name
+                        Surname
                       </label>
                       <input
-                        {...register("lastName", {
+                        {...register("surname", {
                           required: "Required",
                           minLength: {
                             value: 3,
@@ -191,12 +222,12 @@ export default function Checkout() {
                           },
                         })}
                         class="appearance-none block w-full bg-g ray-200 text-gray-700 border border-gray-200 rounded py-1 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                        id="grid-last-name"
+                        id="grid-surname"
                         type="text"
                         placeholder="Doe"
                       />
                       <p className=" text-red-500 text-xs italic">
-                        {errors.lastName?.message}
+                        {errors.surname?.message}
                       </p>
                     </div>
                   </div>
@@ -364,26 +395,10 @@ export default function Checkout() {
                 </form>
               </div>
             </div>
-
-            <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
-              <input
-                id="bordered-radio-1"
-                type="radio"
-                value=""
-                name="bordered-radio"
-                class="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              />
-              <label
-                for="bordered-radio-1"
-                class="w-full py-1 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-              >
-                Default radio
-              </label>
-            </div>
           </div>
 
           {/* payment */}
-          <div className="flex flex-col justify-center  w-[50%] gap-1 ">
+          <div className="flex flex-col justify-center  w-[50%] gap-1 mobile:w-[80%] mobile:justify-center">
             <div>
               <h1 class="font-semibold text-xl py-1">
                 2-Select payment details
