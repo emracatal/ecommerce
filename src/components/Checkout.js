@@ -76,7 +76,7 @@ export default function Checkout() {
   return (
     <>
       <HeaderHome />
-      <div className="flex justify-center bg-darborder-darkblue3 ">
+      <div className="flex justify-center ">
         <div className="container flex justify-between items-center max-w-[1050px] min-h-[48px] mobile:flex mobile:flex-col mobile:py-1 mobile:gap-7 ">
           <div className="text-darkblue font-bold flex gap-2 ">
             <h3>Checkout</h3>
@@ -99,7 +99,7 @@ export default function Checkout() {
                 addresses.map((address, index) => (
                   <div
                     key={index}
-                    className="flex flex-row items-center border border-gray-200 rounded dark:border-gray-700 my-2"
+                    className="flex flex-row items-center border border-lightgray rounded my-2 p-2"
                   >
                     <input
                       id={`bordered-radio-${index}`}
@@ -132,7 +132,7 @@ export default function Checkout() {
 
             <button
               onClick={() => setNewAddressVisible(!isNewAddressVisible)}
-              className="border border-gray-400 text-gray-600 shadow-lg p-2 rounded-md cursor-pointer text-center"
+              className="border border-lightgray text-gray-600 shadow-lg p-2 rounded-md cursor-pointer text-center"
             >
               <h3> + </h3>
               <h5> Add a new address </h5>
@@ -142,7 +142,7 @@ export default function Checkout() {
               id="myDIV"
               className={
                 isNewAddressVisible
-                  ? "container mx-auto pt-1 border-2 border-verylightgray rounded-lg"
+                  ? "container mx-auto pt-1 border-2 border-lightgray rounded-lg"
                   : "hidden"
               }
             >
@@ -168,7 +168,7 @@ export default function Checkout() {
                             message: "At least 2 characters",
                           },
                         })}
-                        class="appearance-none block w-full bg-g ray-200 text-gray-700 border border-darkblue rounded py-1 px-4 mb-1 leading-tight focus:outline-none focus:bg-white"
+                        class="appearance-none block w-full bg-g ray-200 text-gray-700 border border-lightgray  rounded py-1 px-4 mb-1 leading-tight focus:outline-none focus:bg-white"
                         id="grid-address-1"
                         type="text"
                         placeholder="My Home "
@@ -197,7 +197,7 @@ export default function Checkout() {
                             message: "At least 3 characters",
                           },
                         })}
-                        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-darkblue rounded py-1 px-4 mb-1 leading-tight focus:outline-none focus:bg-white"
+                        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-lightgray  rounded py-1 px-4 mb-1 leading-tight focus:outline-none focus:bg-white"
                         id="grid-first-name"
                         type="text"
                         placeholder="Jane"
@@ -253,7 +253,7 @@ export default function Checkout() {
                             message: "Invalid phone number format",
                           },
                         })}
-                        class="appearance-none block w-full bg-g ray-200 text-gray-700 border border-darkblue rounded py-1 px-4 mb-1 leading-tight focus:outline-none focus:bg-white"
+                        class="appearance-none block w-full bg-g ray-200 text-gray-700 border border-lightgray  rounded py-1 px-4 mb-1 leading-tight focus:outline-none focus:bg-white"
                         id="grid-phone"
                         type="tel"
                         placeholder="+905554443322"
@@ -281,7 +281,7 @@ export default function Checkout() {
                             message: "At least 10 characters",
                           },
                         })}
-                        class="appearance-none block w-full bg-g ray-200 text-gray-700 border border-darkblue rounded py-1 px-4 mb-1 leading-tight focus:outline-none focus:bg-white"
+                        class="appearance-none block w-full bg-g ray-200 text-gray-700 border border-lightgray  rounded py-1 px-4 mb-1 leading-tight focus:outline-none focus:bg-white"
                         id="grid-address-1"
                         type="text"
                         placeholder="İnönü Cad.Hükümet Konağı Kat:2"
@@ -404,7 +404,7 @@ export default function Checkout() {
                 2-Select payment details
               </h1>
             </div>
-            <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
+            <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700 my-2 p-2">
               <input
                 id="bordered-radio-1"
                 type="radio"
@@ -416,10 +416,10 @@ export default function Checkout() {
                 for="bordered-radio-1"
                 class="w-full py-1 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
               >
-                Default radio
+                radio 1{" "}
               </label>
             </div>
-            <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
+            <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700 my-2 p-2">
               <input
                 checked
                 id="bordered-radio-2"
@@ -432,7 +432,7 @@ export default function Checkout() {
                 for="bordered-radio-2"
                 class="w-full py-1 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
               >
-                Checked district
+                radio 2{" "}
               </label>
             </div>
           </div>
