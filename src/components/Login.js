@@ -55,7 +55,7 @@ export default function Login() {
       });
       setLoading(false);
       setTimeout(() => {
-        history.push("/address");
+        history.push("/checkout");
       }, 3000);
     } catch (error) {
       //console.log(error);
