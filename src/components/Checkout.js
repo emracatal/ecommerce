@@ -1,7 +1,70 @@
-import React from "react";
+import React, { useState } from "react";
 import HeaderHome from "./HeaderHome";
+import {
+  isCityCode,
+  isCityCodeLike,
+  castCityCode,
+  isCityName,
+  isCityNameLike,
+  castCityName,
+  findDistance,
+  findClosestCities,
+  getCityNames,
+  getDistrictsOfEachCity,
+} from "turkey-neighbourhoods";
+import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { isValidDateValue } from "@testing-library/user-event/dist/utils";
 
 export default function Checkout() {
+  // const [selectedCity, setSelectedCity] = useState("");
+  // const handleCityChange = (e) => {
+  //   setSelectedCity(e.target.value);
+  // };
+
+  // const [selectedDistrict, setSelectedDistrict] = useState([]);
+  // const handleDistrictChange = (e) => {
+  //   setSelectedDistrict(e.target.value);
+  // };
+
+  const dispatch = useDispatch();
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors, isValid, isLoading },
+  } = useForm({
+    defaultValues: {
+      title: "",
+      name: "",
+      lastName: "",
+      phone: "",
+      city: "",
+      district: "",
+      neighborhood: "",
+      address: "",
+    },
+    mode: "onTouched",
+  });
+
+  const onFormSubmit = (formData) => {
+    const postData = {
+      title: formData.title,
+      name: formData.name,
+      lastName: formData.lastName,
+      phone: formData.phone,
+      address: formData.address,
+      city: formData.city,
+      district: formData.district,
+      neighborhood: formData.neighborhood,
+    };
+    console.log(postData);
+    setTimeout(() => {}, 1000);
+  };
+
+  const cities = getCityNames();
+
   return (
     <>
       <HeaderHome />
@@ -35,10 +98,13 @@ export default function Checkout() {
             <div
               id="myDIV"
               className="hidden"
-              class="container mx-auto pt-1 border-2 border-turku rounded-lg"
+              class="container mx-auto pt-1 border-2 border-verylightgray rounded-lg"
             >
               <div class="mx-auto max-w-xl">
-                <form class="bg-white shadow rounded">
+                <form
+                  onSubmit={handleSubmit(onFormSubmit)}
+                  class="bg-white shadow rounded"
+                >
                   {/* address title */}
                   <div class="flex flex-wrap -mx-3 mb-1">
                     <div class="w-full px-3">
@@ -49,13 +115,20 @@ export default function Checkout() {
                         Address Title
                       </label>
                       <input
+                        {...register("title", {
+                          required: "Required",
+                          minLength: {
+                            value: 2,
+                            message: "At least 2 characters",
+                          },
+                        })}
                         class="appearance-none block w-full bg-g ray-200 text-gray-700 border border-darkblue rounded py-1 px-4 mb-1 leading-tight focus:outline-none focus:bg-white"
                         id="grid-address-1"
                         type="text"
-                        placeholder="1234 Main Street"
+                        placeholder="My Home "
                       />
-                      <p class=" text-red-500 text-xs italic">
-                        Please enter an address title
+                      <p className=" text-red-500 text-xs italic">
+                        {errors.title?.message}
                       </p>
                     </div>
                   </div>
@@ -71,13 +144,20 @@ export default function Checkout() {
                         First Name
                       </label>
                       <input
+                        {...register("name", {
+                          required: "Required",
+                          minLength: {
+                            value: 3,
+                            message: "At least 3 characters",
+                          },
+                        })}
                         class="appearance-none block w-full bg-gray-200 text-gray-700 border border-darkblue rounded py-1 px-4 mb-1 leading-tight focus:outline-none focus:bg-white"
                         id="grid-first-name"
                         type="text"
                         placeholder="Jane"
                       />
-                      <p class="text-red-500 text-xs italic">
-                        Please fill out this field.
+                      <p className=" text-red-500 text-xs italic">
+                        {errors.name?.message}
                       </p>
                     </div>
                     <div class="w-full md:w-1/2 px-3">
@@ -88,11 +168,21 @@ export default function Checkout() {
                         Last Name
                       </label>
                       <input
+                        {...register("lastName", {
+                          required: "Required",
+                          minLength: {
+                            value: 3,
+                            message: "At least 3 characters",
+                          },
+                        })}
                         class="appearance-none block w-full bg-g ray-200 text-gray-700 border border-gray-200 rounded py-1 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                         id="grid-last-name"
                         type="text"
                         placeholder="Doe"
                       />
+                      <p className=" text-red-500 text-xs italic">
+                        {errors.lastName?.message}
+                      </p>
                     </div>
                   </div>
                   {/* phone */}
@@ -104,12 +194,27 @@ export default function Checkout() {
                       >
                         Phone
                       </label>
+
                       <input
+                        {...register("phone", {
+                          required: "Required",
+                          minLength: {
+                            value: 3,
+                            message: "At least 3 characters",
+                          },
+                          pattern: {
+                            value: /^[+0-9]+$/,
+                            message: "Invalid phone number format",
+                          },
+                        })}
                         class="appearance-none block w-full bg-g ray-200 text-gray-700 border border-darkblue rounded py-1 px-4 mb-1 leading-tight focus:outline-none focus:bg-white"
                         id="grid-phone"
                         type="tel"
-                        placeholder="+1-123-456-7890"
+                        placeholder="+905554443322"
                       />
+                      <p className=" text-red-500 text-xs italic">
+                        {errors.phone?.message}
+                      </p>
                     </div>
                   </div>
                   {/* address */}
@@ -123,13 +228,20 @@ export default function Checkout() {
                         Address
                       </label>
                       <input
+                        {...register("address", {
+                          required: "Required",
+                          minLength: {
+                            value: 10,
+                            message: "At least 10 characters",
+                          },
+                        })}
                         class="appearance-none block w-full bg-g ray-200 text-gray-700 border border-darkblue rounded py-1 px-4 mb-1 leading-tight focus:outline-none focus:bg-white"
                         id="grid-address-1"
                         type="text"
-                        placeholder="1234 Main Street"
+                        placeholder="İnönü Cad.Hükümet Konağı Kat:2"
                       />
-                      <p class="text-red-500 text-xs italic">
-                        Please enter your street address.
+                      <p className=" text-red-500 text-xs italic">
+                        {errors.address?.message}
                       </p>
                     </div>
                   </div>
@@ -137,18 +249,24 @@ export default function Checkout() {
                   <div class="flex flex-wrap -mx-3 mb-1">
                     <div class="w-full md:w-1/3 px-3 mb-1 md:mb-1">
                       <label
-                        class="block  tracking-wide text-gray-700 text-xs font-bold mb-1"
+                        //value={selectedCity}
+                        class="block tracking-wide text-gray-700 text-xs font-bold mb-1"
                         for="grid-city"
                       >
                         City
                       </label>
                       <div class="relative">
-                        <input
-                          class="appearance-none block w-full bg-g ray-200 text-gray-700 border border-gray-200 rounded py-1 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        <select
+                          {...register("city")}
+                          class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-1 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                           id="grid-city"
-                          type="text"
-                          placeholder="Los Angeles"
-                        />
+                        >
+                          {cities.map((city, index) => (
+                            <option key={index} value={city}>
+                              {city}
+                            </option>
+                          ))}
+                        </select>
                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                           <svg
                             class="fill-current h-4 w-4"
@@ -167,23 +285,22 @@ export default function Checkout() {
                       >
                         District
                       </label>
-                      <div class="relative">
-                        <select
-                          class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-1 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                          id="grid-district"
-                        >
-                          <option>California</option>
-                        </select>
-                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                          <svg
-                            class="fill-current h-4 w-4"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20"
-                          >
-                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                          </svg>
-                        </div>
-                      </div>
+                      <input
+                        {...register("district", {
+                          required: "Required",
+                          minLength: {
+                            value: 2,
+                            message: "At least 2 characters",
+                          },
+                        })}
+                        class="appearance-none block w-full bg-g ray-200 text-gray-700 border border-gray-200 rounded py-1 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        id="grid-district"
+                        type="text"
+                        placeholder="Aladağ"
+                      />
+                      <p className=" text-red-500 text-xs italic">
+                        {errors.district?.message}
+                      </p>
                     </div>
                     <div class="w-full md:w-1/3 px-3 mb-1 md:mb-1">
                       <label
@@ -193,18 +310,38 @@ export default function Checkout() {
                         Neighborhood
                       </label>
                       <input
+                        {...register("neighborhood", {
+                          required: "Required",
+                          minLength: {
+                            value: 2,
+                            message: "At least 2 characters",
+                          },
+                        })}
                         class="appearance-none block w-full bg-g ray-200 text-gray-700 border border-gray-200 rounded py-1 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                         id="grid-neighborhood"
                         type="text"
-                        placeholder="90020"
+                        placeholder="Mansurlu Mah. "
                       />
+                      <p className=" text-red-500 text-xs italic">
+                        {errors.neighborhood?.message}
+                      </p>
                     </div>
                   </div>
 
                   <div class="flex w-full justify-center ">
                     <button
-                      class="bg-turku h-10 w-full  text-white font-bold px-4 rounded focus:outline-none focus:shadow-outline"
-                      type="button"
+                      className={`w-full h-12 rounded-lg border mt-5 ${
+                        !isValid
+                          ? "bg-zinc-400 text-white"
+                          : "bg-turku text-white"
+                      }
+                      ${
+                        isLoading
+                          ? "bg-zinc-400 text-white"
+                          : "bg-turku text-white"
+                      }`}
+                      disabled={!isValid || isLoading}
+                      type="submit"
                     >
                       Submit
                     </button>
