@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import HeaderHome from "./HeaderHome";
 import {
   isCityCode,
@@ -15,18 +15,9 @@ import {
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { isValidDateValue } from "@testing-library/user-event/dist/utils";
+import axiosWithAuth from "../api/axiosWithAuth";
 
 export default function Checkout() {
-  // const [selectedCity, setSelectedCity] = useState("");
-  // const handleCityChange = (e) => {
-  //   setSelectedCity(e.target.value);
-  // };
-
-  // const [selectedDistrict, setSelectedDistrict] = useState([]);
-  // const handleDistrictChange = (e) => {
-  //   setSelectedDistrict(e.target.value);
-  // };
-
   const dispatch = useDispatch();
 
   const {
@@ -64,6 +55,30 @@ export default function Checkout() {
   };
 
   const cities = getCityNames();
+
+  const [savedAddresses, setSavedAddresses] = useState([]);
+  const [selectedAddress, setSelectedAddress] = useState(null);
+
+  const handleAddressSelection = (address) => {
+    setSelectedAddress(address);
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axiosWithAuth().get("/user/address");
+        if (response.status !== 200) {
+          console.error("Error fetching addresses:", response.statusText);
+          return;
+        }
+        setSavedAddresses(response.data);
+      } catch (error) {
+        console.error("Error fetching addresses:", error.message);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -363,22 +378,6 @@ export default function Checkout() {
                 class="w-full py-1 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
               >
                 Default radio
-              </label>
-            </div>
-            <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
-              <input
-                checked
-                id="bordered-radio-2"
-                type="radio"
-                value=""
-                name="bordered-radio"
-                class="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              />
-              <label
-                for="bordered-radio-2"
-                class="w-full py-1 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-              >
-                Checked district
               </label>
             </div>
           </div>
