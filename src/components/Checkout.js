@@ -9,9 +9,16 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { isValidDateValue } from "@testing-library/user-event/dist/utils";
 import axiosWithAuth from "../api/axiosWithAuth";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 export default function Checkout() {
   const dispatch = useDispatch();
+  const shoppingCardList = useSelector((store) => store.shoppingCart.cart);
+  const subtotal = shoppingCardList.reduce(
+    (acc, p) => acc + p.count * p.product.price,
+    0
+  );
+  const discount = subtotal >= 150 ? -30 : 0;
 
   const {
     register,
@@ -76,9 +83,9 @@ export default function Checkout() {
   return (
     <>
       <HeaderHome />
-      <div className="flex justify-center ">
-        <div className="container flex justify-between items-center max-w-[1050px] min-h-[48px] mobile:flex mobile:flex-col mobile:py-1 mobile:gap-7 ">
-          <div className="text-darkblue font-bold flex gap-2 ">
+      <div className="flex justify-center bg-verylightgray3 ">
+        <div className="container  flex justify-between items-center max-w-[1050px] min-h-[92px] pr-2 mobile:flex mobile:flex-col mobile:py-2 mobile:gap-7 ">
+          <div className="text-darkblue font-bold flex gap-2">
             <h3>Checkout</h3>
           </div>
         </div>
@@ -140,16 +147,16 @@ export default function Checkout() {
 
             <div
               id="myDIV"
-              className={
+              className={`${
                 isNewAddressVisible
                   ? "container mx-auto pt-1 border-2 border-lightgray rounded-lg"
                   : "hidden"
-              }
+              } p-4`}
             >
               <div class="mx-auto max-w-xl">
                 <form
                   onSubmit={handleSubmit(onFormSubmit)}
-                  class="bg-white shadow rounded"
+                  className="bg-white shadow rounded p-4"
                 >
                   {/* address title */}
                   <div class="flex flex-wrap -mx-3 mb-1">
@@ -380,8 +387,7 @@ export default function Checkout() {
                         !isValid
                           ? "bg-zinc-400 text-white"
                           : "bg-turku text-white"
-                      }
-                      ${
+                      } ${
                         isLoading
                           ? "bg-zinc-400 text-white"
                           : "bg-turku text-white"
@@ -416,7 +422,7 @@ export default function Checkout() {
                 for="bordered-radio-1"
                 class="w-full py-1 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
               >
-                radio 1{" "}
+                radio 1
               </label>
             </div>
             <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700 my-2 p-2">
@@ -432,10 +438,63 @@ export default function Checkout() {
                 for="bordered-radio-2"
                 class="w-full py-1 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
               >
-                radio 2{" "}
+                radio 2
               </label>
             </div>
           </div>
+          {shoppingCardList.length > 0 && (
+            <div
+              id="summary"
+              class="w-1/4 px-2 py-2 border border-solid border-turku rounded-sm mobile:w-full "
+            >
+              <h1 class="font-semibold text-xl border-b py-2">Order Summary</h1>
+              <div class="">
+                <div class="flex justify-between py-2 text-sm ">
+                  <span>Subtotal</span>
+                  <span>{subtotal.toFixed(2)} TL</span>
+                </div>
+              </div>
+              <div class="">
+                <div class="flex justify-between py-2 text-sm ">
+                  <span>Shipping</span>
+                  <span>30 TL</span>
+                </div>
+              </div>
+
+              <div class="">
+                <div class="flex justify-between py-2 text-sm ">
+                  <span>Discount - Free Shipping over 150 TL </span>
+                  <span>{discount} TL</span>
+                </div>
+              </div>
+
+              {subtotal < 150 && (
+                <div class="">
+                  <div class="flex justify-between text-xs text-danger">
+                    <span>
+                      Free delivery if you add {(150 - subtotal).toFixed(2)} TL
+                      to your shopping cart
+                    </span>
+                  </div>
+                </div>
+              )}
+
+              <div class="border-t mt-4">
+                <div class="flex font-semibold justify-between py-2 text-sm ">
+                  <span>Total cost</span>
+                  <span>{(subtotal + 30 + discount).toFixed(2)} TL</span>
+                </div>
+                <div className="mt-2">
+                  <Link
+                    to="/?"
+                    className="flex items-center justify-center rounded-md border border-transparent bg-turku px-2 py-2 text-sm font-bold text-white shadow-sm"
+                  >
+                    Checkout (Link yok)
+                  </Link>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </>
