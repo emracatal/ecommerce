@@ -64,19 +64,19 @@ export default function CheckoutAddress() {
           <h1 class="font-semibold text-xl py-1">1-Select delivery address</h1>
         </div>
 
-        <div class="flex flex-col justify-start">
+        <div class="flex flex-row flex-wrap justify-between gap-1">
           {addresses && addresses.length > 0 ? (
             addresses.map((address, index) => (
               <div
                 key={index}
-                className="flex flex-row items-center border border-lightgray rounded my-2 p-2"
+                className="w-[250px] flex flex-row items-center border border-lightgray rounded my-2 p-2"
               >
                 <input
                   id={`bordered-radio-${index}`}
                   type="radio"
                   value=""
                   name="bordered-radio"
-                  className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                  className="w-4 h-4 self-baseline mt-2 text-blue-600 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                 />
                 <label
                   htmlFor={`bordered-radio-${index}`}
