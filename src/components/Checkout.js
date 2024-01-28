@@ -36,13 +36,10 @@ export default function Checkout() {
   } = useForm({
     defaultValues: {
       title: "",
-      name: "",
-      surname: "",
-      phone: "",
-      city: "",
-      district: "",
-      neighborhood: "",
-      address: "",
+      cardname: "",
+      card_no: "",
+      expire_month: "",
+      expire_year: "",
     },
     mode: "onTouched",
   });
@@ -66,13 +63,10 @@ export default function Checkout() {
       console.log(formData);
       const postData = {
         title: formData.title,
-        name: formData.name,
-        surname: formData.surname,
-        phone: formData.phone,
-        address: formData.address,
-        city: formData.city,
-        district: formData.district,
-        neighborhood: formData.neighborhood,
+        cardname: formData.cardname,
+        card_no: formData.card_no,
+        expire_month: formData.expire_month,
+        expire_year: formData.expire_year,
       };
       console.log(formData);
       console.log(postData);
@@ -112,12 +106,32 @@ export default function Checkout() {
             <div class="flex flex-col justify-start">
               {paymentInfo && paymentInfo.length > 0 ? (
                 paymentInfo.map((card, index) => (
-                  <div key={index} className="mb-4">
-                    <p>Card Number: {card.card_no}</p>
-                    <p>
-                      Expiry Date: {card.expire_month}/{card.expire_year}
-                    </p>
-                    <p>Name on Card: {card.name_on_card}</p>
+                  <div
+                    key={index}
+                    className="flex flex-row items-center border border-lightgray rounded my-2 p-2"
+                  >
+                    <input
+                      id={`bordered-radio-${index}`}
+                      type="radio"
+                      value=""
+                      name="bordered-radio"
+                      className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                    />
+                    <label
+                      htmlFor={`bordered-radio-${index}`}
+                      className="w-full py-1 ms-2 text-xs font-medium text-gray-900 dark:text-gray-300"
+                    >
+                      <h6 className="font-bold">{card?.name_on_card}</h6>
+                      <p>
+                        {card?.card_no +
+                          " " +
+                          paymentInfo?.expire_year +
+                          " " +
+                          paymentInfo?.expire_month +
+                          " " +
+                          paymentInfo?.city}
+                      </p>
+                    </label>
                   </div>
                 ))
               ) : (
@@ -146,14 +160,14 @@ export default function Checkout() {
                   onSubmit={handleSubmit(onFormSubmit)}
                   className="bg-white shadow rounded p-4"
                 >
-                  {/* address title */}
+                  {/* card title */}
                   <div class="flex flex-wrap -mx-3 mb-1">
                     <div class="w-full px-3">
                       <label
                         class="block tracking-wide text-gray-800 text-sm font-bold mb-1"
-                        for="grid-address-1"
+                        for="grid-card-1"
                       >
-                        Address Title
+                        Card Title
                       </label>
                       <input
                         {...register("title", {
@@ -164,9 +178,9 @@ export default function Checkout() {
                           },
                         })}
                         class="appearance-none block w-full bg-g ray-200 text-gray-700 border border-lightgray  rounded py-1 px-4 mb-1 leading-tight focus:outline-none focus:bg-white"
-                        id="grid-address-1"
+                        id="grid-card-1"
                         type="text"
-                        placeholder="My Home "
+                        placeholder="My mastercard "
                       />
                       <p className=" text-red-500 text-xs italic">
                         {errors.title?.message}
@@ -174,18 +188,17 @@ export default function Checkout() {
                     </div>
                   </div>
 
-                  {/* name surname */}
-
+                  {/* name on card */}
                   <div class="flex flex-wrap -mx-3 mb-1">
-                    <div class="w-full md:w-1/2 px-3 mb-1 md:mb-1">
+                    <div class="w-full px-3 mb-1 md:mb-1">
                       <label
-                        class="block  tracking-wide text-gray-700 text-xs font-bold mb-1"
-                        for="grid-first-name"
+                        class="block tracking-wide text-gray-700 text-xs font-bold mb-1"
+                        for="grid-cardname"
                       >
-                        First Name
+                        Name on card
                       </label>
                       <input
-                        {...register("name", {
+                        {...register("cardname", {
                           required: "Required",
                           minLength: {
                             value: 3,
@@ -193,82 +206,26 @@ export default function Checkout() {
                           },
                         })}
                         class="appearance-none block w-full bg-gray-200 text-gray-700 border border-lightgray  rounded py-1 px-4 mb-1 leading-tight focus:outline-none focus:bg-white"
-                        id="grid-first-name"
+                        id="grid-cardname"
                         type="text"
-                        placeholder="Jane"
+                        placeholder="Jane Doe"
                       />
                       <p className=" text-red-500 text-xs italic">
-                        {errors.name?.message}
-                      </p>
-                    </div>
-                    <div class="w-full md:w-1/2 px-3">
-                      <label
-                        class="block  tracking-wide text-gray-700 text-xs font-bold mb-1"
-                        for="grid-surname"
-                      >
-                        Surname
-                      </label>
-                      <input
-                        {...register("surname", {
-                          required: "Required",
-                          minLength: {
-                            value: 3,
-                            message: "At least 3 characters",
-                          },
-                        })}
-                        class="appearance-none block w-full bg-g ray-200 text-gray-700 border border-gray-200 rounded py-1 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                        id="grid-surname"
-                        type="text"
-                        placeholder="Doe"
-                      />
-                      <p className=" text-red-500 text-xs italic">
-                        {errors.surname?.message}
+                        {errors.cardname?.message}
                       </p>
                     </div>
                   </div>
-                  {/* phone */}
+                  {/* card no */}
                   <div class="flex flex-wrap -mx-3 mb-1">
                     <div class="w-full px-3">
                       <label
-                        class="block tracking-wide text-gray-800 text-sm font-bold mb-1"
-                        for="grid-phone"
+                        class="block tracking-wide text-gray-800 text-xs font-bold mb-1"
+                        for="grid-card-1"
                       >
-                        Phone
-                      </label>
-
-                      <input
-                        {...register("phone", {
-                          required: "Required",
-                          minLength: {
-                            value: 3,
-                            message: "At least 3 characters",
-                          },
-                          pattern: {
-                            value: /^[+0-9]+$/,
-                            message: "Invalid phone number format",
-                          },
-                        })}
-                        class="appearance-none block w-full bg-g ray-200 text-gray-700 border border-lightgray  rounded py-1 px-4 mb-1 leading-tight focus:outline-none focus:bg-white"
-                        id="grid-phone"
-                        type="tel"
-                        placeholder="+905554443322"
-                      />
-                      <p className=" text-red-500 text-xs italic">
-                        {errors.phone?.message}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="flex flex-wrap -mx-3 mb-1">
-                    <div class="w-full px-3">
-                      <label
-                        class="block tracking-wide text-gray-800 text-sm font-bold mb-1"
-                        for="grid-address-1"
-                      >
-                        Address
+                        Card no
                       </label>
                       <input
-                        {...register("address", {
+                        {...register("card", {
                           required: "Required",
                           minLength: {
                             value: 10,
@@ -276,94 +233,69 @@ export default function Checkout() {
                           },
                         })}
                         class="appearance-none block w-full bg-g ray-200 text-gray-700 border border-lightgray  rounded py-1 px-4 mb-1 leading-tight focus:outline-none focus:bg-white"
-                        id="grid-address-1"
+                        id="grid-card-1"
                         type="text"
-                        placeholder="İnönü Cad.Hükümet Konağı Kat:2"
+                        placeholder="1234123412341234"
                       />
                       <p className=" text-red-500 text-xs italic">
-                        {errors.address?.message}
+                        {errors.card?.message}
                       </p>
                     </div>
                   </div>
 
                   <div class="flex flex-wrap -mx-3 mb-1">
-                    <div class="w-full md:w-1/3 px-3 mb-1 md:mb-1">
-                      <label
-                        //value={selectedCity}
-                        class="block tracking-wide text-gray-700 text-xs font-bold mb-1"
-                        for="grid-city"
-                      >
-                        City
-                      </label>
-                      <div class="relative">
-                        <select
-                          {...register("city")}
-                          class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-1 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                          id="grid-city"
-                        >
-                          {cities.map((city, index) => (
-                            <option key={index} value={city}>
-                              {city}
-                            </option>
-                          ))}
-                        </select>
-                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                          <svg
-                            class="fill-current h-4 w-4"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20"
-                          >
-                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="w-full md:w-1/3 px-3 mb-1 md:mb-1">
+                    {/* expire_year */}
+                    <div class="w-full md:w-1/2 px-3 mb-1 md:mb-1">
                       <label
                         class="block  tracking-wide text-gray-700 text-xs font-bold mb-1"
-                        for="grid-district"
+                        for="grid-expire_year"
                       >
-                        District
+                        Year of expire
                       </label>
                       <input
-                        {...register("district", {
+                        {...register("expire_year", {
                           required: "Required",
                           minLength: {
-                            value: 2,
-                            message: "At least 2 characters",
+                            value: 4,
+                            message: "At least 4 characters",
+                          },
+                          pattern: {
+                            value: /^(20\d{2})$/,
+                            message: "Invalid year format",
                           },
                         })}
-                        class="appearance-none block w-full bg-g ray-200 text-gray-700 border border-gray-200 rounded py-1 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                        id="grid-district"
+                        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-1 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        id="grid-expire_year"
                         type="text"
-                        placeholder="Aladağ"
+                        placeholder="20XX"
                       />
                       <p className=" text-red-500 text-xs italic">
-                        {errors.district?.message}
+                        {errors.expire_year?.message}
                       </p>
                     </div>
-                    <div class="w-full md:w-1/3 px-3 mb-1 md:mb-1">
+                    {/* expire_month */}
+                    <div class="w-full md:w-1/2 px-3 mb-1 md:mb-1">
                       <label
                         class="block  tracking-wide text-gray-700 text-xs font-bold mb-1"
-                        for="grid-neighborhood"
+                        for="grid-expire_month"
                       >
-                        Neighborhood
+                        Month of expire
                       </label>
                       <input
-                        {...register("neighborhood", {
+                        {...register("expire_month", {
                           required: "Required",
-                          minLength: {
-                            value: 2,
-                            message: "At least 2 characters",
+                          pattern: {
+                            value: /^(0[1-9]|1[0-2])$/, // Ensure it is a two-digit number between 01 and 12
+                            message: "Invalid month format",
                           },
                         })}
-                        class="appearance-none block w-full bg-g ray-200 text-gray-700 border border-gray-200 rounded py-1 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                        id="grid-neighborhood"
+                        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-1 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        id="grid-expire_month"
                         type="text"
-                        placeholder="Mansurlu Mah. "
+                        placeholder="01" // You can update the placeholder if needed
                       />
                       <p className=" text-red-500 text-xs italic">
-                        {errors.neighborhood?.message}
+                        {errors.expire_month?.message}
                       </p>
                     </div>
                   </div>

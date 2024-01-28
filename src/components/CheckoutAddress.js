@@ -205,7 +205,7 @@ export default function CheckoutAddress() {
               <div class="flex flex-wrap -mx-3 mb-1">
                 <div class="w-full px-3">
                   <label
-                    class="block tracking-wide text-gray-800 text-sm font-bold mb-1"
+                    class="block tracking-wide text-gray-800 text-xs font-bold mb-1"
                     for="grid-phone"
                   >
                     Phone
@@ -237,7 +237,7 @@ export default function CheckoutAddress() {
               <div class="flex flex-wrap -mx-3 mb-1">
                 <div class="w-full px-3">
                   <label
-                    class="block tracking-wide text-gray-800 text-sm font-bold mb-1"
+                    class="block tracking-wide text-gray-800 text-xs font-bold mb-1"
                     for="grid-address-1"
                   >
                     Address
