@@ -54,7 +54,7 @@ export default function Checkout() {
 
       <div className="flex justify-center ">
         <div className="container flex flex-row items-start max-w-[1050px] gap-5 mobile:flex-col">
-          <div className="w-[50%] mobile:w-full">
+          <div className="w-[58%] mobile:w-full">
             {/* address */}
             <CheckoutAddress
               selectedAddress={selectedAddress}
@@ -69,7 +69,7 @@ export default function Checkout() {
           </div>
 
           {/* oerder summary */}
-          <div className="w-[45%] mobile:w-full">
+          <div className="w-[40%] mobile:w-full">
             {shoppingCardList.length > 0 && (
               <div
                 id="summary"
