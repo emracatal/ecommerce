@@ -56,16 +56,33 @@ export const setAddress = (address) => {
   };
 };
 
-// export const setCart=(cart)=>{
-//     return {
-//         type:SET_CART,
-//         payload:cart,
-//     }
-// }
+export const fetchPayment = () => (dispatch) => {
+  axiosWithAuth()
+    .get("user/card")
+    .then(function (response) {
+      console.log(response);
+      dispatch(setPayment(response.data));
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+};
 
-// export const setPayment=(payment)=>{
-//     return {
-//         type:SET_PAYMENT,
-//         payload:payment,
-//     }
-// }
+export const setNewPayment = (formData) => (dispatch) => {
+  axiosWithAuth()
+    .post("user/card", formData)
+    .then(function (response) {
+      toast.success("New address saved");
+    })
+    .catch((err) => {
+      console.error(err);
+      toast.error("New address couldn't saved");
+    });
+};
+
+export const setPayment = (payment) => {
+  return {
+    type: SET_PAYMENT,
+    payload: payment,
+  };
+};

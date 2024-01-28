@@ -3,6 +3,7 @@ import HeaderHome from "./HeaderHome";
 import {
   fetchAddresses,
   setNewAddress,
+  fetchPayment,
 } from "../store/actions/shoppingCartActions";
 import { getCityNames } from "turkey-neighbourhoods";
 import { useForm } from "react-hook-form";
@@ -10,10 +11,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { isValidDateValue } from "@testing-library/user-event/dist/utils";
 import axiosWithAuth from "../api/axiosWithAuth";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import CheckoutAddress from "./CheckoutAddress";
 
 export default function Checkout() {
   const dispatch = useDispatch();
   const shoppingCardList = useSelector((store) => store.shoppingCart.cart);
+  const [isNewAddressVisible, setNewAddressVisible] = useState(false);
+  const cities = getCityNames();
+  const addresses = useSelector((store) => store.shoppingCart.address);
+  const [selectedAddress, setSelectedAddress] = useState(null);
+  const paymentInfo = useSelector((store) => store.shoppingCart.payment);
+
   const subtotal = shoppingCardList.reduce(
     (acc, p) => acc + p.count * p.product.price,
     0
@@ -39,12 +47,6 @@ export default function Checkout() {
     mode: "onTouched",
   });
 
-  const cities = getCityNames();
-
-  const addresses = useSelector((store) => store.shoppingCart.address);
-  const [selectedAddress, setSelectedAddress] = useState(null);
-  const [isNewAddressVisible, setNewAddressVisible] = useState(false);
-
   const handleAddressSelection = (address) => {
     setSelectedAddress(address);
   };
@@ -52,6 +54,11 @@ export default function Checkout() {
   useEffect(() => {
     dispatch(fetchAddresses());
     console.log(addresses);
+  }, []);
+
+  useEffect(() => {
+    dispatch(fetchPayment());
+    console.log(paymentInfo);
   }, []);
 
   const onFormSubmit = async (formData) => {
@@ -91,49 +98,30 @@ export default function Checkout() {
         </div>
       </div>
 
-      {/* address */}
       <div className="flex justify-center ">
         <div className="container flex items-start max-w-[1050px] gap-5 mobile:flex-wrap">
+          {/* address */}
+          <CheckoutAddress />
+
+          {/* payment */}
           <div className="flex flex-col justify-center  w-[50%] gap-1 mobile:w-[80%] mobile:justify-center">
             <div>
-              <h1 class="font-semibold text-xl py-1">
-                1-Select delivery address
-              </h1>
+              <h1 class="font-semibold text-xl py-1">1-Select payment</h1>
             </div>
 
             <div class="flex flex-col justify-start">
-              {addresses && addresses.length > 0 ? (
-                addresses.map((address, index) => (
-                  <div
-                    key={index}
-                    className="flex flex-row items-center border border-lightgray rounded my-2 p-2"
-                  >
-                    <input
-                      id={`bordered-radio-${index}`}
-                      type="radio"
-                      value=""
-                      name="bordered-radio"
-                      className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                    />
-                    <label
-                      htmlFor={`bordered-radio-${index}`}
-                      className="w-full py-1 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                    >
-                      <h6 className="font-bold">{address?.title}</h6>
-                      <p>
-                        {address?.address +
-                          " " +
-                          address?.neighborhood +
-                          " " +
-                          address?.district +
-                          " " +
-                          address?.city}
-                      </p>
-                    </label>
+              {paymentInfo && paymentInfo.length > 0 ? (
+                paymentInfo.map((card, index) => (
+                  <div key={index} className="mb-4">
+                    <p>Card Number: {card.card_no}</p>
+                    <p>
+                      Expiry Date: {card.expire_month}/{card.expire_year}
+                    </p>
+                    <p>Name on Card: {card.name_on_card}</p>
                   </div>
                 ))
               ) : (
-                <p>No addresses available.</p>
+                <p>No saved cards available.</p>
               )}
             </div>
 
@@ -142,7 +130,7 @@ export default function Checkout() {
               className="border border-lightgray text-gray-600 shadow-lg p-2 rounded-md cursor-pointer text-center"
             >
               <h3> + </h3>
-              <h5> Add a new address </h5>
+              <h5> Add a new card </h5>
             </button>
 
             <div
@@ -270,7 +258,6 @@ export default function Checkout() {
                       </p>
                     </div>
                   </div>
-                  {/* address */}
 
                   <div class="flex flex-wrap -mx-3 mb-1">
                     <div class="w-full px-3">
@@ -403,45 +390,7 @@ export default function Checkout() {
             </div>
           </div>
 
-          {/* payment */}
-          <div className="flex flex-col justify-center  w-[50%] gap-1 mobile:w-[80%] mobile:justify-center">
-            <div>
-              <h1 class="font-semibold text-xl py-1">
-                2-Select payment details
-              </h1>
-            </div>
-            <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700 my-2 p-2">
-              <input
-                id="bordered-radio-1"
-                type="radio"
-                value=""
-                name="bordered-radio"
-                class="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              />
-              <label
-                for="bordered-radio-1"
-                class="w-full py-1 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-              >
-                radio 1
-              </label>
-            </div>
-            <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700 my-2 p-2">
-              <input
-                checked
-                id="bordered-radio-2"
-                type="radio"
-                value=""
-                name="bordered-radio"
-                class="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              />
-              <label
-                for="bordered-radio-2"
-                class="w-full py-1 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-              >
-                radio 2
-              </label>
-            </div>
-          </div>
+          {/* oerder summary */}
           {shoppingCardList.length > 0 && (
             <div
               id="summary"
