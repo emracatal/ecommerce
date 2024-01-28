@@ -7,11 +7,14 @@ import {
 } from "../store/actions/shoppingCartActions";
 import { getCityNames } from "turkey-neighbourhoods";
 
-export default function CheckoutAddress() {
+export default function CheckoutAddress({
+  selectedAddress,
+  setSelectedAddress,
+}) {
   const dispatch = useDispatch();
   const cities = getCityNames();
   const addresses = useSelector((store) => store.shoppingCart.address);
-  const [isNewAddressVisible, setNewAddressVisible] = useState(false);
+  const [isVisible, setVisible] = useState(false);
   const {
     register,
     handleSubmit,
@@ -59,9 +62,9 @@ export default function CheckoutAddress() {
 
   return (
     <>
-      <div className="flex flex-col justify-center  w-[50%] gap-1 mobile:w-[80%] mobile:justify-center">
+      <div className="flex flex-col justify-center  gap-1 mobile:w-[80%] mobile:justify-center">
         <div>
-          <h1 class="font-semibold text-xl py-1">1-Select delivery address</h1>
+          <h1 class="font-semibold text-xl py-2">1-Select delivery address</h1>
         </div>
 
         <div class="flex flex-row flex-wrap justify-between gap-1">
@@ -69,17 +72,19 @@ export default function CheckoutAddress() {
             addresses.map((address, index) => (
               <div
                 key={index}
-                className="w-[250px] flex flex-row items-center border border-lightgray rounded my-2 p-2"
+                className="w-[40%] flex flex-row items-center border border-lightgray rounded my-2 p-2"
               >
                 <input
-                  id={`bordered-radio-${index}`}
+                  id={`address-radio-${index}`}
                   type="radio"
                   value=""
-                  name="bordered-radio"
+                  name="address-radio"
                   className="w-4 h-4 self-baseline mt-2 text-blue-600 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                  checked={address === selectedAddress}
+                  onChange={() => setSelectedAddress(address)}
                 />
                 <label
-                  htmlFor={`bordered-radio-${index}`}
+                  htmlFor={`address-radio-${index}`}
                   className="w-full py-1 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                 >
                   <h6 className="font-bold">{address?.title}</h6>
@@ -101,7 +106,7 @@ export default function CheckoutAddress() {
         </div>
 
         <button
-          onClick={() => setNewAddressVisible(!isNewAddressVisible)}
+          onClick={() => setVisible(!isVisible)}
           className="border border-lightgray text-gray-600 shadow-lg p-2 rounded-md cursor-pointer text-center"
         >
           <h3> + </h3>
@@ -111,7 +116,7 @@ export default function CheckoutAddress() {
         <div
           id="myDIV"
           className={`${
-            isNewAddressVisible
+            isVisible
               ? "container mx-auto pt-1 border-2 border-lightgray rounded-lg"
               : "hidden"
           } p-4`}
@@ -353,7 +358,7 @@ export default function CheckoutAddress() {
                   disabled={!isValid || isLoading}
                   type="submit"
                 >
-                  Submit
+                  Submit New Address
                 </button>
               </div>
             </form>

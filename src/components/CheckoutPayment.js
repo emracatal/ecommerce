@@ -2,19 +2,26 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import {
-  fetchAddresses,
-  setNewAddress,
   fetchPayment,
+  setNewPayment,
 } from "../store/actions/shoppingCartActions";
 import cardfinans from "../assets/cardfinans.png";
 import visa from "../assets/visa.png";
 import mastercard from "../assets/mastercard.png";
 import maximum from "../assets/maximum.png";
 
-export default function CheckoutPayment() {
+export default function CheckoutPayment({
+  selectedPayment,
+  setSelectedPayment,
+}) {
   const paymentInfo = useSelector((store) => store.shoppingCart.payment);
   const dispatch = useDispatch();
-  const [isNewAddressVisible, setNewAddressVisible] = useState(false);
+  const [isVisible, setVisible] = useState(false);
+
+  function maskCard(num) {
+    const maskedPart = "*".repeat(num.length - 8);
+    return `${num.substr(0, 4)}${maskedPart}${num.substr(-4)}`;
+  }
 
   const {
     register,
@@ -23,8 +30,8 @@ export default function CheckoutPayment() {
     formState: { errors, isValid, isLoading },
   } = useForm({
     defaultValues: {
-      title: "",
-      cardname: "",
+      //title: "",
+      name_on_card: "",
       card_no: "",
       expire_month: "",
       expire_year: "",
@@ -36,8 +43,8 @@ export default function CheckoutPayment() {
     try {
       console.log(formData);
       const postData = {
-        title: formData.title,
-        cardname: formData.cardname,
+        //title: formData.title,
+        name_on_card: formData.name_on_card,
         card_no: formData.card_no,
         expire_month: formData.expire_month,
         expire_year: formData.expire_year,
@@ -45,21 +52,20 @@ export default function CheckoutPayment() {
       console.log(formData);
       console.log(postData);
 
-      await dispatch(setNewAddress(postData));
+      await dispatch(setNewPayment(postData));
 
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      dispatch(fetchAddresses());
+      dispatch(fetchPayment());
     } catch (error) {
-      console.error("Error adding new address:", error);
+      console.error("Error adding new payment:", error);
     }
   };
-
   return (
     <>
-      <div className="flex flex-col justify-center  w-[50%] gap-1 mobile:w-[80%] mobile:justify-center">
+      <div className="flex flex-col justify-center gap-1 mobile:w-[80%] mobile:justify-center">
         <div>
-          <h1 class="font-semibold text-xl py-1">1-Select payment</h1>
+          <h1 class="font-semibold text-xl py-2">1-Select payment</h1>
         </div>
 
         <div class="flex flex-row flex-wrap justify-between gap-1">
@@ -67,17 +73,19 @@ export default function CheckoutPayment() {
             paymentInfo.map((card, index) => (
               <div
                 key={index}
-                className="w-[250px] flex flex-row items-center border border-lightgray rounded my-2 p-2"
+                className="w-[40%] flex flex-row items-center border border-lightgray rounded my-2 p-2"
               >
                 <input
-                  id={`bordered-radio-${index}`}
+                  id={`payment-radio-${index}`}
                   type="radio"
                   value=""
-                  name="bordered-radio"
+                  name="payment-radio"
                   className="w-4 h-4 self-baseline mt-3 text-blue-600 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                  checked={card === selectedPayment}
+                  onChange={() => setSelectedPayment(card)}
                 />
                 <label
-                  htmlFor={`bordered-radio-${index}`}
+                  htmlFor={`payment-radio-${index}`}
                   className="w-full py-1 ms-2 text-xs font-medium text-gray-900 dark:text-gray-300"
                 >
                   <div className="flex justify-between items-center">
@@ -109,11 +117,11 @@ export default function CheckoutPayment() {
                     )}
                   </div>
 
-                  <h6 className="text-right font-bold">{card?.name_on_card}</h6>
-                  <p className="text-right">{card?.card_no}</p>
-                  <p className="text-right">
-                    {card?.expire_year + "/" + card?.expire_month}
-                  </p>
+                  <div className="flex justify-between text-right">
+                    <p>{card?.name_on_card}</p>
+                    <p>{maskCard(card?.card_no)}</p>
+                    <p> {card?.expire_year + "/" + card?.expire_month}</p>
+                  </div>
                 </label>
               </div>
             ))
@@ -123,7 +131,7 @@ export default function CheckoutPayment() {
         </div>
 
         <button
-          onClick={() => setNewAddressVisible(!isNewAddressVisible)}
+          onClick={() => setVisible(!isVisible)}
           className="border border-lightgray text-gray-600 shadow-lg p-2 rounded-md cursor-pointer text-center"
         >
           <h3> + </h3>
@@ -133,7 +141,7 @@ export default function CheckoutPayment() {
         <div
           id="myDIV"
           className={`${
-            isNewAddressVisible
+            isVisible
               ? "container mx-auto pt-1 border-2 border-lightgray rounded-lg"
               : "hidden"
           } p-4`}
@@ -144,7 +152,7 @@ export default function CheckoutPayment() {
               className="bg-white shadow rounded p-4"
             >
               {/* card title */}
-              <div class="flex flex-wrap -mx-3 mb-1">
+              {/* <div class="flex flex-wrap -mx-3 mb-1">
                 <div class="w-full px-3">
                   <label
                     class="block tracking-wide text-gray-800 text-sm font-bold mb-1"
@@ -169,19 +177,19 @@ export default function CheckoutPayment() {
                     {errors.title?.message}
                   </p>
                 </div>
-              </div>
+              </div> */}
 
               {/* name on card */}
               <div class="flex flex-wrap -mx-3 mb-1">
                 <div class="w-full px-3 mb-1 md:mb-1">
                   <label
                     class="block tracking-wide text-gray-700 text-xs font-bold mb-1"
-                    for="grid-cardname"
+                    for="grid-name_on_card"
                   >
                     Name on card
                   </label>
                   <input
-                    {...register("cardname", {
+                    {...register("name_on_card", {
                       required: "Required",
                       minLength: {
                         value: 3,
@@ -189,12 +197,12 @@ export default function CheckoutPayment() {
                       },
                     })}
                     class="appearance-none block w-full bg-gray-200 text-gray-700 border border-lightgray  rounded py-1 px-4 mb-1 leading-tight focus:outline-none focus:bg-white"
-                    id="grid-cardname"
+                    id="grid-name_on_card"
                     type="text"
                     placeholder="Jane Doe"
                   />
                   <p className=" text-red-500 text-xs italic">
-                    {errors.cardname?.message}
+                    {errors.name_on_card?.message}
                   </p>
                 </div>
               </div>
@@ -208,7 +216,7 @@ export default function CheckoutPayment() {
                     Card no
                   </label>
                   <input
-                    {...register("card", {
+                    {...register("card_no", {
                       required: "Required",
                       minLength: {
                         value: 10,
@@ -221,7 +229,7 @@ export default function CheckoutPayment() {
                     placeholder="XXXX XXXX XXXX XXXX"
                   />
                   <p className=" text-red-500 text-xs italic">
-                    {errors.card?.message}
+                    {errors.card_no?.message}
                   </p>
                 </div>
               </div>
@@ -293,7 +301,7 @@ export default function CheckoutPayment() {
                   disabled={!isValid || isLoading}
                   type="submit"
                 >
-                  Submit
+                  Submit New Card
                 </button>
               </div>
             </form>
