@@ -62,7 +62,7 @@ export default function CheckoutAddress({
 
   return (
     <>
-      <div className="flex flex-col justify-center  gap-1 mobile:w-[80%] mobile:justify-center">
+      <div className="flex flex-col justify-center  gap-1 mobile:w-full mobile:justify-center">
         <div>
           <h1 class="font-semibold text-xl py-2">1-Select delivery address</h1>
         </div>
@@ -72,7 +72,7 @@ export default function CheckoutAddress({
             addresses.map((address, index) => (
               <div
                 key={index}
-                className="w-[40%] flex flex-row items-center border border-lightgray rounded my-2 p-2"
+                className="w-[48%] flex flex-row items-center border border-lightgray rounded my-2 p-2 "
               >
                 <input
                   id={`address-radio-${index}`}
