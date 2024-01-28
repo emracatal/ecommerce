@@ -22,6 +22,8 @@ import ShoppingCart from "./components/ShoppingCart";
 import Protected from "./components/Protected";
 import Address from "./components/Checkout";
 import Checkout from "./components/Checkout";
+import OrderConfirm from "./components/OrderConfirm";
+import OrderHistory from "./components/OrderHistory";
 
 function App() {
   const dispatch = useDispatch();
@@ -60,7 +62,7 @@ function App() {
         <Route path="/team" exact>
           <Team />
         </Route>
-        <Route path="/sontactForm" exact>
+        <Route path="/contactForm" exact>
           <ContactForm />
         </Route>
         <Route path="/signUp" exact>
@@ -71,6 +73,12 @@ function App() {
         </Route>
         <Route path="/cart" exact>
           <ShoppingCart />
+        </Route>
+        <Route path="/orderHistory" exact>
+          <OrderHistory />
+        </Route>
+        <Route path="/orderConfirm" exact>
+          <OrderConfirm />
         </Route>
         <Route path="/protected">
           <Protected PageComponent={Checkout} fromURL={"/protected"} />

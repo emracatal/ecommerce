@@ -55,6 +55,7 @@ export default function CheckoutAddress({
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       dispatch(fetchAddresses());
+      setVisible(false);
     } catch (error) {
       console.error("Error adding new address:", error);
     }
@@ -64,7 +65,9 @@ export default function CheckoutAddress({
     <>
       <div className="flex flex-col justify-center  gap-1 mobile:w-full mobile:justify-center">
         <div>
-          <h1 class="font-semibold text-xl py-2">1-Select delivery address</h1>
+          <h1 class="font-semibold text-xl py-2 bg-verylightgray2 rounded-md">
+            1-Select delivery address
+          </h1>
         </div>
 
         <div class="flex flex-row flex-wrap justify-between gap-1">

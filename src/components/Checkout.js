@@ -7,11 +7,12 @@ import {
 } from "../store/actions/shoppingCartActions";
 import { getCityNames } from "turkey-neighbourhoods";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import CheckoutAddress from "./CheckoutAddress";
 import CheckoutPayment from "./CheckoutPayment";
 
 export default function Checkout() {
+  const history = useHistory();
   const dispatch = useDispatch();
   const shoppingCardList = useSelector((store) => store.shoppingCart.cart);
   const cities = getCityNames();
@@ -41,6 +42,14 @@ export default function Checkout() {
     console.log(paymentInfo);
   }, []);
 
+  const isCheckoutDisabled = !selectedAddress || !selectedPayment;
+  const handleCheckout = () => {
+    if (!isCheckoutDisabled) {
+      // Checkout işlemleri
+      history.push("/orderConfirm"); // Geçiş yapılacak sayfa
+    }
+  };
+
   return (
     <>
       <HeaderHome />
@@ -53,8 +62,8 @@ export default function Checkout() {
       </div>
 
       <div className="flex justify-center ">
-        <div className="container flex flex-row items-start max-w-[1050px] gap-5 mobile:flex-col">
-          <div className="w-[58%] mobile:w-full">
+        <div className="container flex flex-row items-start max-w-[1050px] gap-5 mobile:flex-col ">
+          <div className="w-[58%] mobile:w-full shadow-2xl ">
             {/* address */}
             <CheckoutAddress
               selectedAddress={selectedAddress}
@@ -69,13 +78,10 @@ export default function Checkout() {
           </div>
 
           {/* oerder summary */}
-          <div className="w-[40%] mobile:w-full">
+          <div className="w-[40%] mobile:w-full shadow-2xl">
             {shoppingCardList.length > 0 && (
-              <div
-                id="summary"
-                class="bg-verylightgray px-2 py-2 border border-solid rounded-sm mobile:w-full "
-              >
-                <h1 class="font-semibold text-xl border-b py-2">
+              <div id="summary" class=" px-2  mobile:w-full ">
+                <h1 class="bg-verylightgray2 rounded-md font-semibold text-xl py-2">
                   Order Summary
                 </h1>
                 <div class="">
@@ -114,30 +120,52 @@ export default function Checkout() {
                     <span>Total cost</span>
                     <span>{(subtotal + 30 + discount).toFixed(2)} TL</span>
                   </div>
+
+                  {/* selected address */}
+                  {selectedAddress && (
+                    <div className="mt-4">
+                      <h6 className="font-bold">
+                        Selected Address: {selectedAddress?.title}
+                      </h6>
+                      <p>
+                        {selectedAddress?.address +
+                          " " +
+                          selectedAddress?.neighborhood +
+                          " " +
+                          selectedAddress?.district +
+                          " " +
+                          selectedAddress?.city}
+                      </p>
+                    </div>
+                  )}
+                  {/* selected payment */}
+                  {selectedPayment && (
+                    <div className="mt-4">
+                      <h6 className="font-bold">
+                        Selected Payment: {maskCard(selectedPayment.card_no)}
+                      </h6>
+                      <p>
+                        {selectedPayment?.name_on_card}
+                        {selectedPayment?.expire_year +
+                          "/" +
+                          selectedPayment?.expire_month}
+                      </p>
+                    </div>
+                  )}
+
                   <div className="mt-2">
-                    <Link
-                      to="/?"
-                      className="flex items-center justify-center rounded-md border border-transparent bg-turku px-2 py-2 text-sm font-bold text-white shadow-sm"
+                    <button
+                      onClick={handleCheckout}
+                      className={`flex items-center justify-center rounded-md border ${
+                        isCheckoutDisabled
+                          ? "bg-zinc-400 text-white"
+                          : "border-transparent bg-turku text-white"
+                      } px-2 py-2 text-sm font-bold shadow-sm w-full`}
+                      disabled={isCheckoutDisabled}
                     >
-                      Checkout (Link yok)
-                    </Link>
+                      Checkout
+                    </button>
                   </div>
-                </div>
-              </div>
-            )}
-            {/* selected address */}
-            {selectedAddress && (
-              <div className="mt-4">
-                <div className="font-semibold text-sm">
-                  Selected Address: {selectedAddress.title}
-                </div>
-              </div>
-            )}
-            {/* selected payment */}
-            {selectedPayment && (
-              <div className="mt-4">
-                <div className="font-semibold text-sm">
-                  Selected Payment: {maskCard(selectedPayment.card_no)}
                 </div>
               </div>
             )}

@@ -57,6 +57,7 @@ export default function CheckoutPayment({
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       dispatch(fetchPayment());
+      setVisible(false);
     } catch (error) {
       console.error("Error adding new payment:", error);
     }
@@ -65,7 +66,9 @@ export default function CheckoutPayment({
     <>
       <div className="flex flex-col justify-center gap-1 mobile:w-full mobile:justify-center">
         <div>
-          <h1 class="font-semibold text-xl py-2">1-Select payment</h1>
+          <h1 class="bg-verylightgray2 rounded-md font-semibold text-xl py-2 mt-2 ">
+            1-Select payment
+          </h1>
         </div>
 
         <div class="flex flex-row flex-wrap justify-between gap-1">
@@ -219,8 +222,12 @@ export default function CheckoutPayment({
                     {...register("card_no", {
                       required: "Required",
                       minLength: {
-                        value: 10,
-                        message: "At least 10 characters",
+                        value: 16,
+                        message: "16 characters",
+                      },
+                      maxLength: {
+                        value: 16,
+                        message: "16 characters",
                       },
                     })}
                     class="appearance-none block w-full bg-g ray-200 text-gray-700 border border-lightgray  rounded py-1 px-4 mb-1 leading-tight focus:outline-none focus:bg-white"
