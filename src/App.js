@@ -24,6 +24,7 @@ import Address from "./components/Checkout";
 import Checkout from "./components/Checkout";
 import OrderConfirm from "./components/OrderConfirm";
 import OrderHistory from "./components/OrderHistory";
+import OrdersList from "./components/OrdersList";
 
 function App() {
   const dispatch = useDispatch();
@@ -85,6 +86,9 @@ function App() {
         </Route>
         <Route path="/checkout" exact>
           <Checkout />
+        </Route>
+        <Route path="/ordersList" exact>
+          <OrdersList />
         </Route>
       </Switch>
     </div>
