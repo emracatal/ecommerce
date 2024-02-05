@@ -10,6 +10,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import CheckoutAddress from "./CheckoutAddress";
 import CheckoutPayment from "./CheckoutPayment";
+import axiosWithAuth from "../api/axiosWithAuth";
+import axiosInstance from "../api/api";
+import axios from "axios";
 
 export default function Checkout() {
   const history = useHistory();
@@ -43,10 +46,39 @@ export default function Checkout() {
   }, []);
 
   const isCheckoutDisabled = !selectedAddress || !selectedPayment;
-  const handleCheckout = () => {
+  const handleCheckout = async () => {
     if (!isCheckoutDisabled) {
-      // Checkout işlemleri
-      history.push("/orderConfirm"); // Geçiş yapılacak sayfa
+      const orderPayload = {
+        address_id: selectedAddress.id,
+        order_date: new Date().toISOString(),
+        card_no: selectedPayment.card_no,
+        card_name: selectedPayment.name_on_card,
+        card_expire_month: selectedPayment.expire_month,
+        card_expire_year: selectedPayment.expire_year,
+        card_ccv: 111,
+        price: parseInt((subtotal + 30 + discount).toFixed(2)),
+        products: shoppingCardList.map((product) => ({
+          product_id: product.product.id,
+          count: product.count,
+          detail: product.product.name,
+        })),
+      };
+      console.log(orderPayload);
+      try {
+        const response = await axiosWithAuth().post("/order", orderPayload);
+        if (response.status >= 200 && response.status < 300) {
+          console.log("Order created successfully!");
+          history.push("/orderConfirm");
+        } else {
+          console.error(
+            "Error creating orderr:",
+            response.status,
+            response.statusText
+          );
+        }
+      } catch (error) {
+        console.error("Error creating order:", error.message);
+      }
     }
   };
 

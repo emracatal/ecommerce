@@ -178,7 +178,7 @@ export default function CheckoutAddress({
                     class="appearance-none block w-full bg-gray-200 text-gray-700 border border-lightgray  rounded py-1 px-4 mb-1 leading-tight focus:outline-none focus:bg-white"
                     id="grid-first-name"
                     type="text"
-                    placeholder="Jane"
+                    placeholder="Ali"
                   />
                   <p className=" text-red-500 text-xs italic">
                     {errors.name?.message}
@@ -202,7 +202,7 @@ export default function CheckoutAddress({
                     class="appearance-none block w-full bg-g ray-200 text-gray-700 border border-gray-200 rounded py-1 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                     id="grid-surname"
                     type="text"
-                    placeholder="Doe"
+                    placeholder="Veli"
                   />
                   <p className=" text-red-500 text-xs italic">
                     {errors.surname?.message}

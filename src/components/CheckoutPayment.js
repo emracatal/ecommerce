@@ -202,7 +202,7 @@ export default function CheckoutPayment({
                     class="appearance-none block w-full bg-gray-200 text-gray-700 border border-lightgray  rounded py-1 px-4 mb-1 leading-tight focus:outline-none focus:bg-white"
                     id="grid-name_on_card"
                     type="text"
-                    placeholder="Jane Doe"
+                    placeholder="Ali Veli"
                   />
                   <p className=" text-red-500 text-xs italic">
                     {errors.name_on_card?.message}
