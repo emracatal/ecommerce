@@ -18,6 +18,7 @@ import {
   ADD_TO_CART,
   UPDATE_PRODUCT_COUNT,
   REMOVE_FROM_CART,
+  RESET_SHOPPING_CART,
 } from "../actions/shoppingCartActions";
 
 const initialState = {
@@ -58,6 +59,12 @@ const shoppingCartReducer = (state = initialState, action) => {
             ? { ...item, count: action.payload.newCount }
             : item
         ),
+      };
+
+    case RESET_SHOPPING_CART:
+      return {
+        ...state,
+        cart: [],
       };
 
     case REMOVE_FROM_CART:

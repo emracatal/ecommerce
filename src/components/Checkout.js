@@ -4,6 +4,7 @@ import {
   fetchAddresses,
   setNewAddress,
   fetchPayment,
+  resetShoppingCart,
 } from "../store/actions/shoppingCartActions";
 import { getCityNames } from "turkey-neighbourhoods";
 import { useDispatch, useSelector } from "react-redux";
@@ -68,6 +69,7 @@ export default function Checkout() {
         const response = await axiosWithAuth().post("/order", orderPayload);
         if (response.status >= 200 && response.status < 300) {
           console.log("Order created successfully!");
+          dispatch(resetShoppingCart());
           history.push("/orderConfirm");
         } else {
           console.error(

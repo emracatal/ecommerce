@@ -7,6 +7,7 @@ export const SET_ADDRESS = "SET_ADDRESS";
 export const ADD_TO_CART = "ADD_TO_CART";
 export const UPDATE_PRODUCT_COUNT = "UPDATE_PRODUCT_COUNT";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
+export const RESET_SHOPPING_CART = "RESET_SHOPPING_CART";
 
 export const addToCart = (product) => ({
   type: ADD_TO_CART,
@@ -23,6 +24,10 @@ export const updateItemCount = (productId, newCount) => {
 export const removeFromCart = (productId) => ({
   type: REMOVE_FROM_CART,
   payload: { productId },
+});
+
+export const resetShoppingCart = () => ({
+  type: RESET_SHOPPING_CART,
 });
 
 export const fetchAddresses = () => (dispatch) => {
