@@ -51,13 +51,13 @@ export default function Checkout() {
     if (!isCheckoutDisabled) {
       const orderPayload = {
         address_id: selectedAddress.id,
-        order_date: new Date().toISOString(),
+        order_date: new Date().toISOString().slice(0, -5),
         card_no: selectedPayment.card_no,
         card_name: selectedPayment.name_on_card,
         card_expire_month: selectedPayment.expire_month,
         card_expire_year: selectedPayment.expire_year,
         card_ccv: 111,
-        price: parseInt((subtotal + 30 + discount).toFixed(2)),
+        price: subtotal + 30 + discount,
         products: shoppingCardList.map((product) => ({
           product_id: product.product.id,
           count: product.count,
